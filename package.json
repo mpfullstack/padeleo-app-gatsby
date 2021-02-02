@@ -1,0 +1,62 @@
+{
+  "name": "padeleo-app-gatsby",
+  "description": "App to manage and organize your padel matches",
+  "version": "1.0.0",
+  "private": false,
+  "author": "Marc Perez <info@marcperez.cat>",
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:mpfullstack/padeleo-app-gatsby.git"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
+    "start": "npm run develop",
+    "type-check": "tsc"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "gatsby": "^2.31.1",
+    "gatsby-image": "^2.10.0",
+    "gatsby-plugin-create-client-paths": "^2.2.4",
+    "gatsby-plugin-google-fonts": "1.0.1",
+    "gatsby-plugin-manifest": "^2.3.7",
+    "gatsby-plugin-no-sourcemaps": "2.2.0",
+    "gatsby-plugin-offline": "^3.1.5",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sass": "2.3.0",
+    "gatsby-plugin-sharp": "^2.6.34",
+    "gatsby-plugin-styled-components": "3.3.0",
+    "gatsby-source-filesystem": "^2.2.5",
+    "gatsby-transformer-sharp": "^2.4.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "typescript": "^3.9.7",
+    "styled-components": "^5.1.0",
+    "styled-theming": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.10",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "@types/styled-components": "5.1.7",
+    "@typescript-eslint/eslint-plugin": "4.14.2",
+    "@typescript-eslint/parser": "4.14.2",
+    "eslint": "7.19.0",
+    "eslint-config-blvd": "^1.0.0",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "eslint-plugin-react": "7.22.0",
+    "prettier": "^2.2.0"
+  }
+}
