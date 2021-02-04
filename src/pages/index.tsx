@@ -4,9 +4,10 @@ import { useIntl } from "gatsby-plugin-intl";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
-import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
-import Button from "../modules/common/components/Button";
+// import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
+// import Button from "../modules/common/components/Button";
 import store from "../redux/store";
+import MatchEditPage from "../features/matches/matchEditPage";
 
 const IndexPage: React.FC = () => {
   const intl = useIntl();
@@ -27,7 +28,7 @@ const IndexPage: React.FC = () => {
       <IndexLayout>
         <Page>
           <Container>
-            <h1>{intl.formatMessage({ id: "hiPeople" })}</h1>
+            {/* <h1>{intl.formatMessage({ id: "hiPeople" })}</h1>
             <p>Welcome to your new Gatsby site.</p>
             <p>Now go build something great.</p>
             <WhatsappShareLink shareContent={template} encode={false}>
@@ -35,7 +36,8 @@ const IndexPage: React.FC = () => {
             </WhatsappShareLink>
             <Button id="someid" onClick={() => {
               console.log("clicked!!")
-            }}>Click Me</Button>
+            }}>Click Me</Button> */}
+            <MatchEditPage />
           </Container>
         </Page>
       </IndexLayout>
