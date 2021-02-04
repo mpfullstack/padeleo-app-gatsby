@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import WhatsappShareLink from "../WhatsappShareLink";
 
 describe("Testing WhatsappShareLink component...", () => {
-  let component: React.ReactElement;
+  let component;
 
   beforeEach(() => {
     component = (

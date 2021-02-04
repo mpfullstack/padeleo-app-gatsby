@@ -1,25 +1,24 @@
 
 import * as React from "react";
 import { connect } from "react-redux";
-import { editMatch, MatchesState, matchesSelectors } from "./matchesSlice";
+import { editMatch, matchesSelectors } from "./matchesSlice";
 
 const mapDispatchToProps = { editMatch };
-const mapStateToProps = ({ matches }: { matches: MatchesState }) => {
-  debugger;
+const mapStateToProps = ({ matches }) => {
   return {
     matches: matchesSelectors.selectAll(matches),
     editMatchId: matches.editMatchId,
   }
 }
 
-const MatchEditPage: React.FC = ({ matches, editMatch }) => {
+const MatchEditPage = ({ matches, editMatch }) => {
   // const intl = useIntl();
   React.useEffect(() => {
     if (matches.length === 0) {
       // Create a new match
       editMatch({ id: 0 });
     }
-  }, [matches]);
+  }, [matches, editMatch]);
 
   return (
     <div>

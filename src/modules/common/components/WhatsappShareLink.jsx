@@ -1,13 +1,15 @@
 import * as React from "react";
 
-export interface WhatsappShareLinkProps {
-  children: string;
-  shareContent: string;
-  phone?: string;
-  encode?: boolean;
-}
+// export interface WhatsappShareLinkProps {
+//   children: string;
+//   shareContent: string;
+//   phone?: string;
+//   encode?: boolean;
+// }
 
-const WhatsappShareLink: React.FC<WhatsappShareLinkProps> = ({
+// TODO: Define react prop
+
+const WhatsappShareLink = ({
   children,
   shareContent,
   phone = "",
