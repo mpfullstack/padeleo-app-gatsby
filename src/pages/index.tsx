@@ -3,7 +3,7 @@ import { useIntl } from "gatsby-plugin-intl";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
-import WhatsappShareButton from "../modules/common/components/WhatsappShareButton";
+import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 import Button from "../modules/common/components/Button";
 
 const IndexPage: React.FC = () => {
@@ -27,9 +27,9 @@ const IndexPage: React.FC = () => {
           <h1>{intl.formatMessage({ id: "hiPeople" })}</h1>
           <p>Welcome to your new Gatsby site.</p>
           <p>Now go build something great.</p>
-          <WhatsappShareButton shareContent={template} encode={false}>
+          <WhatsappShareLink shareContent={template} encode={false}>
             Share on Whatsapp!
-          </WhatsappShareButton>
+          </WhatsappShareLink>
           <Button id="someid" onClick={() => {
             console.log("clicked!!")
           }}>Click Me</Button>

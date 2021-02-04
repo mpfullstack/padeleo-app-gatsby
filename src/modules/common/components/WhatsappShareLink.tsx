@@ -1,13 +1,13 @@
 import * as React from "react";
 
-export interface WhatsappShareButtonProps {
+export interface WhatsappShareLinkProps {
   children: string;
   shareContent: string;
   phone?: string;
   encode?: boolean;
 }
 
-const WhatsappShareButton: React.FC<WhatsappShareButtonProps> = ({
+const WhatsappShareLink: React.FC<WhatsappShareLinkProps> = ({
   children,
   shareContent,
   phone = "",
@@ -26,4 +26,4 @@ const WhatsappShareButton: React.FC<WhatsappShareButtonProps> = ({
   );
 };
 
-export default WhatsappShareButton;
+export default WhatsappShareLink;

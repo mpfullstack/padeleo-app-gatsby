@@ -1,15 +1,15 @@
 import * as React from "react";
 import { render, screen } from "@testing-library/react";
-import WhatsappShareButton from "../WhatsappShareButton";
+import WhatsappShareLink from "../WhatsappShareLink";
 
-describe("Testing WhatsappShareButton component...", () => {
+describe("Testing WhatsappShareLink component...", () => {
   let component: React.ReactElement;
 
   beforeEach(() => {
     component = (
-      <WhatsappShareButton shareContent="I want to share this on whatsapp!">
+      <WhatsappShareLink shareContent="I want to share this on whatsapp!">
         Share on Whatsapp!
-      </WhatsappShareButton>
+      </WhatsappShareLink>
     );
   });
 
