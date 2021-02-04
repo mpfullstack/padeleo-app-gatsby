@@ -1,10 +1,12 @@
 import * as React from "react";
+import { Provider } from "react-redux";
 import { useIntl } from "gatsby-plugin-intl";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 import Button from "../modules/common/components/Button";
+import store from "../redux/store";
 
 const IndexPage: React.FC = () => {
   const intl = useIntl();
@@ -21,21 +23,23 @@ const IndexPage: React.FC = () => {
   template += `%0D%0A%0D%0A%F0%9F%8E%BE+${p1}%0D%0A%F0%9F%8E%BE+${p2}%0D%0A%F0%9F%8E%BE+${p3}+%0D%0A%F0%9F%8E%BE+${p4}`;
 
   return (
-    <IndexLayout>
-      <Page>
-        <Container>
-          <h1>{intl.formatMessage({ id: "hiPeople" })}</h1>
-          <p>Welcome to your new Gatsby site.</p>
-          <p>Now go build something great.</p>
-          <WhatsappShareLink shareContent={template} encode={false}>
-            Share on Whatsapp!
-          </WhatsappShareLink>
-          <Button id="someid" onClick={() => {
-            console.log("clicked!!")
-          }}>Click Me</Button>
-        </Container>
-      </Page>
-    </IndexLayout>
+    <Provider store={store}>
+      <IndexLayout>
+        <Page>
+          <Container>
+            <h1>{intl.formatMessage({ id: "hiPeople" })}</h1>
+            <p>Welcome to your new Gatsby site.</p>
+            <p>Now go build something great.</p>
+            <WhatsappShareLink shareContent={template} encode={false}>
+              Share on Whatsapp!
+            </WhatsappShareLink>
+            <Button id="someid" onClick={() => {
+              console.log("clicked!!")
+            }}>Click Me</Button>
+          </Container>
+        </Page>
+      </IndexLayout>
+    </Provider>
   );
 };
 
