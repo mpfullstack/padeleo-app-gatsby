@@ -1,11 +1,6 @@
 import * as React from "react";
-// import { Button as AntdButton } from 'antd';
-import { Button as RSButton } from "reactstrap";
+import RSButton from "react-bootstrap/Button";
 import styled from "styled-components";
-
-// export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-//   children: React.ReactElement | string;
-// }
 
 // TODO: Define react props
 

@@ -6,7 +6,7 @@ const matchesAdapter = createEntityAdapter();
 export const MatchShape = PropTypes.shape({
   id: PropTypes.number,
   clubName: PropTypes.string,
-  matchDate: PropTypes.Date,
+  matchDate: PropTypes.object,
   matchTime: PropTypes.string,
   players: PropTypes.array
 });
@@ -14,7 +14,7 @@ export const MatchShape = PropTypes.shape({
 export const Match = {
   id: -1,
   clubName: '',
-  matchDate: new Date(),
+  matchDate: '',
   matchTime: '', // 00:00
   palyers: []
 }
