@@ -4,6 +4,7 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
 import WhatsappShareButton from "../modules/common/components/WhatsappShareButton";
+import Button from "../modules/common/components/Button";
 
 const IndexPage: React.FC = () => {
   const intl = useIntl();
@@ -29,6 +30,9 @@ const IndexPage: React.FC = () => {
           <WhatsappShareButton shareContent={template} encode={false}>
             Share on Whatsapp!
           </WhatsappShareButton>
+          <Button id="someid" onClick={() => {
+            console.log("clicked!!")
+          }}>Click Me</Button>
         </Container>
       </Page>
     </IndexLayout>
