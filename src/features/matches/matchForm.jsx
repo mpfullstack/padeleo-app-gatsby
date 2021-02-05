@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { MatchShape, editMatch } from "./matchesSlice";
+import { editMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
 import { Grid } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
@@ -54,7 +54,7 @@ const MatchForm = ({ match, editing, editMatch }) => {
 };
 
 MatchForm.propTypes = {
-  match: PropTypes.shape(MatchShape)
+  match: PropTypes.object
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchForm);
