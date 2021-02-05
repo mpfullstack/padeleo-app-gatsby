@@ -31,7 +31,7 @@ describe("Testing matches feature", () => {
     fireEvent.click(await screen.findByText("Create the match"));
 
     await waitFor(() => {
-      expect(screen.getByText(/Club name/i)).toBeInTheDocument();
+      expect(screen.getByText(/Club/i)).toBeInTheDocument();
     });
   });
 });
