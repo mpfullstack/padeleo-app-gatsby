@@ -56,6 +56,24 @@ const MatchForm = ({ match }) => {
               name: 'clubName'
             })} />
         </FormRow>
+        <FormRow>
+          <FormControl label={"Date"} name={'matchDate'}
+            {...input.text({
+              name: 'matchDate'
+            })} />
+        </FormRow>
+        <FormRow>
+          <FormControl label={"Time"} name={'matchTime'}
+            {...input.text({
+              name: 'matchTime'
+            })} />
+        </FormRow>
+        <FormRow>
+          <FormControl label={"Player 1"} name={'player1'}
+            {...input.text({
+              name: 'player1'
+            })} />
+        </FormRow>
       </FormWrapper>
     );
   }

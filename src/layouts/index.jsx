@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
+import Logo from "../modules/common/components/Logo";
 
 const LayoutWrapper = styled.div`
   .layout-inner {
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <LayoutWrapper className='layout'>
+      <Logo />
       <header>{data.site.siteMetadata.title}</header>
       <div className='layout-inner'>
         <main>{children}</main>

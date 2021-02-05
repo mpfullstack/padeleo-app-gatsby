@@ -14,7 +14,7 @@ export const MatchShape = PropTypes.shape({
 export const Match = {
   id: -1,
   clubName: '',
-  matchDate: '',
+  matchDate: null, // Date object
   matchTime: '', // 00:00
   palyers: []
 }
