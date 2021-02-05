@@ -7,7 +7,7 @@ const Logo = () => {
     query {
       placeholderImage: file(relativePath: { eq: "logo-padeleo.png" }) {
         childImageSharp {
-          fixed(width: 200, quality: 100) {
+          fixed(width: 80, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }

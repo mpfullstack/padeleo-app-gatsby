@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import Logo from "../modules/common/components/Logo";
-import Drawer from "../modules/common/components/Drawer";
+
 
 const LayoutWrapper = styled.div`
+  width: 96%;
+  margin: 0 auto;
   .layout-inner {
     margin: 55px auto 0 auto;
     padding-top: 10px;
@@ -25,7 +27,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [visible, showSlider] = React.useState(false);
+
 
   return (
     <LayoutWrapper className='layout'>
@@ -35,14 +37,6 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer></footer>
       </div>
-      <button onClick={() => showSlider(!visible)}>SHOW</button>
-      <Drawer
-        title="Drawer title"
-        visible={visible}
-        onHide={() => showSlider(!visible)}
-      >
-        <p>Some slider</p>
-      </Drawer>
     </LayoutWrapper>
   )
 }

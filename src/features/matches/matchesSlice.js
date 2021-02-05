@@ -22,7 +22,18 @@ export const Match = {
 const initialState = matchesAdapter.getInitialState({
   loading: false,
   match: { ...Match }, // It holds the data of the match to create/edit
-  error: null
+  error: null,
+  /**
+   * It holds what part of the match we are editing
+   * idle
+   * clubName
+   * dateAndTime
+   * player1
+   * player2
+   * player3
+   * player4
+   */
+  editing: "idle"
 });
 
 const matchesSlice = createSlice({
@@ -38,9 +49,10 @@ const matchesSlice = createSlice({
         ...Match,
         id: 0
       };
+      state.editing = "idle";
     },
     editMatch(state, action) {
-      state.editMatchId = action.payload;
+      state.editing = action.payload;
     }
   }
 })
