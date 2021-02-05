@@ -1,8 +1,9 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import Logo from "../modules/common/components/Logo";
+import Drawer from "../modules/common/components/Drawer";
 
 const LayoutWrapper = styled.div`
   .layout-inner {
@@ -24,6 +25,8 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [visible, showSlider] = React.useState(false);
+
   return (
     <LayoutWrapper className='layout'>
       <Logo />
@@ -32,6 +35,14 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer></footer>
       </div>
+      <button onClick={() => showSlider(!visible)}>SHOW</button>
+      <Drawer
+        title="Drawer title"
+        visible={visible}
+        onHide={() => showSlider(!visible)}
+      >
+        <p>Some slider</p>
+      </Drawer>
     </LayoutWrapper>
   )
 }

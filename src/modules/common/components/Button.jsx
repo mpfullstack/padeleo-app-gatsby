@@ -1,5 +1,5 @@
 import * as React from "react";
-import RSButton from "react-bootstrap/Button";
+import { Button as RSButton } from "rsuite";
 import styled from "styled-components";
 
 // TODO: Define react props
@@ -10,7 +10,7 @@ const Button = ({
   children,
   ...rest
  }) => {
-  return <StyledButton color="primary" {...rest}>{children}</StyledButton>;
+  return <StyledButton appearance="primary" {...rest}>{children}</StyledButton>;
 };
 
 export default Button;
