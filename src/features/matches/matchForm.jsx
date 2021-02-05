@@ -31,10 +31,10 @@ const MatchForm = ({ match, editing, editMatch }) => {
   return (
     <>
       <Grid fluid>
-        <MatchPanel title="Club" onClick={() => editMatch("clubName")}>
+        <MatchPanel title="Club" onEdit={() => editMatch("clubName")}>
           <p>Padel La Riera - Montgat</p>
         </MatchPanel>
-        <MatchPanel title="Fecha y hora" onClick={() => editMatch("dateAndTime")}>
+        <MatchPanel title="Fecha y hora" onEdit={() => editMatch("dateAndTime")}>
           <p>Jueves 28 de Enero</p>
           <p>20:00h a 21:30h</p>
         </MatchPanel>
