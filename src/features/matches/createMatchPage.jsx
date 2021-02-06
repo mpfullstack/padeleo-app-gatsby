@@ -27,7 +27,7 @@ const CreateMatchPage = ({ createMatch, match }) => {
           {/* <WhatsappShareLink shareContent={template} encode={false}>
             Share on Whatsapp!
           </WhatsappShareLink> */}
-          <Button id="someid" onClick={() => createMatch()}>
+          <Button onClick={() => createMatch()}>
             {intl.formatMessage({ id: "createMatch" })}
           </Button>
       </div>

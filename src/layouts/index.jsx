@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import Logo from "../modules/common/components/Logo";
 
-
 const LayoutWrapper = styled.div`
   width: 96%;
   margin: 0 auto;

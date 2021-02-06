@@ -1,28 +1,31 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Drawer as RSDrawer } from "rsuite";
+import UIDrawer from '@material-ui/core/Drawer';
+import styled from "styled-components";
 
-const Drawer = ({ children, title, visible, onHide }) => {
+const DrawerWrapper = styled(UIDrawer)`
+  .MuiPaper-root {
+    height: 40vh;
+  }
+`;
+
+const Drawer = ({ children, visible, onHide, position = "bottom" }) => {
   return (
-      <RSDrawer
-        placement={"bottom"}
-        show={visible}
-        onHide={onHide}
+      <DrawerWrapper
+        anchor={position}
+        open={visible}
+        onClose={onHide}
       >
-        <RSDrawer.Header>
-          <RSDrawer.Title>{title}</RSDrawer.Title>
-        </RSDrawer.Header>
-        <RSDrawer.Body>
-          {children}
-        </RSDrawer.Body>
-        <RSDrawer.Footer>
-        </RSDrawer.Footer>
-    </RSDrawer>
+        {children}
+    </DrawerWrapper>
   );
 }
 
 Drawer.propTypes = {
   children: PropTypes.node.isRequired,
+  visible: PropTypes.bool.isRequired,
+  onHide: PropTypes.func,
+  position: PropTypes.oneOf(["top", "right", "bottom", "left"])
 }
 
 export default Drawer;

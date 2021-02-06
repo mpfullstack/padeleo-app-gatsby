@@ -1,16 +1,16 @@
 import * as React from "react";
-import { Button as RSButton } from "rsuite";
+import UIButton from '@material-ui/core/Button';
 import styled from "styled-components";
 
 // TODO: Define react props
 
-const StyledButton = styled(RSButton)``;
+const StyledButton = styled(UIButton)``;
 
 const Button = ({
   children,
   ...rest
  }) => {
-  return <StyledButton appearance="primary" {...rest}>{children}</StyledButton>;
+  return <StyledButton color="default" {...rest}>{children}</StyledButton>;
 };
 
 export default Button;
