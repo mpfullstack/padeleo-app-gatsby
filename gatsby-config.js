@@ -37,5 +37,13 @@ module.exports = {
         redirect: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Mulish\:300,400,700,800`
+        ]
+      }
+    }
   ],
 };
