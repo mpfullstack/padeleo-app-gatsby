@@ -6,8 +6,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 // import rootSaga from './sagas';
 
-// import { persistStore, persistReducer } from 'redux-persist'
-// import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 const devMode = process.env.NODE_ENV === 'development';
 
@@ -22,7 +22,7 @@ if (devMode) {
 const createStore = () => {
   const store = configureStore({
     reducer: combineReducers({
-      matches: rootReducer.matches,
+      matches: persistReducer({ key: 'matches', version: '1.0.0', storage }, rootReducer.matches),
       // professionalProfile: persistReducer({ key: 'professionalProfile', version: '1.0.0', storage }, rootReducer.professionalProfile),
       // profile: rootReducer.profile,
       // booking: persistReducer({ key: 'booking', version: '1.0.0', storage }, rootReducer.booking),
@@ -38,8 +38,8 @@ const createStore = () => {
 };
 
 const store = createStore();
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-// export { persistor };
+export { persistor };
 
 export default store;
