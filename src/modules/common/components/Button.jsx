@@ -1,21 +1,16 @@
 import * as React from "react";
-// import { Button as AntdButton } from 'antd';
-import { Button as RSButton } from "reactstrap";
+import UIButton from '@material-ui/core/Button';
 import styled from "styled-components";
-
-// export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-//   children: React.ReactElement | string;
-// }
 
 // TODO: Define react props
 
-const StyledButton = styled(RSButton)``;
+const StyledButton = styled(UIButton)``;
 
 const Button = ({
   children,
   ...rest
  }) => {
-  return <StyledButton color="primary" {...rest}>{children}</StyledButton>;
+  return <StyledButton color="default" {...rest}>{children}</StyledButton>;
 };
 
 export default Button;

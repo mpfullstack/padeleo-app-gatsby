@@ -1,9 +1,12 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
+import Logo from "../modules/common/components/Logo";
 
 const LayoutWrapper = styled.div`
+  width: 96%;
+  margin: 0 auto;
   .layout-inner {
     margin: 55px auto 0 auto;
     padding-top: 10px;
@@ -23,8 +26,11 @@ const Layout = ({ children }) => {
     }
   `)
 
+
+
   return (
     <LayoutWrapper className='layout'>
+      <Logo />
       <header>{data.site.siteMetadata.title}</header>
       <div className='layout-inner'>
         <main>{children}</main>
