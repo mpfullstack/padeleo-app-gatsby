@@ -51,13 +51,15 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
           onEdit={() => editMatch("dateAndTime")}
           editLabel={intl.formatMessage({ id: "editDateAndTime" })}
         >
-          <p>{Helpers.capitalise(format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", { locale: es }))}</p>
-          <p>{
-            format(new Date(match.dateAndTime), "H:mm", { locale: es })}
-            {` - `}
-            {format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", { locale: es })}
-          </p>
-          {/* <p>{match.matchTime || ""}</p> */}
+          {match.dateAndTime ?
+            <>
+              <p>{Helpers.capitalise(format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", { locale: es }))}</p>
+              <p>{
+                format(new Date(match.dateAndTime), "H:mm", { locale: es })}
+                {` - `}
+                {format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", { locale: es })}
+              </p>
+            </> : null}
         </MatchPanel>
         <MatchPanel title={intl.formatMessage({ id: "players" })}>
           <p>Jugadores</p>
