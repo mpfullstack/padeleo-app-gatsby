@@ -42,7 +42,7 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
           onEdit={() => editMatch("clubName")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
-          <p>{match.clubName || ""}</p>
+          <p className="text">{match.clubName || ""}</p>
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
@@ -51,8 +51,8 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         >
           {match.dateAndTime ?
             <>
-              <p>{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", intl.locale))}</p>
-              <p>
+              <p className="text">{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", intl.locale))}</p>
+              <p className="text">
                 {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
                 {` - `}
                 {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
@@ -60,7 +60,7 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
             </> : <p></p>}
         </MatchPanel>
         <MatchPanel title={intl.formatMessage({ id: "players" })}>
-          <p>Jugadores</p>
+          <p className="text">Jugadores</p>
         </MatchPanel>
       </Grid>
       <Drawer

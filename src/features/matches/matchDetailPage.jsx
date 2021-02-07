@@ -14,7 +14,7 @@ const mapStateToProps = ({ matches }) => {
   }
 }
 
-const CreateMatchPage = ({ createMatch, match }) => {
+const MatchDetailPage = ({ createMatch, match }) => {
   const intl = useIntl();
 
   if (match.id >= 0) {
@@ -35,4 +35,4 @@ const CreateMatchPage = ({ createMatch, match }) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateMatchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MatchDetailPage);

@@ -8,17 +8,35 @@ import Tooltip from "../../common/components/Tooltip";
 
 const RowPanel = styled(Row)`
   margin: 10px 0;
+  .MuiCardHeader-title {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .MuiCardContent-root {
+    padding: 5px 16px;
+    &:last-child {
+      padding-bottom: 5px;
+    }
+  }
+  .MuiCardContent-root {
+    font-weight: 800;
+    font-size: 18px;
+    .text {
+      margin: 5px 0;
+    }
+  }
 `;
 
 const MatchPanel = ({ title, onEdit, editLabel = "Edit", children }) => {
   return (
     <RowPanel>
       <Col>
-        <Panel title={title}>
-          {typeof onEdit === "function" ?
-            <Tooltip title={editLabel}>
-              <IconButton aria-label={editLabel} onClick={onEdit}><EditIcon /></IconButton>
-            </Tooltip>  : null}
+        <Panel title={title} action={
+          typeof onEdit === "function" ?
+          <Tooltip title={editLabel}>
+            <IconButton size="small" aria-label={editLabel} onClick={onEdit}><EditIcon /></IconButton>
+          </Tooltip>  : null}
+        >
           {children}
         </Panel>
       </Col>

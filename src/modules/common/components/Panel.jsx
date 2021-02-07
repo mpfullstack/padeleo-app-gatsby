@@ -5,12 +5,13 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 // import CardActions from '@material-ui/core/CardActions';
 
-const Panel = ({ children, title }) => {
+const Panel = ({ children, title, action }) => {
   return (
     <Card>
-      {title ? <CardHeader
+      <CardHeader
         title={title}
-      /> : null}
+        action={action}
+      />
       <CardContent>{children}</CardContent>
     </Card>
   );
