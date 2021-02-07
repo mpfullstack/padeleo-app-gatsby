@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { editMatch } from "./matchesSlice";
@@ -28,22 +29,32 @@ const mapStateToProps = ({ matches }) => {
 }
 
 const MatchForm = ({ match, editing, editMatch }) => {
+  const intl = useIntl();
+
   return (
     <>
-      <Grid fluid>
-        <MatchPanel title="Club" onEdit={() => editMatch("clubName")}>
+      <Grid>
+        <MatchPanel
+          title={intl.formatMessage({ id: "club" })}
+          onEdit={() => editMatch("clubName")}
+          editLabel={intl.formatMessage({ id: "editClub" })}
+        >
           <p>Padel La Riera - Montgat</p>
         </MatchPanel>
-        <MatchPanel title="Fecha y hora" onEdit={() => editMatch("dateAndTime")}>
+        <MatchPanel
+          title={intl.formatMessage({ id: "dateAndTime" })}
+          onEdit={() => editMatch("dateAndTime")}
+          editLabel={intl.formatMessage({ id: "editDateAndTime" })}
+        >
           <p>Jueves 28 de Enero</p>
           <p>20:00h a 21:30h</p>
         </MatchPanel>
-        <MatchPanel title="Jugadores">
-          <p>Players</p>
+        <MatchPanel title={intl.formatMessage({ id: "players" })}>
+          <p>Jugadores</p>
         </MatchPanel>
       </Grid>
       <Drawer
-        title="Nombre del club"
+        title={editing !== "idle" ? intl.formatMessage({ id: editing }) : ""}
         visible={editing !== "idle"}
         onHide={() => editMatch("idle")}
       >

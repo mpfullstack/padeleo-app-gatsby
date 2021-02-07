@@ -4,18 +4,21 @@ import styled from "styled-components";
 import { IconButton, EditIcon } from "../../common/components/Icon";
 import Panel from "../../common/components/Panel";
 import { Row, Col } from "../../common/components/Layout";
+import Tooltip from "../../common/components/Tooltip";
 
 const RowPanel = styled(Row)`
   margin: 10px 0;
 `;
 
-const MatchPanel = ({ title, onEdit, children }) => {
+const MatchPanel = ({ title, onEdit, editLabel = "Edit", children }) => {
   return (
     <RowPanel>
       <Col>
         <Panel title={title}>
           {typeof onEdit === "function" ?
-            <IconButton onClick={onEdit}><EditIcon /></IconButton> : null}
+            <Tooltip title={editLabel}>
+              <IconButton aria-label={editLabel} onClick={onEdit}><EditIcon /></IconButton>
+            </Tooltip>  : null}
           {children}
         </Panel>
       </Col>
@@ -26,6 +29,7 @@ const MatchPanel = ({ title, onEdit, children }) => {
 MatchPanel.propTypes = {
   title: PropTypes.string.isRequired,
   onEdit: PropTypes.func,
+  editLabel: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

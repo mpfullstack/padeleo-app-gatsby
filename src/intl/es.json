@@ -1,5 +1,11 @@
 {
   "hiPadeleros": "Hola padelero!",
   "createMathIntroduction": "¡¡Crea tu partido y compartelo fácilmente por Whatsapp!!",
-  "createMatch": "Crea el partido"
+  "createMatch": "Crea tu partido",
+  "club": "Club",
+  "clubName": "Nombre del club",
+  "editClub": "Editar club",
+  "dateAndTime": "Fecha y hora",
+  "editDateAndTime": "Editar fecha y hora",
+  "players": "Jugadores"
 }
