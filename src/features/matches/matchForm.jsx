@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
-import { format } from "date-fns";
-import { es } from "date-fns/locale";
 import PropTypes from "prop-types";
 import { editMatch, updatedOrCreatedMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
@@ -53,13 +51,13 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         >
           {match.dateAndTime ?
             <>
-              <p>{Helpers.capitalise(format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", { locale: es }))}</p>
-              <p>{
-                format(new Date(match.dateAndTime), "H:mm", { locale: es })}
+              <p>{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", intl.locale))}</p>
+              <p>
+                {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
                 {` - `}
-                {format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", { locale: es })}
+                {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
               </p>
-            </> : null}
+            </> : <p></p>}
         </MatchPanel>
         <MatchPanel title={intl.formatMessage({ id: "players" })}>
           <p>Jugadores</p>

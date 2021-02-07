@@ -8,5 +8,7 @@
   "dateAndTime": "Fecha y hora",
   "editDateAndTime": "Editar fecha y hora",
   "players": "Jugadores",
-  "save": "Guardar"
+  "save": "Guardar",
+  "matchDate": "Fecha del partido",
+  "matchTime": "Hora del partido"
 }
