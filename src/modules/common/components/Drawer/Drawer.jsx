@@ -8,6 +8,9 @@ const DrawerWrapper = styled(UIDrawer)`
   .MuiPaper-root {
     height: 40vh;
   }
+  .content {
+    padding: 10px;
+  }
 `;
 
 const Drawer = ({ title, children, visible, onHide, position = "bottom" }) => {
@@ -17,8 +20,8 @@ const Drawer = ({ title, children, visible, onHide, position = "bottom" }) => {
         open={visible}
         onClose={onHide}
       >
-        <Typography>{title}</Typography>
-        {children}
+        {title ? <Typography>{title}</Typography> : null}
+        <div className="content">{children}</div>
     </DrawerWrapper>
   );
 }

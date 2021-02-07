@@ -6,16 +6,14 @@ const matchesAdapter = createEntityAdapter();
 export const MatchShape = PropTypes.shape({
   id: PropTypes.number,
   clubName: PropTypes.string,
-  matchDate: PropTypes.object,
-  matchTime: PropTypes.string,
+  dateAndTime: PropTypes.string, // String date Eg. 2014-08-20T16:30:00.000Z
   players: PropTypes.array
 });
 
 export const Match = {
   id: -1,
-  clubName: '',
-  matchDate: null, // Date object
-  matchTime: '', // 00:00
+  clubName: "",
+  dateAndTime: "",
   palyers: []
 }
 
@@ -53,6 +51,11 @@ const matchesSlice = createSlice({
     },
     editMatch(state, action) {
       state.editing = action.payload;
+    },
+    updatedOrCreatedMatch: (state, action) => {
+      state.editing = "idle";
+      state.match = action.payload;
+      matchesAdapter.upsertOne(state, action);
     }
   }
 })
@@ -60,7 +63,8 @@ const matchesSlice = createSlice({
 export const {
   loadMatches,
   createMatch,
-  editMatch
+  editMatch,
+  updatedOrCreatedMatch
 } = matchesSlice.actions;
 
 export const matchesSelectors = {

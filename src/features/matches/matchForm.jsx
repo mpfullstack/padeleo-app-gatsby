@@ -1,11 +1,16 @@
 import * as React from "react";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 import PropTypes from "prop-types";
-import { editMatch } from "./matchesSlice";
+import { editMatch, updatedOrCreatedMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
 import { Grid } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
+import EditMatchField from "../../modules/matches/components/EditMatchField";
+import Helpers from "../../helpers";
+import Dates from "../../helpers/dates";
 
 // import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 // import Button from "../../modules/common/components/Button";
@@ -21,14 +26,14 @@ import MatchPanel from "../../modules/matches/components/MatchPanel";
 // let template = `${clubName}%0D%0A%0D%0A${clubUrl}%0D%0A%0D%0A%F0%9F%93%85${matchDate}%0D%0A%F0%9F%95%92${matchTime}`;
 // template += `%0D%0A%0D%0A%F0%9F%8E%BE+${p1}%0D%0A%F0%9F%8E%BE+${p2}%0D%0A%F0%9F%8E%BE+${p3}+%0D%0A%F0%9F%8E%BE+${p4}`;
 
-const mapDispatchToProps = { editMatch };
+const mapDispatchToProps = { editMatch, updatedOrCreatedMatch };
 const mapStateToProps = ({ matches }) => {
   return {
     editing: matches.editing
   }
 }
 
-const MatchForm = ({ match, editing, editMatch }) => {
+const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
   const intl = useIntl();
 
   return (
@@ -39,26 +44,33 @@ const MatchForm = ({ match, editing, editMatch }) => {
           onEdit={() => editMatch("clubName")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
-          <p>Padel La Riera - Montgat</p>
+          <p>{match.clubName || ""}</p>
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
           onEdit={() => editMatch("dateAndTime")}
           editLabel={intl.formatMessage({ id: "editDateAndTime" })}
         >
-          <p>Jueves 28 de Enero</p>
-          <p>20:00h a 21:30h</p>
+          <p>{Helpers.capitalise(format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", { locale: es }))}</p>
+          <p>{
+            format(new Date(match.dateAndTime), "H:mm", { locale: es })}
+            {` - `}
+            {format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", { locale: es })}
+          </p>
+          {/* <p>{match.matchTime || ""}</p> */}
         </MatchPanel>
         <MatchPanel title={intl.formatMessage({ id: "players" })}>
           <p>Jugadores</p>
         </MatchPanel>
       </Grid>
       <Drawer
-        title={editing !== "idle" ? intl.formatMessage({ id: editing }) : ""}
         visible={editing !== "idle"}
         onHide={() => editMatch("idle")}
       >
-        <p>Padel La Riera - Montgat</p>
+        <EditMatchField field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
+          ...match,
+          [editing]: value
+        })} />
       </Drawer>
     </>
   );
