@@ -10,5 +10,7 @@
   "players": "Jugadores",
   "save": "Guardar",
   "matchDate": "Fecha del partido",
-  "matchTime": "Hora del partido"
+  "matchTime": "Hora del partido",
+  "level": "Nivel",
+  "editLevel": "Editar nivel"
 }

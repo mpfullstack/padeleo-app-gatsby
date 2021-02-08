@@ -8,7 +8,7 @@ const LayoutWrapper = styled.div`
   width: 96%;
   margin: 0 auto;
   .layout-inner {
-    margin: 55px auto 0 auto;
+    margin: 10px auto 0 auto;
     padding-top: 10px;
     max-width: 1200px;
     width: 100%;
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
   return (
     <LayoutWrapper className='layout'>
       <Logo />
-      <header>{data.site.siteMetadata.title}</header>
+      {/* <header>{data.site.siteMetadata.title}</header> */}
       <div className='layout-inner'>
         <main>{children}</main>
         <footer></footer>

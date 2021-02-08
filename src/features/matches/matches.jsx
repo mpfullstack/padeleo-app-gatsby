@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 import Button from "../../modules/common/components/Button";
 import { createMatch, matchesSelectors } from "./matchesSlice";
-import MatchForm from "./matchForm";
+import MatchDetail from "./matchDetail";
 
 const mapDispatchToProps = { createMatch };
 const mapStateToProps = ({ matches }) => {
@@ -14,11 +14,11 @@ const mapStateToProps = ({ matches }) => {
   }
 }
 
-const MatchDetailPage = ({ createMatch, match }) => {
+const Matches = ({ createMatch, match }) => {
   const intl = useIntl();
 
   if (match.id >= 0) {
-    return <MatchForm match={match} />;
+    return <MatchDetail match={match} />;
   } else {
     return (
       <div>
@@ -35,4 +35,4 @@ const MatchDetailPage = ({ createMatch, match }) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MatchDetailPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Matches);

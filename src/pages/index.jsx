@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { PersistGate } from "redux-persist/integration/react";
 import IndexLayout from "../layouts";
 import store, { persistor } from "../redux/store";
-import MatchDetailPage from "../features/matches/matchDetailPage";
+import Matches from "../features/matches";
 import theme from "../theme";
 
 const IndexPage = () => {
@@ -13,7 +13,7 @@ const IndexPage = () => {
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
           <IndexLayout>
-            <MatchDetailPage />
+            <Matches />
           </IndexLayout>
         </ThemeProvider>
       </PersistGate>

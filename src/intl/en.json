@@ -10,5 +10,7 @@
   "players": "Players",
   "save": "Save",
   "matchDate": "Match's date",
-  "matchTime": "Match's time"
+  "matchTime": "Match's time",
+  "level": "Level",
+  "editLevel": "Edit level"
 }

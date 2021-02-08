@@ -7,6 +7,7 @@ export const MatchShape = PropTypes.shape({
   id: PropTypes.number,
   clubName: PropTypes.string,
   dateAndTime: PropTypes.string, // String date Eg. 2014-08-20T16:30:00.000Z
+  level: PropTypes.string,
   players: PropTypes.array
 });
 
@@ -14,6 +15,7 @@ export const Match = {
   id: -1,
   clubName: "",
   dateAndTime: "",
+  level: "",
   palyers: []
 }
 
@@ -26,6 +28,7 @@ const initialState = matchesAdapter.getInitialState({
    * idle
    * clubName
    * dateAndTime
+   * level
    * player1
    * player2
    * player3

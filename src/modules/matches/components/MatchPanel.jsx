@@ -8,6 +8,10 @@ import Tooltip from "../../common/components/Tooltip";
 
 const RowPanel = styled(Row)`
   margin: 10px 0;
+  .MuiCardHeader-root {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
   .MuiCardHeader-title {
     font-size: 15px;
     font-weight: 400;

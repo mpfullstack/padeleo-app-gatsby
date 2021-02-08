@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useIntl } from "gatsby-plugin-intl";
 import PropTypes from "prop-types";
+// TODO: Move to common components
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,

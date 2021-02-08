@@ -6,7 +6,7 @@ import { editMatch, updatedOrCreatedMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
 import { Grid } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
-import EditMatchField from "../../modules/matches/components/EditMatchField";
+import MatchForm from "../../modules/matches/components/MatchForm";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
 
@@ -31,7 +31,7 @@ const mapStateToProps = ({ matches }) => {
   }
 }
 
-const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
+const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
   const intl = useIntl();
 
   return (
@@ -42,7 +42,7 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
           onEdit={() => editMatch("clubName")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
-          <p className="text">{match.clubName || ""}</p>
+          <p className="text">{match.clubName || "---"}</p>
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
@@ -51,23 +51,30 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         >
           {match.dateAndTime ?
             <>
-              <p className="text">{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd 'de' LLLL 'de' yyyy", intl.locale))}</p>
+              <p className="text">{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}</p>
               <p className="text">
                 {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
                 {` - `}
                 {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
               </p>
-            </> : <p></p>}
+            </> : <p>---</p>}
+        </MatchPanel>
+        <MatchPanel
+          title={intl.formatMessage({ id: "level" })}
+          onEdit={() => editMatch("level")}
+          editLabel={intl.formatMessage({ id: "editLevel" })}
+        >
+          <p className="text">{match.level || "---"}</p>
         </MatchPanel>
         <MatchPanel title={intl.formatMessage({ id: "players" })}>
-          <p className="text">Jugadores</p>
+          <p className="text">---</p>
         </MatchPanel>
       </Grid>
       <Drawer
         visible={editing !== "idle"}
         onHide={() => editMatch("idle")}
       >
-        <EditMatchField field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
+        <MatchForm field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
           ...match,
           [editing]: value
         })} />
@@ -76,8 +83,8 @@ const MatchForm = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
   );
 };
 
-MatchForm.propTypes = {
+MatchDetail.propTypes = {
   match: PropTypes.object
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MatchForm);
+export default connect(mapStateToProps, mapDispatchToProps)(MatchDetail);
