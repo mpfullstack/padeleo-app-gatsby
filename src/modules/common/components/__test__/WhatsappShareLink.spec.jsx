@@ -22,7 +22,7 @@ describe("Testing WhatsappShareLink component...", () => {
   test("Should open URL on click share button", async () => {
     render(component);
 
-    expect(await screen.findByText("Share on Whatsapp!")).toHaveAttribute(
+    expect(await screen.getByText('Share on Whatsapp!').closest('a')).toHaveAttribute(
       "href",
       `https://wa.me/?text=${encodeURIComponent(
         "I want to share this on whatsapp!"

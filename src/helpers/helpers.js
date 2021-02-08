@@ -5,9 +5,14 @@ const Helpers = {
   buildMatchShareContent: (match, intl) => {
     const clubName = encodeURIComponent(match.clubName);
     // const clubUrl = "";//"https%3A%2F%2Fgoo.gl%2Fmaps%2FjCHX9hiu8FBHMAjH8";
-    const matchDate = encodeURIComponent(Dates.format(new Date(match.dateAndTime), "dd/MM", intl.locale));
-    const fromTime = encodeURIComponent(`${Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}h`);
-    const toTime = encodeURIComponent(`${Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}h`);
+    let matchDate = "";
+    let fromTime = "";
+    let toTime = "";
+    if (match.dateAndTime) {
+      matchDate = encodeURIComponent(Dates.format(new Date(match.dateAndTime), "dd/MM", intl.locale));
+      fromTime = encodeURIComponent(`${Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}h`);
+      toTime = encodeURIComponent(`${Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}h`);
+    }
     const level = encodeURIComponent(match.level);
     const p1 = encodeURIComponent(match.players[0].name);
     const p2 = encodeURIComponent(match.players[1].name);

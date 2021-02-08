@@ -4,7 +4,7 @@ import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import store from "../../../redux/store";
 import es from "../../../intl/es.json";
-import MatchDetailPage from "../matchDetailPage";
+import Matches from "../matches";
 
 describe("Testing matches feature", () => {
   let component;
@@ -13,7 +13,7 @@ describe("Testing matches feature", () => {
     component = (
       <Provider store={store}>
         <IntlProvider locale="es" messages={es}>
-          <MatchDetailPage />
+          <Matches />
         </IntlProvider>
       </Provider>
     );

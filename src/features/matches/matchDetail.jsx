@@ -85,7 +85,7 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
 };
 
 MatchDetail.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchDetail);
