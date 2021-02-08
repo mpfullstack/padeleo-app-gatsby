@@ -7,6 +7,7 @@ import Drawer from "../../modules/common/components/Drawer";
 import { Grid } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
 import MatchForm from "../../modules/matches/components/MatchForm";
+import Players from "../../modules/matches/components/Players";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
 
@@ -66,8 +67,12 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         >
           <p className="text">{match.level || "---"}</p>
         </MatchPanel>
-        <MatchPanel title={intl.formatMessage({ id: "players" })}>
-          <p className="text">---</p>
+        <MatchPanel
+          title={intl.formatMessage({ id: "players" })}
+          onEdit={() => editMatch("players")}
+          editLabel={intl.formatMessage({ id: "editPlayers" })}
+        >
+          <Players players={match.players} />
         </MatchPanel>
       </Grid>
       <Drawer

@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core";
 
 const DrawerWrapper = styled(UIDrawer)`
   .MuiPaper-root {
-    height: 40vh;
+    height: 45vh;
   }
   .content {
     padding: 10px;

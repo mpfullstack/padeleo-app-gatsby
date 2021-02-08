@@ -3,12 +3,26 @@ import PropTypes from "prop-types";
 
 const matchesAdapter = createEntityAdapter();
 
+export const PlayerShape = PropTypes.shape({
+  id: PropTypes.number,
+  name: PropTypes.string,
+  nickname: PropTypes.string,
+  phone: PropTypes.string
+});
+
+export const Player = {
+  id: -1,
+  name: "",
+  nickname: "",
+  phone: ""
+};
+
 export const MatchShape = PropTypes.shape({
   id: PropTypes.number,
   clubName: PropTypes.string,
   dateAndTime: PropTypes.string, // String date Eg. 2014-08-20T16:30:00.000Z
   level: PropTypes.string,
-  players: PropTypes.array
+  players: PropTypes.array // Array of players
 });
 
 export const Match = {
@@ -16,8 +30,8 @@ export const Match = {
   clubName: "",
   dateAndTime: "",
   level: "",
-  palyers: []
-}
+  players: Array.from({length: 4}, () => ({ ...Player }))
+};
 
 const initialState = matchesAdapter.getInitialState({
   loading: false,
@@ -29,10 +43,7 @@ const initialState = matchesAdapter.getInitialState({
    * clubName
    * dateAndTime
    * level
-   * player1
-   * player2
-   * player3
-   * player4
+   * players
    */
   editing: "idle"
 });
