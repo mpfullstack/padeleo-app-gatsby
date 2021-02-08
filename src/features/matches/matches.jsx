@@ -24,9 +24,6 @@ const Matches = ({ createMatch, match }) => {
       <div>
         <h1>{intl.formatMessage({ id: "hiPadeleros" })}</h1>
           <p>{intl.formatMessage({ id: "createMathIntroduction" })}</p>
-          {/* <WhatsappShareLink shareContent={template} encode={false}>
-            Share on Whatsapp!
-          </WhatsappShareLink> */}
           <Button onClick={() => createMatch()}>
             {intl.formatMessage({ id: "createMatch" })}
           </Button>

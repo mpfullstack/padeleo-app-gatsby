@@ -18,6 +18,7 @@ const RowPanel = styled(Row)`
   }
   .MuiCardContent-root {
     padding: 5px 16px;
+    padding-top: 0;
     &:last-child {
       padding-bottom: 5px;
     }

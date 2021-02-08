@@ -4,26 +4,13 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { editMatch, updatedOrCreatedMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
-import { Grid } from "../../modules/common/components/Layout";
+import { Grid, Row, Col } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
 import MatchForm from "../../modules/matches/components/MatchForm";
 import Players from "../../modules/matches/components/Players";
+import WhatsappShareLink from "../../modules/common/components/WhatsappShareLink";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
-
-// import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
-// import Button from "../../modules/common/components/Button";
-
-// const clubName = "Partido+en+Montgat+Padel";
-// const clubUrl = "https%3A%2F%2Fgoo.gl%2Fmaps%2FjCHX9hiu8FBHMAjH8";
-// const matchDate = "Martes+02%2F02";
-// const matchTime = "19%3A00h+a+20%3A30h";
-// const p1 = "Marc";
-// const p2 = "Dani";
-// const p3 = "Tomas";
-// const p4 = "%3F";
-// let template = `${clubName}%0D%0A%0D%0A${clubUrl}%0D%0A%0D%0A%F0%9F%93%85${matchDate}%0D%0A%F0%9F%95%92${matchTime}`;
-// template += `%0D%0A%0D%0A%F0%9F%8E%BE+${p1}%0D%0A%F0%9F%8E%BE+${p2}%0D%0A%F0%9F%8E%BE+${p3}+%0D%0A%F0%9F%8E%BE+${p4}`;
 
 const mapDispatchToProps = { editMatch, updatedOrCreatedMatch };
 const mapStateToProps = ({ matches }) => {
@@ -34,6 +21,8 @@ const mapStateToProps = ({ matches }) => {
 
 const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
   const intl = useIntl();
+
+  const shareContent = Helpers.buildMatchShareContent(match, intl);
 
   return (
     <>
@@ -74,6 +63,13 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         >
           <Players players={match.players} />
         </MatchPanel>
+        <Row>
+          <Col>
+            <WhatsappShareLink fullWidth={true} shareContent={shareContent} encode={false}>
+              {intl.formatMessage({ id: "share" })}
+            </WhatsappShareLink>
+          </Col>
+        </Row>
       </Grid>
       <Drawer
         visible={editing !== "idle"}

@@ -1,13 +1,23 @@
 import * as React from "react";
-
-// export interface WhatsappShareLinkProps {
-//   children: string;
-//   shareContent: string;
-//   phone?: string;
-//   encode?: boolean;
-// }
+import styled from "styled-components";
+import Button from "../components/Button";
+import { WhatsAppIcon } from "../components/Icon";
 
 // TODO: Define react prop
+
+const StyledButton = styled(Button)`
+  &.MuiButton-containedPrimary {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #3ebe2b;
+    &:hover {
+      background-color: #329123;
+    }
+    .MuiButton-label {
+      font-weight: 800;
+    }
+  }
+`;
 
 const WhatsappShareLink = ({
   children,
@@ -16,15 +26,20 @@ const WhatsappShareLink = ({
   encode = true,
 }) => {
   let shareContentEncoded = shareContent;
+
   if (encode && typeof window === "object") {
     shareContentEncoded = encodeURIComponent(shareContent);
   }
+
   return (
-    <div>
-      <a href={`https://wa.me/${phone}?text=${shareContentEncoded}`}>
-        {children}
-      </a>
-    </div>
+    <StyledButton
+      variant="contained"
+      color="primary"
+      startIcon={<WhatsAppIcon />}
+      href={`https://wa.me/${phone}?text=${shareContentEncoded}`}
+    >
+      {children}
+    </StyledButton>
   );
 };
 

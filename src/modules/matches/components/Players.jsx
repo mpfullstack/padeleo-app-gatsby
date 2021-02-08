@@ -31,10 +31,13 @@ import Tooltip from "../../common/components/Tooltip";
 //   }
 // `;
 
-const PlayerItem = ({ player }) => {
+const StyledPlayerItem = styled.p`
+  margin: 6px 0 6px 0;
+`;
 
+const PlayerItem = ({ player }) => {
   return (
-    <p>{player.name || "---"}</p>
+    <StyledPlayerItem>{player.name || "---"}</StyledPlayerItem>
   );
 };
 

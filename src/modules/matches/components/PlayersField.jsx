@@ -7,7 +7,7 @@ import { Row, Col } from "../../common/components/Layout";
 import PropTypes from "prop-types";
 
 const StyledRow = styled(Row)`
-  .MuiGrid-item {
+  &.MuiGrid-container:first-child {
     margin-bottom: 30px;
   }
 `;
