@@ -9,7 +9,7 @@ const Helpers = {
     let fromTime = "";
     let toTime = "";
     if (match.dateAndTime) {
-      matchDate = encodeURIComponent(Dates.format(new Date(match.dateAndTime), "dd/MM", intl.locale));
+      matchDate = encodeURIComponent(Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM", intl.locale)));
       fromTime = encodeURIComponent(`${Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}h`);
       toTime = encodeURIComponent(`${Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}h`);
     }
