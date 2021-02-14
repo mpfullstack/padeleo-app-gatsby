@@ -23,6 +23,12 @@ const Helpers = {
     template += `%0D%0A%0D%0A%F0%9F%8E%BE+${p1}%0D%0A%F0%9F%8E%BE+${p2}%0D%0A%F0%9F%8E%BE+${p3}+%0D%0A%F0%9F%8E%BE+${p4}`;
 
     return template;
+  },
+  buildLink: (link, language) => {
+    if (!link.match(new RegExp(`^/${language}/`, 'gmi'))) {
+      return `/${language}/${link}`;
+    }
+    return link;
   }
 };
 

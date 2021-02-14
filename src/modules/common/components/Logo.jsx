@@ -6,15 +6,22 @@ import Img from "gatsby-image";
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ small }) => small ? "flex-start" : "center"};
 `;
 
-const Logo = () => {
+const Logo = ({ small }) => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo-padeleo.png" }) {
+      logoImage: file(relativePath: { eq: "logo-padeleo.png" }) {
         childImageSharp {
           fixed(width: 140, quality: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      logoSymbol: file(relativePath: { eq: "logo-padeleo-symbol.png" }) {
+        childImageSharp {
+          fixed(width: 35, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -23,8 +30,12 @@ const Logo = () => {
   `);
 
   return (
-    <LogoWrapper>
-      <Img fixed={data.placeholderImage.childImageSharp.fixed} />
+    <LogoWrapper small={small}>
+      {small ?
+        <Img fixed={data.logoSymbol.childImageSharp.fixed} />
+        :
+        <Img fixed={data.logoImage.childImageSharp.fixed} />
+      }
     </LogoWrapper>
   );
 }

@@ -15,7 +15,13 @@ const LayoutWrapper = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Layout = ({ children, renderMenu, smallLogo = false }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,12 +32,13 @@ const Layout = ({ children }) => {
     }
   `)
 
-
-
   return (
     <LayoutWrapper className='layout'>
-      <Logo />
-      {/* <header>{data.site.siteMetadata.title}</header> */}
+      <Header>
+        <Logo small={smallLogo} />
+        <h1 style={{display: "none"}}>{data.site.siteMetadata.title}</h1>
+        {typeof renderMenu === "function" ? renderMenu() : null}
+      </Header>
       <div className='layout-inner'>
         <main>{children}</main>
         <footer></footer>
@@ -42,6 +49,8 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  smallLogo: PropTypes.bool,
+  renderMenu: PropTypes.func
 }
 
 export default Layout;

@@ -3,10 +3,10 @@ import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 // import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 import Button from "../../modules/common/components/Button";
-import { createMatch, matchesSelectors } from "./matchesSlice";
+import { createMatch, editMatch, matchesSelectors } from "./matchesSlice";
 import MatchDetail from "./matchDetail";
 
-const mapDispatchToProps = { createMatch };
+const mapDispatchToProps = { createMatch, editMatch };
 const mapStateToProps = ({ matches }) => {
   return {
     matches: matchesSelectors.selectAll(matches),
@@ -14,7 +14,7 @@ const mapStateToProps = ({ matches }) => {
   }
 }
 
-const Matches = ({ createMatch, match }) => {
+const Matches = ({ createMatch, editMatch, match, matches }) => {
   const intl = useIntl();
 
   if (match.id >= 0) {
@@ -22,11 +22,17 @@ const Matches = ({ createMatch, match }) => {
   } else {
     return (
       <div>
-        <h1>{intl.formatMessage({ id: "hiPadeleros" })}</h1>
-          <p>{intl.formatMessage({ id: "createMathIntroduction" })}</p>
-          <Button onClick={() => createMatch()}>
-            {intl.formatMessage({ id: "createMatch" })}
-          </Button>
+        {matches.length ?
+          matches.map((match) => {
+            return (
+              <Button onClick={() => editMatch(match)}><p>{match.clubName}</p></Button>
+            );
+          }) : null}
+        <Button onClick={() => {
+          createMatch();
+        }}>
+          {intl.formatMessage({ id: "createMatch" })}
+        </Button>
       </div>
     );
   }

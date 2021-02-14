@@ -2,7 +2,7 @@ import * as React from "react";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { editMatch, updatedOrCreatedMatch } from "./matchesSlice";
+import { editMatchField, updatedOrCreatedMatch } from "./matchesSlice";
 import Drawer from "../../modules/common/components/Drawer";
 import { Grid, Row, Col } from "../../modules/common/components/Layout";
 import MatchPanel from "../../modules/matches/components/MatchPanel";
@@ -12,14 +12,14 @@ import WhatsappShareLink from "../../modules/common/components/WhatsappShareLink
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
 
-const mapDispatchToProps = { editMatch, updatedOrCreatedMatch };
+const mapDispatchToProps = { editMatchField, updatedOrCreatedMatch };
 const mapStateToProps = ({ matches }) => {
   return {
     editing: matches.editing
   }
 }
 
-const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
+const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch }) => {
   const intl = useIntl();
 
   const shareContent = Helpers.buildMatchShareContent(match, intl);
@@ -29,14 +29,14 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
       <Grid>
         <MatchPanel
           title={intl.formatMessage({ id: "club" })}
-          onEdit={() => editMatch("clubName")}
+          onEdit={() => editMatchField("clubName")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
           <p className="text">{match.clubName || "---"}</p>
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
-          onEdit={() => editMatch("dateAndTime")}
+          onEdit={() => editMatchField("dateAndTime")}
           editLabel={intl.formatMessage({ id: "editDateAndTime" })}
         >
           {match.dateAndTime ?
@@ -51,14 +51,14 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "level" })}
-          onEdit={() => editMatch("level")}
+          onEdit={() => editMatchField("level")}
           editLabel={intl.formatMessage({ id: "editLevel" })}
         >
           <p className="text">{match.level || "---"}</p>
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "players" })}
-          onEdit={() => editMatch("players")}
+          onEdit={() => editMatchField("players")}
           editLabel={intl.formatMessage({ id: "editPlayers" })}
         >
           <Players players={match.players} />
@@ -73,7 +73,7 @@ const MatchDetail = ({ match, editing, editMatch, updatedOrCreatedMatch }) => {
       </Grid>
       <Drawer
         visible={editing !== "idle"}
-        onHide={() => editMatch("idle")}
+        onHide={() => editMatchField("idle")}
       >
         <MatchForm field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
           ...match,

@@ -38,7 +38,7 @@ const initialState = matchesAdapter.getInitialState({
   match: { ...Match }, // It holds the data of the match to create/edit
   error: null,
   /**
-   * It holds what part of the match we are editing
+   * It holds what field of the match we are editing
    * idle
    * clubName
    * dateAndTime
@@ -64,11 +64,22 @@ const matchesSlice = createSlice({
       state.editing = "idle";
     },
     editMatch(state, action) {
+      state.match = action.payload;
+    },
+    closeMatch(state) {
+      state.match = { ...Match };
+      state.editing = "idle";
+    },
+    editMatchField(state, action) {
       state.editing = action.payload;
     },
     updatedOrCreatedMatch: (state, action) => {
       state.editing = "idle";
       state.match = action.payload;
+      // Set match id if it's still 0
+      if (state.match.id === 0) {
+        state.match.id = matchesSelectors.selectTotal(state)+1;
+      }
       matchesAdapter.upsertOne(state, action);
     }
   }
@@ -78,6 +89,8 @@ export const {
   loadMatches,
   createMatch,
   editMatch,
+  closeMatch,
+  editMatchField,
   updatedOrCreatedMatch
 } = matchesSlice.actions;
 
