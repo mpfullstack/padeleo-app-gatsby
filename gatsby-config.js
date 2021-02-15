@@ -3,14 +3,10 @@ const languageConfig = require("./language-config");
 /* eslint-disable no-undef */
 module.exports = {
   siteMetadata: {
-    title: "Padeleo App",
-    description: "App to manage and organize your padel matches",
+    title: "metaTitle",
+    description: "metaDescription",
     keywords: "",
-    author: {
-      name: "Marc Perez",
-      url: "https://github.com/mpfullstack",
-      email: "info@marcperez.cat",
-    },
+    author: "https://marcperez.cat",
   },
   plugins: [
     {

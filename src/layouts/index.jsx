@@ -1,7 +1,9 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import { useIntl } from "gatsby-plugin-intl"
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
+import SEO from "./Seo";
 import Logo from "../modules/common/components/Logo";
 
 const LayoutWrapper = styled.div`
@@ -27,6 +29,8 @@ const Header = styled.header`
 `;
 
 const Layout = ({ children, renderMenu, smallLogo = false }) => {
+  const intl = useIntl();
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -39,6 +43,7 @@ const Layout = ({ children, renderMenu, smallLogo = false }) => {
 
   return (
     <LayoutWrapper className='layout'>
+      <SEO title={intl.formatMessage({ id: "padel"})} />
       <Header>
         <Logo small={smallLogo} />
         <h1 style={{display: "none"}}>{data.site.siteMetadata.title}</h1>
