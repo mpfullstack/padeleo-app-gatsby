@@ -56,7 +56,7 @@ const MatchList = ({ matches, onEditMatch }) => {
   if (matches.length) {
     return matches.map((match) => {
       return (
-        <MatchItem variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
+        <MatchItem key={`match-${match.id}`} variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
           <Col className="content" xs={10}>
             <p className="text club">
               {match.clubName ?

@@ -22,12 +22,7 @@ if (devMode) {
 const createStore = () => {
   const store = configureStore({
     reducer: combineReducers({
-      matches: persistReducer({ key: 'matches', version: '1.0.1', storage }, rootReducer.matches),
-      // professionalProfile: persistReducer({ key: 'professionalProfile', version: '1.0.0', storage }, rootReducer.professionalProfile),
-      // profile: rootReducer.profile,
-      // booking: persistReducer({ key: 'booking', version: '1.0.0', storage }, rootReducer.booking),
-      // loginSignUp: rootReducer.loginSignUp,
-      // payment: rootReducer.payment
+      matches: persistReducer({ key: 'matches', version: '1.0.1', storage }, rootReducer.matches)
     }),
     devTools: devMode, // NOTE: Only for dev purpose
     middleware
