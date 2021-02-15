@@ -10,13 +10,15 @@ const StyledButton = styled(UIButton)``;
 const Button = ({
   children,
   color = "default",
+  variant = "contained",
   ...rest
  }) => {
-  return <StyledButton variant="contained" color={color} {...rest}>{children}</StyledButton>;
+  return <StyledButton color={color} variant={variant} {...rest}>{children}</StyledButton>;
 };
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(["contained", "outlined", "text"]),
   color: PropTypes.string
 };
 

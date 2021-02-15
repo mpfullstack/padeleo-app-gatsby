@@ -15,4 +15,9 @@ const Dates = {
   addMinutes,
 };
 
+export const localeMap = {
+  es,
+  en
+};
+
 export default Dates;
