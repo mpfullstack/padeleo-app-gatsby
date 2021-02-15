@@ -44,6 +44,15 @@ module.exports = {
           `Mulish\:300,400,700,800`
         ]
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-6Z8JK7G8ED", // Google Analytics / GA
+        ],
+      },
+    },
   ],
 };
