@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby-plugin-intl";
 import styled from "styled-components";
 import Img from "gatsby-image";
 
@@ -31,11 +32,13 @@ const Logo = ({ small }) => {
 
   return (
     <LogoWrapper small={small}>
-      {small ?
-        <Img fixed={data.logoSymbol.childImageSharp.fixed} />
-        :
-        <Img fixed={data.logoImage.childImageSharp.fixed} />
-      }
+      <Link to="/">
+        {small ?
+          <Img fixed={data.logoSymbol.childImageSharp.fixed} />
+          :
+          <Img fixed={data.logoImage.childImageSharp.fixed} />
+        }
+      </Link>
     </LogoWrapper>
   );
 }

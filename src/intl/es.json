@@ -16,5 +16,8 @@
   "level": "Nivel",
   "editLevel": "Editar nivel",
   "share": "Compártelo",
-  "myMatches": "Mis partidos"
+  "myMatches": "Mis partidos",
+  "noDateTimeDefined": "Fecha y hora sin definir",
+  "from": "de",
+  "to": "a"
 }

@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import Button from "../../modules/common/components/Button";
@@ -14,6 +15,14 @@ const mapStateToProps = ({ matches }) => {
   }
 }
 
+const MatchesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  .create-match {
+    align-self: center;
+  }
+`;
+
 const Matches = ({ createMatch, editMatch, match, matches }) => {
   const intl = useIntl();
 
@@ -21,14 +30,14 @@ const Matches = ({ createMatch, editMatch, match, matches }) => {
     return <MatchDetail match={match} />;
   } else {
     return (
-      <div>
+      <MatchesWrapper>
         <MatchList matches={matches} onEditMatch={editMatch} />
-        <Button color="secondary" onClick={() => {
+        <Button color="secondary" className="create-match" onClick={() => {
           createMatch();
         }}>
           {intl.formatMessage({ id: "createMatch" })}
         </Button>
-      </div>
+      </MatchesWrapper>
     );
   }
 };

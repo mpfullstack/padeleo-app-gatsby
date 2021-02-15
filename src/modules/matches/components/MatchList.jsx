@@ -63,12 +63,12 @@ const MatchList = ({ matches, onEditMatch }) => {
               {match.dateAndTime ?
                 <>
                   {Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}
-                  {` de `}
+                  {` ${intl.formatMessage({ id: "from" })} `}
                   {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
-                  {` a `}
+                  {` ${intl.formatMessage({ id: "to" })} `}
                   {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
                 </>
-                : <span className="text no-value">Fecha y hora sin definir</span>
+                : <span className="text no-value">{intl.formatMessage({ id: "noDateTimeDefined" })}</span>
               }
             </p>
           </Col>

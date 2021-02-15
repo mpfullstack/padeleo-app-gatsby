@@ -16,5 +16,8 @@
   "level": "Level",
   "editLevel": "Edit level",
   "share": "Share it",
-  "myMatches": "My matches"
+  "myMatches": "My matches",
+  "noDateTimeDefined": "No date and time specified",
+  "from": "from",
+  "to": "to"
 }
