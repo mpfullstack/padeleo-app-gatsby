@@ -1,10 +1,10 @@
 import * as React from "react";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
-// import WhatsappShareLink from "../modules/common/components/WhatsappShareLink";
 import Button from "../../modules/common/components/Button";
 import { createMatch, editMatch, matchesSelectors } from "./matchesSlice";
 import MatchDetail from "./matchDetail";
+import MatchList from "../../modules/matches/components/MatchList";
 
 const mapDispatchToProps = { createMatch, editMatch };
 const mapStateToProps = ({ matches }) => {
@@ -22,13 +22,8 @@ const Matches = ({ createMatch, editMatch, match, matches }) => {
   } else {
     return (
       <div>
-        {matches.length ?
-          matches.map((match) => {
-            return (
-              <Button onClick={() => editMatch(match)}><p>{match.clubName}</p></Button>
-            );
-          }) : null}
-        <Button onClick={() => {
+        <MatchList matches={matches} onEditMatch={editMatch} />
+        <Button color="secondary" onClick={() => {
           createMatch();
         }}>
           {intl.formatMessage({ id: "createMatch" })}

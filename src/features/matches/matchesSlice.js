@@ -75,11 +75,11 @@ const matchesSlice = createSlice({
     },
     updatedOrCreatedMatch: (state, action) => {
       state.editing = "idle";
-      state.match = action.payload;
       // Set match id if it's still 0
-      if (state.match.id === 0) {
-        state.match.id = matchesSelectors.selectTotal(state)+1;
+      if (action.payload.id === 0) {
+        action.payload.id = matchesSelectors.selectTotal(state) + 1;
       }
+      state.match = action.payload;
       matchesAdapter.upsertOne(state, action);
     }
   }
