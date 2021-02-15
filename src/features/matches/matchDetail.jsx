@@ -75,10 +75,16 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch }) 
         visible={editing !== "idle"}
         onHide={() => editMatchField("idle")}
       >
-        <MatchForm field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
-          ...match,
-          [editing]: value
-        })} />
+        <div style={{
+          maxWidth: "520px",
+          width: "96%",
+          margin: "0 auto"
+        }}>
+          <MatchForm field={editing} value={match[editing]} onFinish={value => updatedOrCreatedMatch({
+            ...match,
+            [editing]: value
+          })} />
+        </div>
       </Drawer>
     </>
   );

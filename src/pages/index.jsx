@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useIntl, navigate } from "gatsby-plugin-intl";
+import styled from "styled-components";
 import { Provider, connect } from "react-redux";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { PersistGate } from "redux-persist/integration/react";
@@ -12,20 +13,31 @@ import theme from "../theme";
 const mapStateToProps = () => {};
 const mapDispatchToProps = { createMatch };
 
+const IntroWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .text {
+    width: 85%;
+    font-size: 22px;
+    text-align: center;
+  }
+`;
+
 const Intro = connect(mapStateToProps, mapDispatchToProps)(
   ({ createMatch }) => {
     const intl = useIntl();
     return (
-      <div>
+      <IntroWrapper>
         <h1>{intl.formatMessage({ id: "hiPadeleros" })}</h1>
-        <p>{intl.formatMessage({ id: "createMathIntroduction" })}</p>
-        <Button onClick={() => {
+        <p className="text">{intl.formatMessage({ id: "createMathIntroduction" })}</p>
+        <Button color="secondary" className="create-match" onClick={() => {
           createMatch();
           navigate(`/matches`)
         }}>
           {intl.formatMessage({ id: "createMatch" })}
         </Button>
-      </div>
+      </IntroWrapper>
     );
   }
 );

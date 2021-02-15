@@ -5,17 +5,22 @@ import styled from 'styled-components';
 import Logo from "../modules/common/components/Logo";
 
 const LayoutWrapper = styled.div`
-  width: 96%;
-  margin: 0 auto;
+  width: 100%;
   .layout-inner {
     margin: 10px auto 0 auto;
-    padding-top: 10px;
-    max-width: 1200px;
+    padding: 10px 0;
+    max-width: 520px;
     width: 100%;
+    /* -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.75); */
   }
 `;
 
 const Header = styled.header`
+  max-width: 520px;
+  width: 96%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,6 +1,6 @@
 {
-  "hiPadeleros": "Hi padelero!",
-  "createMathIntroduction": "Create your match and share it easily through Whatsapp!!",
+  "hiPadeleros": "Hello!",
+  "createMathIntroduction": "Create your match and share it through Whatsapp in a few seconds!!",
   "createMatch": "Create the match",
   "club": "Club",
   "clubName": "Club's name",
@@ -19,5 +19,6 @@
   "myMatches": "My matches",
   "noDateTimeDefined": "No date and time specified",
   "from": "from",
-  "to": "to"
+  "to": "to",
+  "noClubDefined": "No club specified"
 }

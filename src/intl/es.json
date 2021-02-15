@@ -1,6 +1,6 @@
 {
-  "hiPadeleros": "Hola padelero!",
-  "createMathIntroduction": "¡¡Crea tu partido y compartelo fácilmente por Whatsapp!!",
+  "hiPadeleros": "Hola!",
+  "createMathIntroduction": "¡¡Crea tu partido y compártelo por Whatsapp en pocos segundos!!",
   "createMatch": "Crea tu partido",
   "club": "Club",
   "clubName": "Nombre del club",
@@ -17,7 +17,8 @@
   "editLevel": "Editar nivel",
   "share": "Compártelo",
   "myMatches": "Mis partidos",
-  "noDateTimeDefined": "Fecha y hora sin definir",
+  "noDateTimeDefined": "Fecha y hora sin especificar",
   "from": "de",
-  "to": "a"
+  "to": "a",
+  "noClubDefined": "Club sin especificar"
 }

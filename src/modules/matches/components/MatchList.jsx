@@ -5,7 +5,6 @@ import { useIntl } from "gatsby-plugin-intl";
 import Helpers from "../../../helpers";
 import Dates from "../../../helpers/dates";
 import Button from "../../common/components/Button";
-import Panel from "../../common/components/Panel";
 import { Col } from "../../common/components/Layout";
 import { ArrowForward } from "../../common/components/Icon";
 
@@ -28,6 +27,7 @@ const MatchItem = styled(Button)`
         align-items: flex-start;
         .text {
           margin: 0;
+          text-align: left;
         }
         .club {
           font-weight: bold;
@@ -58,12 +58,18 @@ const MatchList = ({ matches, onEditMatch }) => {
       return (
         <MatchItem variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
           <Col className="content" xs={10}>
-            <p className="text club">{match.clubName}</p>
+            <p className="text club">
+              {match.clubName ?
+                match.clubName
+                :
+                <span className="text no-value">{intl.formatMessage({ id: "noClubDefined" })}</span>
+              }
+            </p>
             <p className="text date-and-time">
               {match.dateAndTime ?
                 <>
-                  {Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}
-                  {` ${intl.formatMessage({ id: "from" })} `}
+                  {Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}<br />
+                  {` ${Helpers.capitalise(intl.formatMessage({ id: "from" }))} `}
                   {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
                   {` ${intl.formatMessage({ id: "to" })} `}
                   {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
