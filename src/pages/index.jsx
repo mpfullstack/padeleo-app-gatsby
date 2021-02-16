@@ -1,12 +1,10 @@
 import * as React from "react";
 import { useIntl, navigate } from "gatsby-plugin-intl";
 import styled from "styled-components";
-import { ThemeProvider } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import IndexLayout from "../layouts";
 import Button from "../modules/common/components/Button";
 import { createMatch } from "../features/matches/matchesSlice";
-import theme from "../theme";
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = { createMatch };
@@ -41,38 +39,10 @@ const Intro = connect(mapStateToProps, mapDispatchToProps)(
 );
 
 const IndexPage = () => {
-
-  // if (typeof window === "undefined") {
-  //   return (
-  //     <Provider store={store}>
-  //       <ThemeProvider theme={theme}>
-  //         <IndexLayout>
-  //           <Intro />
-  //         </IndexLayout>
-  //       </ThemeProvider>
-  //     </Provider>
-  //   )
-  // } else {
-  //   return (
-  //     <Provider store={store}>
-  //       <PersistGate loading={null} persistor={persistor}>
-  //         <ThemeProvider theme={theme}>
-  //           <IndexLayout>
-  //             <Intro />
-  //           </IndexLayout>
-  //         </ThemeProvider>
-  //       </PersistGate>
-  //     </Provider>
-  //   )
-  // }
-
-
   return (
-    <ThemeProvider theme={theme}>
-      <IndexLayout>
-        <Intro />
-      </IndexLayout>
-    </ThemeProvider>
+    <IndexLayout>
+      <Intro />
+    </IndexLayout>
   );
 };
 

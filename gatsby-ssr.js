@@ -4,17 +4,19 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-const React = require("react");
-const { Provider } = require("react-redux");
-const store = require("./src/redux/store");
+import * as React from "react";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "@material-ui/core/styles";
+import store from "./src/redux/store";
+import theme from "./src/theme";
 
 // Wraps every page in a component
-exports.wrapPageElement = ({ element }) => {
+export const wrapPageElement = ({ element }) => {
   return (
-    <Provider store={store.default}>
-      <div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
         {element}
-      </div>
+      </ThemeProvider>
     </Provider>
   );
 }

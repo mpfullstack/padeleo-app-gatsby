@@ -4,19 +4,23 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-const React = require("react");
-const { Provider } = require("react-redux");
-const { PersistGate } = require("redux-persist/integration/react");
-const store = require("./src/redux/store");
+import * as React from "react";
+import { Provider } from "react-redux";
+import { ThemeProvider } from "@material-ui/core/styles";
+import store, { persistor } from "./src/redux/store";
+import theme from "./src/theme";
+import { PersistGate } from "redux-persist/integration/react";
 
-require("./src/styles/global.css");
+import "./src/styles/global.css";
 
 // Wraps every page in a component
-exports.wrapPageElement = ({ element }) => {
+export const wrapPageElement = ({ element }) => {
   return (
-    <Provider store={store.default}>
-      <PersistGate loading={null} persistor={store.persistor}>
-        {element}
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          {element}
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   );
