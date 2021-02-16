@@ -46,7 +46,7 @@ const Layout = ({ children, renderMenu, smallLogo = false }) => {
       <SEO title={intl.formatMessage({ id: "padel"})} />
       <Header>
         <Logo small={smallLogo} />
-        <h1 style={{display: "none"}}>{data.site.siteMetadata.title}</h1>
+        <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
         {typeof renderMenu === "function" ? renderMenu() : null}
       </Header>
       <div className='layout-inner'>
