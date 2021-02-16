@@ -37,7 +37,7 @@ function SEO({ description, meta, title }) {
         lang: intl.locale,
       }}
       title={title}
-      titleTemplate={`%s | ${intl.formatMessage({ id: site.siteMetadata.title })}`}
+      titleTemplate={`%s - ${intl.formatMessage({ id: site.siteMetadata.title })}`}
       meta={[
         {
           name: `description`,

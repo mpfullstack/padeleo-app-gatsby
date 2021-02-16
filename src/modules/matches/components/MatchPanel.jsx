@@ -7,7 +7,8 @@ import { Row, Col } from "../../common/components/Layout";
 import Tooltip from "../../common/components/Tooltip";
 
 const RowPanel = styled(Row)`
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   .MuiCardHeader-root {
     padding-top: 12px;
     padding-bottom: 5px;
