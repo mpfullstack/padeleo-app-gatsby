@@ -4,4 +4,17 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+const React = require("react");
+const { Provider } = require("react-redux");
+const store = require("./src/redux/store");
+
+// Wraps every page in a component
+exports.wrapPageElement = ({ element }) => {
+  return (
+    <Provider store={store.default}>
+      <div>
+        {element}
+      </div>
+    </Provider>
+  );
+}
