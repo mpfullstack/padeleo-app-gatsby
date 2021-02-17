@@ -7,6 +7,7 @@
 import * as React from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider as StyledThemeProvider} from "styled-components";
 import store, { persistor } from "./src/redux/store";
 import theme from "./src/theme";
 import { PersistGate } from "redux-persist/integration/react";
@@ -19,7 +20,9 @@ export const wrapPageElement = ({ element }) => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
-          {element}
+          <StyledThemeProvider theme={theme}>
+            {element}
+          </StyledThemeProvider>
         </ThemeProvider>
       </PersistGate>
     </Provider>
