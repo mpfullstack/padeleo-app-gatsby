@@ -1,4 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from "uuid";
 import { combineReducers } from 'redux';
 import logger from 'redux-logger'; // NOTE: Only for dev purpose
 import createSagaMiddleware from 'redux-saga';
@@ -22,7 +23,26 @@ if (devMode) {
 const createStore = () => {
   const store = configureStore({
     reducer: combineReducers({
-      matches: persistReducer({ key: 'matches', version: '1.0.2', storage }, rootReducer.matches)
+      matches: persistReducer({ key: 'matches', version: '1.0.2', storage, migrate: (state) => {
+        debugger;
+        const keys = Object.keys(state.entities);
+        if (keys.length) {
+          const newEntities = {};
+          keys.forEach((key) => {
+            const newEntity = {...state.entities[key]};
+            if (typeof newEntity.id === 'number') {
+              newEntity.id = uuidv4();
+            }
+            newEntities[key] = newEntity;
+          });
+          return Promise.resolve({
+            ...state,
+            entities: newEntities
+          });
+        } else {
+          return Promise.resolve(state);
+        }
+      } }, rootReducer.matches)
     }),
     devTools: devMode, // NOTE: Only for dev purpose
     middleware
