@@ -45,7 +45,11 @@ const initialState = matchesAdapter.getInitialState({
    * level
    * players
    */
-  editing: "idle"
+  editing: "idle",
+  /**
+   * It holds the id of the match to delete or "idle"
+   */
+  deleting: "idle"
 });
 
 const matchesSlice = createSlice({
@@ -65,6 +69,7 @@ const matchesSlice = createSlice({
     },
     editMatch(state, action) {
       state.match = action.payload;
+      state.deleting = "idle";
     },
     closeMatch(state) {
       state.match = { ...Match };
@@ -81,6 +86,13 @@ const matchesSlice = createSlice({
       }
       state.match = action.payload;
       matchesAdapter.upsertOne(state, action);
+    },
+    deleteMatch: (state, action) => {
+      state.deleting = action.payload;
+    },
+    deletedMatch: (state, action) => {
+      state.deleting = "idle";
+      matchesAdapter.removeOne(state, action);
     }
   }
 })
@@ -91,7 +103,9 @@ export const {
   editMatch,
   closeMatch,
   editMatchField,
-  updatedOrCreatedMatch
+  updatedOrCreatedMatch,
+  deleteMatch,
+  deletedMatch
 } = matchesSlice.actions;
 
 export const matchesSelectors = {

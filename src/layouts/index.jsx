@@ -12,17 +12,14 @@ const LayoutWrapper = styled.div`
     margin: 10px auto 0 auto;
     padding: 10px 0;
     max-width: 520px;
-    width: 100%;
-    /* -webkit-box-shadow: 0px 3px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    0px 3px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow:         0px 3px 5px 0px rgba(50, 50, 50, 0.75); */
+    width: 96%;
   }
 `;
 
 const Header = styled.header`
   max-width: 520px;
   width: 96%;
-  margin: 0 auto;
+  margin: 15px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Provider } from "react-redux";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import { IntlContextProvider } from "gatsby-plugin-intl";
 import { IntlProvider } from "react-intl";
-import store from "../../../redux/store";
-import es from "../../../intl/es.json";
+import store from "../../redux/store";
+import es from "../../intl/es.json";
 import Matches from "../matches";
 
 describe("Testing matches feature", () => {
@@ -13,7 +14,9 @@ describe("Testing matches feature", () => {
     component = (
       <Provider store={store}>
         <IntlProvider locale="es" messages={es}>
-          <Matches />
+          <IntlContextProvider value={{ language: "es", routed: true }}>
+            <Matches />
+          </IntlContextProvider>
         </IntlProvider>
       </Provider>
     );
@@ -57,6 +60,32 @@ describe("Testing matches feature", () => {
     // Check club's name is updated correctly
     await waitFor(() => {
       expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
+    });
+  });
+
+  test("Expect the match list to be empty after deleting the unique match", async () => {
+    render(component);
+
+    fireEvent.click(await screen.getByRole('button', {
+      name: /Mis partidos/i
+    }));
+    await waitFor(() => {
+      expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
+    });
+
+    // Click on delete match button and expect to find delete confirmation text
+    const deleteMatchButton = screen.getAllByRole('button', { name: /Eliminar partido/i})[0];
+    expect(deleteMatchButton).toBeInTheDocument();
+    fireEvent.click(deleteMatchButton);
+    await waitFor(() => {
+      expect(screen.queryByText('Eliminar?')).toBeInTheDocument();
+    });
+
+    // Click on delete match confirmation button and expect the match to be deleted
+    const deleteConfirmButton = screen.getByRole('button', { name: /Eliminar/i});
+    fireEvent.click(deleteConfirmButton);
+    await waitFor(() => {
+      expect(screen.queryByText('Montgat Padel La Riera')).not.toBeInTheDocument();
     });
   });
 });

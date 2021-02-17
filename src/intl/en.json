@@ -23,5 +23,9 @@
   "noDateTimeDefined": "No date and time specified",
   "from": "from",
   "to": "to",
-  "noClubDefined": "No club specified"
+  "noClubDefined": "No club specified",
+  "editMatch": "Edit match",
+  "deleteMatch": "Delete match",
+  "delete": "Delete",
+  "cancel": "Cancel"
 }
