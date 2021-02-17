@@ -22,7 +22,7 @@ if (devMode) {
 const createStore = () => {
   const store = configureStore({
     reducer: combineReducers({
-      matches: persistReducer({ key: 'matches', version: '1.0.1', storage }, rootReducer.matches)
+      matches: persistReducer({ key: 'matches', version: '1.0.2', storage }, rootReducer.matches)
     }),
     devTools: devMode, // NOTE: Only for dev purpose
     middleware
