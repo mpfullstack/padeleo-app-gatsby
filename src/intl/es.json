@@ -23,5 +23,9 @@
   "noDateTimeDefined": "Fecha y hora sin especificar",
   "from": "de",
   "to": "a",
-  "noClubDefined": "Club sin especificar"
+  "noClubDefined": "Club sin especificar",
+  "editMatch": "Editar partido",
+  "deleteMatch": "Eliminar partido",
+  "delete": "Eliminar",
+  "cancel": "Cancelar"
 }
