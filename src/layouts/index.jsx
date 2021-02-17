@@ -66,7 +66,8 @@ const Layout = ({ children, renderMenu, smallLogo = false }) => {
       </div>
       <Footer className='layout-inner'>
         {/* <Link to="/legal_advice">{intl.formatMessage({ id: "legalAdvice" })}</Link> */}
-        <Link to="/legal_advice#cookies-policy">{intl.formatMessage({ id: "cookiesPolicy" })}</Link>
+        <Link to="/legal_advice">{intl.formatMessage({ id: "cookiesPolicy" })}</Link>
+        <a href={`https://marcperez.cat/${intl.locale}/`}>{intl.formatMessage({ id: "credits" })}</a>
       </Footer>
       <CookiesAlert />
     </LayoutWrapper>

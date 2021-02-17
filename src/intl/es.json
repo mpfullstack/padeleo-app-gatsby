@@ -41,5 +41,6 @@
   "periodOfValidityExplanation": "Cookies de sesión o 2 años max",
   "viewCookiesPolicy": "Ver política de cookies",
   "accept": "Aceptar",
-  "cookiesAlertMessage": "Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestra web. Si sigues utilizando este sitio consideramos que estás de acuerdo."
+  "cookiesAlertMessage": "Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestra web. Si sigues utilizando este sitio consideramos que estás de acuerdo.",
+  "credits": "Créditos"
 }

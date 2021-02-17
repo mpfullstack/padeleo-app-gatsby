@@ -40,6 +40,7 @@
   "periodOfValidity": "Period of validity",
   "periodOfValidityExplanation": "Session cookies or 2 years maximum",
   "viewCookiesPolicy": "View cookies policy",
-  "accept": "Aceptar",
-  "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree."
+  "accept": "Accept",
+  "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree.",
+  "credits": "Credits"
 }
