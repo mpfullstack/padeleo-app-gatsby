@@ -27,7 +27,7 @@ const MatchesWrapper = styled.div`
 const Matches = ({ createMatch, editMatch, match, matches, deletedMatch, deleteMatch, deleteMatchId }) => {
   const intl = useIntl();
 
-  if (match.id >= 0) {
+  if (match.id) {
     return <MatchDetail match={match} />;
   } else {
     return (
