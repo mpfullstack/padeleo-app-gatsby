@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const languageConfig = require("./language-config");
 
 /* eslint-disable no-undef */
