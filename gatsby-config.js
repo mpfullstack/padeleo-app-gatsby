@@ -24,7 +24,7 @@ module.exports = {
       resolve: `gatsby-plugin-material-ui`,
       options: {
         stylesProvider: {
-          injectFirst: true,
+          injectFirst: false,
         },
       },
     },
@@ -59,7 +59,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-6Z8JK7G8ED", // Google Analytics / GA
+          process.env.GA_ID, // Google Analytics / GA
         ],
       },
     },
