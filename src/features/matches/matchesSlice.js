@@ -1,4 +1,5 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit'
+import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
 const matchesAdapter = createEntityAdapter();
@@ -18,7 +19,7 @@ export const Player = {
 };
 
 export const MatchShape = PropTypes.shape({
-  id: PropTypes.number,
+  id: PropTypes.string,
   clubName: PropTypes.string,
   dateAndTime: PropTypes.string, // String date Eg. 2014-08-20T16:30:00.000Z
   level: PropTypes.string,
@@ -26,7 +27,7 @@ export const MatchShape = PropTypes.shape({
 });
 
 export const Match = {
-  id: -1,
+  id: "",
   clubName: "",
   dateAndTime: "",
   level: "",
@@ -63,7 +64,7 @@ const matchesSlice = createSlice({
     createMatch(state) {
       state.match = {
         ...Match,
-        id: 0
+        id: uuidv4()
       };
       state.editing = "idle";
     },
@@ -80,10 +81,6 @@ const matchesSlice = createSlice({
     },
     updatedOrCreatedMatch: (state, action) => {
       state.editing = "idle";
-      // Set match id if it's still 0
-      if (action.payload.id === 0) {
-        action.payload.id = matchesSelectors.selectTotal(state) + 1;
-      }
       state.match = action.payload;
       matchesAdapter.upsertOne(state, action);
     },
