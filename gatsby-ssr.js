@@ -7,6 +7,7 @@
 import * as React from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider as StyledThemeProvider} from "styled-components";
 import store from "./src/redux/store";
 import theme from "./src/theme";
 
@@ -15,7 +16,9 @@ export const wrapPageElement = ({ element }) => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        {element}
+        <StyledThemeProvider theme={theme}>
+          {element}
+        </StyledThemeProvider>
       </ThemeProvider>
     </Provider>
   );

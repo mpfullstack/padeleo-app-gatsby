@@ -3,6 +3,8 @@ import { Provider } from "react-redux";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { IntlContextProvider } from "gatsby-plugin-intl";
 import { IntlProvider } from "react-intl";
+import { ThemeProvider as StyledThemeProvider} from "styled-components";
+import theme from "../../theme";
 import store from "../../redux/store";
 import es from "../../intl/es.json";
 import Matches from "../matches";
@@ -13,11 +15,13 @@ describe("Testing matches feature", () => {
   beforeEach(() => {
     component = (
       <Provider store={store}>
-        <IntlProvider locale="es" messages={es}>
-          <IntlContextProvider value={{ language: "es", routed: true }}>
-            <Matches />
-          </IntlContextProvider>
-        </IntlProvider>
+        <StyledThemeProvider theme={theme}>
+          <IntlProvider locale="es" messages={es}>
+            <IntlContextProvider value={{ language: "es", routed: true }}>
+              <Matches />
+            </IntlContextProvider>
+          </IntlProvider>
+        </StyledThemeProvider>
       </Provider>
     );
   });

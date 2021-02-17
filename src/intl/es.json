@@ -27,5 +27,20 @@
   "editMatch": "Editar partido",
   "deleteMatch": "Eliminar partido",
   "delete": "Eliminar",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "legalAdvice": "Avíso legal",
+  "cookiesPolicy": "Política de cookies",
+  "whatAreCookies": "¿Que son las cookies?",
+  "cookiesExplanation": "Las cookies son identificadores que enviamos al disco duro de su ordenador a través de su navegador web con el fin de que nuestros sistemas puedan reconocer su navegador, el tipo de dispositivo desde el que se conecta y ofrecerle ciertas adaptaciones en el comportamiento de la web para facilitar el acceso a la información. A continuación se detallan las cookies utilizadas en el sitio web.",
+  "cookiesWeUse": "Cookies utilizadas",
+  "collectedData": "Información recogida",
+  "collectedDataExplanation": "Información Analítica de la visita, tiempo, secciones visitadas, clicks y sitios de procedencia.",
+  "purpose": "Propósito",
+  "purposeExplanation": "Un análisis del comportamiento del usuario en la web y así poder mejorar el servicio.",
+  "periodOfValidity": "Período de validez",
+  "periodOfValidityExplanation": "Cookies de sesión o 2 años max",
+  "viewCookiesPolicy": "Ver política de cookies",
+  "accept": "Aceptar",
+  "cookiesAlertMessage": "Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestra web. Si sigues utilizando este sitio consideramos que estás de acuerdo.",
+  "credits": "Créditos"
 }

@@ -27,5 +27,20 @@
   "editMatch": "Edit match",
   "deleteMatch": "Delete match",
   "delete": "Delete",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "legalAdvice": "Legal advice",
+  "cookiesPolicy": "Cookies policy",
+  "whatAreCookies": "What are the cookies?",
+  "cookiesExplanation": "Cookies are identifiers that we send to your computer's hard drive through your web browser so that our systems can recognize your browser, the type of device from which you connect and offer you certain adaptations in the behavior of the web to facilitate access to information. The cookies used on the website are detailed below.",
+  "cookiesWeUse": "Cookies we use",
+  "collectedData": "Collected data",
+  "collectedDataExplanation": "Analytical information of the visit, time, sections visited, clicks and sites of origin.",
+  "purpose": "Purpose",
+  "purposeExplanation": "An analysis of user behavior on the web and thus be able to improve the service.",
+  "periodOfValidity": "Period of validity",
+  "periodOfValidityExplanation": "Session cookies or 2 years maximum",
+  "viewCookiesPolicy": "View cookies policy",
+  "accept": "Accept",
+  "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree.",
+  "credits": "Credits"
 }
