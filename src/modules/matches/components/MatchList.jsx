@@ -4,54 +4,123 @@ import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
 import Helpers from "../../../helpers";
 import Dates from "../../../helpers/dates";
-import Button from "../../common/components/Button";
 import { Col } from "../../common/components/Layout";
-import { ArrowForward } from "../../common/components/Icon";
+import { IconButton, ArrowForward, DeleteIcon, CheckIcon, CloseIcon } from "../../common/components/Icon";
+import Tooltip from "../../common/components/Tooltip";
 
-const MatchItem = styled(Button)`
-  &.MuiButton-text {
-    width: 100%;
-    padding: 8px 12px;
-    margin-bottom: 20px;
-    text-transform: inherit;
-    -webkit-box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-    .MuiButton-label {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        .text {
-          margin: 0;
-          text-align: left;
-        }
-        .club {
-          font-weight: bold;
-          font-size: 16px;
-        }
-        .date-and-time {
-          font-size: 15px;
-        }
-        .no-value {
-          font-style: italic;
-          font-size: 14px;
-        }
-      }
-      .arrow-forward {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
+const MatchItem = styled.div`
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  text-transform: inherit;
+  -webkit-box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    .text {
+      margin: 2px 0;
+      text-align: left;
+    }
+    .club {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .date-and-time {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .no-value {
+      font-style: italic;
+      font-size: 14px;
+    }
+  }
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .delete {
+      color: #d83a3a;
     }
   }
 `;
 
-const MatchList = ({ matches, onEditMatch }) => {
+const DeleteConfirm = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .delete-text {
+    font-size: 16px;
+    text-align: center;
+  }
+  .icons {
+    display: flex;
+  }
+`;
+
+const DeleteMatchAction = ({ matchId, onDeleteMatch, ondeletedMatch, deleteMatchId, intl }) => {
+  if (deleteMatchId === matchId) {
+    return (
+      <DeleteConfirm>
+        <span className="delete-text">Eliminar?</span>
+        <div className="icons">
+          <Tooltip title={intl.formatMessage({ id: "delete"})}>
+            <IconButton
+              className="delete"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                ondeletedMatch(matchId);
+              }}
+            >
+              <CheckIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={intl.formatMessage({ id: "cancel"})}>
+            <IconButton
+              className="cancel"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onDeleteMatch("idle");
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Tooltip>
+        </div>
+      </DeleteConfirm>
+    )
+  } else {
+    return (
+      <Tooltip title={intl.formatMessage({ id: "deleteMatch"})}>
+        <IconButton
+          className="delete"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onDeleteMatch(matchId);
+          }}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </Tooltip>
+    );
+  }
+}
+
+const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, deleteMatchId }) => {
   const intl = useIntl();
+  const deleteActions = {
+    onDeleteMatch, ondeletedMatch, deleteMatchId
+  };
 
   if (matches.length) {
     return matches.map((match) => {
@@ -78,7 +147,12 @@ const MatchList = ({ matches, onEditMatch }) => {
               }
             </p>
           </Col>
-          <Col xs={2} className="arrow-forward"><ArrowForward color="secondary" /></Col>
+          <Col xs={2} className="actions">
+            <Tooltip title={intl.formatMessage({ id: "editMatch"})}>
+              <IconButton color="secondary"  className="edit"><ArrowForward /></IconButton>
+            </Tooltip>
+            <DeleteMatchAction matchId={match.id} {...deleteActions} intl={intl} />
+          </Col>
         </MatchItem>
       );
     });

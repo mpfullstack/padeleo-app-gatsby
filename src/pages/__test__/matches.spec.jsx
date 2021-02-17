@@ -66,31 +66,26 @@ describe("Testing matches feature", () => {
   test("Expect the match list to be empty after deleting the unique match", async () => {
     render(component);
 
-    // Open panel to edit club's name
-    // fireEvent.click(await screen.getByRole('button', {
-    //   name: /Editar club/i
-    // }));
-    // // Update input club's name field value
-    // const input = screen.getByLabelText("Nombre del club");
-    // fireEvent.change(input, { target: { value: 'Montgat Padel La Riera' } })
-    // // Click on save button
-    // fireEvent.click(await screen.getByRole('button', {
-    //   name: /Guardar/i
-    // }));
-    // Check club's name is updated correctly
-    // await waitFor(() => {
-    //   expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
-    // });
-
-    // screen.getAllByRole(/Eliminar partido/i)[0]
-    // screen.getByText('Mis partidos')
-    // Click on my matches link  button
-    // fireEvent.click(await screen.getByText('Mis partidos'));
     fireEvent.click(await screen.getByRole('button', {
       name: /Mis partidos/i
     }));
     await waitFor(() => {
       expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
+    });
+
+    // Click on delete match button and expect to find delete confirmation text
+    const deleteMatchButton = screen.getAllByRole('button', { name: /Eliminar partido/i})[0];
+    expect(deleteMatchButton).toBeInTheDocument();
+    fireEvent.click(deleteMatchButton);
+    await waitFor(() => {
+      expect(screen.queryByText('Eliminar?')).toBeInTheDocument();
+    });
+
+    // Click on delete match confirmation button and expect the match to be deleted
+    const deleteConfirmButton = screen.getByRole('button', { name: /Eliminar/i});
+    fireEvent.click(deleteConfirmButton);
+    await waitFor(() => {
+      expect(screen.queryByText('Montgat Padel La Riera')).not.toBeInTheDocument();
     });
   });
 });

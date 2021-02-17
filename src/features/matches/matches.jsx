@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import Button from "../../modules/common/components/Button";
-import { createMatch, editMatch, matchesSelectors } from "./matchesSlice";
+import { createMatch, editMatch, matchesSelectors, deleteMatch, deletedMatch } from "./matchesSlice";
 import MatchDetail from "./matchDetail";
 import MatchList from "../../modules/matches/components/MatchList";
 
-const mapDispatchToProps = { createMatch, editMatch };
+const mapDispatchToProps = { createMatch, editMatch, deleteMatch, deletedMatch };
 const mapStateToProps = ({ matches }) => {
   return {
     matches: matchesSelectors.selectAll(matches),
     match: matches.match,
+    deleteMatchId: matches.deleting
   }
 }
 
@@ -23,7 +24,7 @@ const MatchesWrapper = styled.div`
   }
 `;
 
-const Matches = ({ createMatch, editMatch, match, matches }) => {
+const Matches = ({ createMatch, editMatch, match, matches, deletedMatch, deleteMatch, deleteMatchId }) => {
   const intl = useIntl();
 
   if (match.id >= 0) {
@@ -31,7 +32,12 @@ const Matches = ({ createMatch, editMatch, match, matches }) => {
   } else {
     return (
       <MatchesWrapper>
-        <MatchList matches={matches} onEditMatch={editMatch} />
+        <MatchList
+          matches={matches}
+          onEditMatch={editMatch}
+          onDeleteMatch={deleteMatch}
+          deleteMatchId={deleteMatchId}
+          ondeletedMatch={deletedMatch} />
         <Button color="secondary" className="create-match" onClick={() => {
           createMatch();
         }}>
