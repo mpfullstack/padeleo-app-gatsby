@@ -26,7 +26,7 @@ const CookiesAlert = () => {
   const message = <Message>
     {intl.formatMessage({ id: "cookiesAlertMessage"})}
     <br />
-    <Link to="/legal_advice#cookies-policy">{intl.formatMessage({ id: "viewCookiesPolicy" })}</Link>
+    <Link to="/legal_advice">{intl.formatMessage({ id: "viewCookiesPolicy" })}</Link>
   </Message>;
 
   function handleClose() {
