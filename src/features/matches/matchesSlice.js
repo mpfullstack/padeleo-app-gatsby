@@ -21,7 +21,14 @@ export const Player = {
 export const MatchShape = PropTypes.shape({
   id: PropTypes.string,
   clubName: PropTypes.string,
-  dateAndTime: PropTypes.string, // String date Eg. 2014-08-20T16:30:00.000Z
+  /**
+   * dateAndTime
+   * {
+   *  start: "" // String date Eg. 2014-08-20T16:30:00.000Z
+   *  end: "" // String date Eg. 2014-08-20T16:30:00.000Z
+   * }
+   */
+  dateAndTime: PropTypes.object,
   level: PropTypes.string,
   players: PropTypes.array // Array of players
 });
@@ -29,7 +36,7 @@ export const MatchShape = PropTypes.shape({
 export const Match = {
   id: "",
   clubName: "",
-  dateAndTime: "",
+  dateAndTime: {start: "", end: ""},
   level: "",
   players: Array.from({length: 4}, () => ({ ...Player }))
 };

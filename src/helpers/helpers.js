@@ -8,10 +8,14 @@ const Helpers = {
     let matchDate = "";
     let fromTime = "";
     let toTime = "";
-    if (match.dateAndTime) {
-      matchDate = encodeURIComponent(Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM", intl.locale)));
-      fromTime = encodeURIComponent(`${Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}h`);
-      toTime = encodeURIComponent(`${Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}h`);
+    const startMatchTime = Helpers.getStartMatchTime(match);
+    const endMatchTime = Helpers.getEndMatchTime(match);
+    if (startMatchTime) {
+      matchDate = encodeURIComponent(Helpers.capitalise(Dates.format(startMatchTime, "EEEE dd/MM", intl.locale)));
+      fromTime = encodeURIComponent(`${Dates.format(startMatchTime, "H:mm", intl.locale)}h`);
+    }
+    if (endMatchTime) {
+      toTime = encodeURIComponent(`${Dates.format(endMatchTime, "H:mm", intl.locale)}h`);
     }
     const level = encodeURIComponent(match.level);
     const p1 = encodeURIComponent(match.players[0].name);
@@ -29,6 +33,26 @@ const Helpers = {
       return `/${language}/${link}`;
     }
     return link;
+  },
+  getStartMatchTime: (match) => {
+    // We have new matches state data version
+    if (typeof match.dateAndTime === 'object') {
+      return match.dateAndTime.start ? new Date(match.dateAndTime.start) : "";
+    } else {
+      return match.dateAndTime ? new Date(match.dateAndTime) : "";
+    }
+  },
+  getEndMatchTime: (match) => {
+    // We have new matches state data version
+    if (typeof match.dateAndTime === 'object') {
+      if (match.dateAndTime.end) {
+        return new Date(match.dateAndTime.end);
+      } else {
+        return match.dateAndTime.start ? Dates.addMinutes(new Date(match.dateAndTime.start), 90) : "";
+      }
+    } else {
+      return match.dateAndTime ? Dates.addMinutes(new Date(match.dateAndTime), 90) : "";
+    }
   }
 };
 

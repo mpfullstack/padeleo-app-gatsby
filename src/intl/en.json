@@ -16,6 +16,8 @@
   "save": "Save",
   "matchDate": "Match's date",
   "matchTime": "Match's time",
+  "startTime": "Start time",
+  "endTime": "End time",
   "level": "Level",
   "editLevel": "Edit level",
   "share": "Share it",

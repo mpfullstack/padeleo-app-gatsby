@@ -23,6 +23,8 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch }) 
   const intl = useIntl();
 
   const shareContent = Helpers.buildMatchShareContent(match, intl);
+  const startMatchTime = Helpers.getStartMatchTime(match);
+  const endMatchTime = Helpers.getEndMatchTime(match);
 
   return (
     <>
@@ -39,13 +41,13 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch }) 
           onEdit={() => editMatchField("dateAndTime")}
           editLabel={intl.formatMessage({ id: "editDateAndTime" })}
         >
-          {match.dateAndTime ?
+          {startMatchTime ?
             <>
-              <p className="text">{Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}</p>
+              <p className="text">{Helpers.capitalise(Dates.format(startMatchTime, "EEEE dd/MM/yyyy", intl.locale))}</p>
               <p className="text">
-                {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
+                {Dates.format(startMatchTime, "H:mm", intl.locale)}
                 {` - `}
-                {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
+                {Dates.format(endMatchTime, "H:mm", intl.locale)}
               </p>
             </> : <p>---</p>}
         </MatchPanel>
