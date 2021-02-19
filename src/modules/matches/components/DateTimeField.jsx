@@ -1,9 +1,9 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import DateTimePicker from "../../common/components/DateTimePicker";
+import DateTimePicker from "../../common/components/DateTime/DateTimePicker";
 
-const DateTimeField = ({ value, onChange }) => {
-  return <DateTimePicker value={value} onChange={onChange} />;
+const DateTimeField = ({ start, end, onChange }) => {
+  return <DateTimePicker start={start} end={end} onChange={onChange} />;
 };
 
 DateTimeField.propTypes = {
