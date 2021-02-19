@@ -9,10 +9,13 @@ const Helpers = {
     let fromTime = "";
     let toTime = "";
     const startMatchTime = Helpers.getStartMatchTime(match);
+    const endMatchTime = Helpers.getEndMatchTime(match);
     if (startMatchTime) {
       matchDate = encodeURIComponent(Helpers.capitalise(Dates.format(startMatchTime, "EEEE dd/MM", intl.locale)));
       fromTime = encodeURIComponent(`${Dates.format(startMatchTime, "H:mm", intl.locale)}h`);
-      toTime = encodeURIComponent(`${Dates.format(Helpers.getEndMatchTime(match), "H:mm", intl.locale)}h`);
+    }
+    if (endMatchTime) {
+      toTime = encodeURIComponent(`${Dates.format(endMatchTime, "H:mm", intl.locale)}h`);
     }
     const level = encodeURIComponent(match.level);
     const p1 = encodeURIComponent(match.players[0].name);

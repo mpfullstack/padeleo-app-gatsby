@@ -24,8 +24,8 @@ const TimePickersWrapper = styled.div`
 const DateTimePicker = ({ start, end, onChange }) => {
   const intl = useIntl();
 
-  const [selectedStartDate, setSelectedStartDate] = React.useState(new Date(start));
-  const [selectedEndDate, setSelectedEndDate] = React.useState(new Date(end));
+  const [selectedStartDate, setSelectedStartDate] = React.useState(start ? new Date(start) : null);
+  const [selectedEndDate, setSelectedEndDate] = React.useState(end ? new Date(end) : null);
   const handleDateChange = (field, date) => {
     const dateAndTime = {
       start: selectedStartDate,

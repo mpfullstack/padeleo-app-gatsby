@@ -39,8 +39,8 @@ const MatchForm = ({ field, value, onFinish }) => {
 
       {field === "dateAndTime" ?
         <DateTimeField
-          start={Helpers.getStartMatchTime({ dateAndTime: value })}
-          end={Helpers.getEndMatchTime({ dateAndTime: value })}
+          start={Helpers.getStartMatchTime({ dateAndTime: value }) || null}
+          end={Helpers.getEndMatchTime({ dateAndTime: value }) || null}
           onChange={handleChange} /> : null}
 
       {field === "level" ?
