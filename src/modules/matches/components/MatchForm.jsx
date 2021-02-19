@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import DateTimeField from "./DateTimeField";
 import ClubField from "./ClubField";
 import PlayersField from "./PlayersField";
+import Helpers from "../../../helpers";
 
 const StyledForm = styled.form`
   width: 90%;
@@ -37,7 +38,10 @@ const MatchForm = ({ field, value, onFinish }) => {
           onChange={handleChange} /> : null}
 
       {field === "dateAndTime" ?
-        <DateTimeField value={value || new Date()} onChange={handleChange} /> : null}
+        <DateTimeField
+          start={Helpers.getStartMatchTime({ dateAndTime: value })}
+          end={Helpers.getEndMatchTime({ dateAndTime: value })}
+          onChange={handleChange} /> : null}
 
       {field === "level" ?
         <ClubField
@@ -56,7 +60,7 @@ const MatchForm = ({ field, value, onFinish }) => {
 
 MatchForm.propTypes = {
   field: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onFinish: PropTypes.func.isRequired,
   onClose: PropTypes.func
 };

@@ -16,6 +16,8 @@
   "save": "Guardar",
   "matchDate": "Fecha del partido",
   "matchTime": "Hora del partido",
+  "startTime": "Hora inicio",
+  "endTime": "Hora final",
   "level": "Nivel",
   "editLevel": "Editar nivel",
   "share": "Compártelo",
