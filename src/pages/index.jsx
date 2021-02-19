@@ -38,6 +38,7 @@ const Intro = connect(mapStateToProps, mapDispatchToProps)(
   }
 );
 
+
 const IndexPage = () => {
   return (
     <IndexLayout>
