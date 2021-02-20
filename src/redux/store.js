@@ -26,7 +26,12 @@ const createStore = () => {
         version: 1,
         storage,
         migrate: createMigrate(migrations, { debug: devMode })
-      }, rootReducer.matches)
+      }, rootReducer.matches),
+      settings: persistReducer({
+        key: "settings",
+        version: 1,
+        storage
+      }, rootReducer.settings)
     }),
     devTools: devMode, // NOTE: Only for dev purpose
     middleware
