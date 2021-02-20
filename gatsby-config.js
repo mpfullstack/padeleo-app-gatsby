@@ -63,5 +63,17 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Padeleo App`,
+        short_name: `Padeleo`,
+        start_url: `/es/?user_mode=app`,
+        background_color: `#ffffff`,
+        theme_color: `#5ec7ac`,
+        display: `standalone`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      },
+    },
   ],
 };
