@@ -14,6 +14,7 @@ const IntroWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 40px;
   .text {
     width: 85%;
     font-size: 22px;

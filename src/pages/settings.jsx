@@ -1,13 +1,13 @@
 import * as React from "react";
 import IndexLayout from "../layouts";
-import Matches from "../features/matches";
+import Settings from "../features/settings";
 
-const MatchesPage = () => {
+const SettingsPage = () => {
   return (
     <IndexLayout smallLogo={true} withBreadcrumb={true} withMenu={true}>
-      <Matches />
+      <Settings />
     </IndexLayout>
   );
 };
 
-export default MatchesPage;
+export default SettingsPage;

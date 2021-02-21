@@ -1,17 +1,21 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { useIntl, Link } from "gatsby-plugin-intl"
+import { connect } from "react-redux";
+import { useIntl, Link, navigate } from "gatsby-plugin-intl"
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import SEO from "./Seo";
+import { closeMatch } from "../features/matches/matchesSlice";
 import Logo from "../modules/common/components/Logo";
 import CookiesAlert from "../modules/common/components/CookiesAlert";
+import MainMenu from "../modules/common/components/MainMenu";
+import Button from "../modules/common/components/Button";
 
 const LayoutWrapper = styled.div`
   width: 100%;
   .layout-inner {
     margin: 10px auto 0 auto;
-    padding: 10px 0;
+    padding: 0 0 10px 0;
     max-width: 520px;
     width: 96%;
     main {
@@ -27,6 +31,9 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  &.with-menu {
+    justify-content: flex-start;
+  }
 `;
 
 const Footer = styled.footer`
@@ -42,7 +49,24 @@ const Footer = styled.footer`
   }
 `;
 
-const Layout = ({ children, renderMenu, smallLogo = false }) => {
+const mapStateToProps = () => ({});
+const mapDispatchToProps = { closeMatch };
+
+const Breadcrumb = connect(mapStateToProps, mapDispatchToProps)(
+  ({ closeMatch }) => {
+    const intl = useIntl();
+    return (
+      <Button onClick={() => {
+        closeMatch()
+        navigate("/matches");
+      }} variant="text">
+        {intl.formatMessage({ id: "myMatches" })}
+      </Button>
+    );
+  }
+);
+
+const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo = false }) => {
   const intl = useIntl();
 
   const data = useStaticQuery(graphql`
@@ -58,12 +82,13 @@ const Layout = ({ children, renderMenu, smallLogo = false }) => {
   return (
     <LayoutWrapper className='layout'>
       <SEO title={intl.formatMessage({ id: "padel"})} />
-      <Header>
+      <Header className={withMenu ? "with-menu" : ""}>
         <Logo small={smallLogo} />
         <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
-        {typeof renderMenu === "function" ? renderMenu() : null}
+        {withMenu ? <MainMenu /> : null}
       </Header>
       <div className='layout-inner'>
+        {withBreadcrumb ? <Breadcrumb /> : null}
         <main>{children}</main>
       </div>
       <Footer className='layout-inner'>
