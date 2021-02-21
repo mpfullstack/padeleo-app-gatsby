@@ -13,16 +13,17 @@ import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
 
 const mapDispatchToProps = { editMatchField, updatedOrCreatedMatch };
-const mapStateToProps = ({ matches }) => {
+const mapStateToProps = ({ settings, matches }) => {
   return {
-    editing: matches.editing
+    editing: matches.editing,
+    settings
   }
 }
 
-const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch }) => {
+const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, settings }) => {
   const intl = useIntl();
 
-  const shareContent = Helpers.buildMatchShareContent(match, intl);
+  const shareContent = Helpers.buildMatchShareContent(match, intl, settings.emojis);
   const startMatchTime = Helpers.getStartMatchTime(match);
   const endMatchTime = Helpers.getEndMatchTime(match);
 

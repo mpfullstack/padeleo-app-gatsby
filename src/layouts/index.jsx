@@ -21,7 +21,9 @@ const LayoutWrapper = styled.div`
 `;
 
 const Header = styled.header`
-  margin: 15px auto 0;
+  max-width: 520px;
+  width: 96%;
+  margin: 10px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +58,7 @@ const Layout = ({ children, renderMenu, smallLogo = false }) => {
   return (
     <LayoutWrapper className='layout'>
       <SEO title={intl.formatMessage({ id: "padel"})} />
-      <Header className='layout-inner'>
+      <Header>
         <Logo small={smallLogo} />
         <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
         {typeof renderMenu === "function" ? renderMenu() : null}

@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-top: ${({ small }) => small ? "0px" : "20px"};
   justify-content: ${({ small }) => small ? "flex-start" : "center"};
 `;
 
