@@ -1,7 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { useIntl, Link, navigate } from "gatsby-plugin-intl"
+import { useIntl, Link } from "gatsby-plugin-intl"
 import { useStaticQuery, graphql } from "gatsby";
 import styled from 'styled-components';
 import SEO from "./Seo";
@@ -9,7 +9,6 @@ import { closeMatch } from "../features/matches/matchesSlice";
 import Logo from "../modules/common/components/Logo";
 import CookiesAlert from "../modules/common/components/CookiesAlert";
 import MainMenu from "../modules/common/components/MainMenu";
-import Button from "../modules/common/components/Button";
 
 const LayoutWrapper = styled.div`
   width: 100%;
@@ -56,12 +55,11 @@ const Breadcrumb = connect(mapStateToProps, mapDispatchToProps)(
   ({ closeMatch }) => {
     const intl = useIntl();
     return (
-      <Button onClick={() => {
-        closeMatch()
-        navigate("/matches");
-      }} variant="text">
-        {intl.formatMessage({ id: "myMatches" })}
-      </Button>
+      <p>
+        <Link to="/matches" onClick={() => closeMatch()}>
+          {intl.formatMessage({ id: "myMatches" })}
+        </Link>
+      </p>
     );
   }
 );

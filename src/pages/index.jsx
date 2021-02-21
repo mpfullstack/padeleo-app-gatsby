@@ -31,7 +31,7 @@ const Intro = connect(mapStateToProps, mapDispatchToProps)(
         <p className="text">{intl.formatMessage({ id: "createMathIntroduction" })}</p>
         <Button color="secondary" className="create-match" onClick={() => {
           createMatch();
-          navigate(`/matches`)
+          navigate(`/matches`);
         }}>
           {intl.formatMessage({ id: "createMatch" })}
         </Button>

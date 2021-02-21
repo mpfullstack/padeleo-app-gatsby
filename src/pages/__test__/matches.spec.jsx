@@ -70,9 +70,7 @@ describe("Testing matches feature", () => {
   test("Expect the match list to be empty after deleting the unique match", async () => {
     render(component);
 
-    fireEvent.click(await screen.getByRole('button', {
-      name: /Mis partidos/i
-    }));
+    fireEvent.click(await screen.getByText('Mis partidos'));
     await waitFor(() => {
       expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
     });
