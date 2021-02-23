@@ -38,7 +38,7 @@ const Matches = ({ createMatch, editMatch, match, matches, deletedMatch, deleteM
           onDeleteMatch={deleteMatch}
           deleteMatchId={deleteMatchId}
           ondeletedMatch={deletedMatch} />
-        <Button color="secondary" className="create-match" onClick={() => {
+        <Button color="primary" className="create-match" onClick={() => {
           createMatch();
         }}>
           {intl.formatMessage({ id: "createMatch" })}

@@ -11,6 +11,7 @@
   "dateAndTime": "Date and time",
   "editDateAndTime": "Edit date and time",
   "player": "Player {num}",
+  "playerAbr": "J{num}",
   "players": "Players",
   "editPlayers": "Edit players",
   "save": "Save",
@@ -18,6 +19,8 @@
   "matchTime": "Match's time",
   "startTime": "Start time",
   "endTime": "End time",
+  "date": "Date",
+  "time": "Time",
   "level": "Level",
   "editLevel": "Edit level",
   "share": "Share it",
@@ -44,5 +47,7 @@
   "viewCookiesPolicy": "View cookies policy",
   "accept": "Accept",
   "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree.",
-  "credits": "Credits"
+  "credits": "Credits",
+  "emojisDesc": "Use emojis when sharing your match on Whatsapp",
+  "emojisLabel": "Toggle emojis"
 }

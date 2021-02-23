@@ -40,7 +40,7 @@ const MatchPanel = ({ title, onEdit, editLabel = "Edit", children }) => {
         <Panel title={title} action={
           typeof onEdit === "function" ?
           <Tooltip title={editLabel}>
-            <IconButton color="secondary" size="small" aria-label={editLabel} onClick={onEdit}><EditIcon /></IconButton>
+            <IconButton color="primary" size="small" aria-label={editLabel} onClick={onEdit}><EditIcon /></IconButton>
           </Tooltip>  : null}
         >
           {children}

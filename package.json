@@ -14,10 +14,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "test": "jest --no-cache"
   },
   "engines": {

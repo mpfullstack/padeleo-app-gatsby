@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import IndexLayout from "../layouts";
 import Button from "../modules/common/components/Button";
 import { createMatch } from "../features/matches/matchesSlice";
+// import Helpers from "../helpers";
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = { createMatch };
@@ -13,6 +14,7 @@ const IntroWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 40px;
   .text {
     width: 85%;
     font-size: 22px;
@@ -27,9 +29,9 @@ const Intro = connect(mapStateToProps, mapDispatchToProps)(
       <IntroWrapper>
         <h1>{intl.formatMessage({ id: "hiPadeleros" })}</h1>
         <p className="text">{intl.formatMessage({ id: "createMathIntroduction" })}</p>
-        <Button color="secondary" className="create-match" onClick={() => {
+        <Button color="primary" className="create-match" onClick={() => {
           createMatch();
-          navigate(`/matches`)
+          navigate(`/matches`);
         }}>
           {intl.formatMessage({ id: "createMatch" })}
         </Button>
