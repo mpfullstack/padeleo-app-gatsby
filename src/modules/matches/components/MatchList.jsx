@@ -124,6 +124,9 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
 
   if (matches.length) {
     return matches.map((match) => {
+      const startMatchTime = Helpers.getStartMatchTime(match);
+      const endMatchTime = Helpers.getEndMatchTime(match);
+
       return (
         <MatchItem key={`match-${match.id}`} variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
           <Col className="content" xs={10}>
@@ -135,13 +138,13 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
               }
             </p>
             <p className="text date-and-time">
-              {match.dateAndTime ?
+              {startMatchTime ?
                 <>
-                  {Helpers.capitalise(Dates.format(new Date(match.dateAndTime), "EEEE dd/MM/yyyy", intl.locale))}<br />
+                  {Helpers.capitalise(Dates.format(startMatchTime, "EEEE dd/MM/yyyy", intl.locale))}<br />
                   {` ${Helpers.capitalise(intl.formatMessage({ id: "from" }))} `}
-                  {Dates.format(new Date(match.dateAndTime), "H:mm", intl.locale)}
+                  {Dates.format(startMatchTime, "H:mm", intl.locale)}
                   {` ${intl.formatMessage({ id: "to" })} `}
-                  {Dates.format(Dates.addMinutes(new Date(match.dateAndTime), 90), "H:mm", intl.locale)}
+                  {Dates.format(endMatchTime, "H:mm", intl.locale)}
                 </>
                 : <span className="text no-value">{intl.formatMessage({ id: "noDateTimeDefined" })}</span>
               }
@@ -149,7 +152,7 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
           </Col>
           <Col xs={2} className="actions">
             <Tooltip title={intl.formatMessage({ id: "editMatch"})}>
-              <IconButton color="secondary"  className="edit"><ArrowForward /></IconButton>
+              <IconButton color="primary"  className="edit"><ArrowForward /></IconButton>
             </Tooltip>
             <DeleteMatchAction matchId={match.id} {...deleteActions} intl={intl} />
           </Col>

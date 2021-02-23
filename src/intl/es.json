@@ -11,11 +11,16 @@
   "dateAndTime": "Fecha y hora",
   "editDateAndTime": "Editar fecha y hora",
   "player": "Jugador {num}",
+  "playerAbr": "J{num}",
   "players": "Jugadores",
   "editPlayers": "Editar jugadores",
   "save": "Guardar",
   "matchDate": "Fecha del partido",
   "matchTime": "Hora del partido",
+  "startTime": "Hora inicio",
+  "endTime": "Hora final",
+  "date": "Fecha",
+  "time": "Hora",
   "level": "Nivel",
   "editLevel": "Editar nivel",
   "share": "Compártelo",
@@ -42,5 +47,7 @@
   "viewCookiesPolicy": "Ver política de cookies",
   "accept": "Aceptar",
   "cookiesAlertMessage": "Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestra web. Si sigues utilizando este sitio consideramos que estás de acuerdo.",
-  "credits": "Créditos"
+  "credits": "Créditos",
+  "emojisDesc": "Usar iconos al compartir partido por Whatsapp",
+  "emojisLabel": "Habilitar/Deshabilitar emojis"
 }
