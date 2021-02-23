@@ -85,7 +85,7 @@ const Breadcrumb = connect(mapStateToProps, mapDispatchToProps)(
   }
 );
 
-const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo = false }) => {
+const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo = false, ...rest }) => {
   const intl = useIntl();
 
   const data = useStaticQuery(graphql`
@@ -105,7 +105,7 @@ const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo 
         <Logo small={smallLogo} />
         <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
         {withBreadcrumb ? <Breadcrumb /> : null}
-        {withMenu ? <MainMenu /> : null}
+        {withMenu ? <MainMenu {...rest} /> : null}
       </Header>
       <div className='layout-inner'>
         {/* {withBreadcrumb ? <Breadcrumb /> : null} */}

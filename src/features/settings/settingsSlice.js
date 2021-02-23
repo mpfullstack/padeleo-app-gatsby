@@ -12,15 +12,15 @@ const settingsSlice = createSlice({
     loadSettings(state) {
       state.loading = true;
     },
-    enableEmojis(state, action) {
-      state.emojis = action.payload;
+    toggleEmojis(state) {
+      state.emojis = !state.emojis;
     }
   }
 })
 
 export const {
   loadSettings,
-  enableEmojis
+  toggleEmojis
 } = settingsSlice.actions;
 
 export default settingsSlice.reducer;
