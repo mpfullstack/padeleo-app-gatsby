@@ -46,13 +46,13 @@ const Settings = ({ settings, toggleEmojis }) => {
         <p className="settings-item-name">
           <span>Emojis</span>
           <span className="settings-item-desc">
-            Usar iconos al compartir partido por Whatsapp
+            {intl.formatMessage({ id: "emojisDesc" })}
           </span>
         </p>
         <span className="settings-item-value">
           <Switch
             name="emojis"
-            label="Enable emojis"
+            label={intl.formatMessage({ id: "emojisLabel" })}
             checked={settings.emojis}
             handleChange={() => toggleEmojis()} />
         </span>
