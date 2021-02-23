@@ -40,7 +40,7 @@ const CookiesAlert = () => {
       message={message}
       action={
         <>
-          <Button color="secondary" className="accept-cookies-policy" size="small" onClick={handleClose}>
+          <Button color="primary" className="accept-cookies-policy" size="small" onClick={handleClose}>
             {intl.formatMessage({ id: "accept" })}
           </Button>
         </>
