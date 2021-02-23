@@ -29,7 +29,7 @@ const Intro = connect(mapStateToProps, mapDispatchToProps)(
       <IntroWrapper>
         <h1>{intl.formatMessage({ id: "hiPadeleros" })}</h1>
         <p className="text">{intl.formatMessage({ id: "createMathIntroduction" })}</p>
-        <Button color="secondary" className="create-match" onClick={() => {
+        <Button color="primary" className="create-match" onClick={() => {
           createMatch();
           navigate(`/matches`);
         }}>

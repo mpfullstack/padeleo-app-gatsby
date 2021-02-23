@@ -4,7 +4,7 @@ import Settings from "../features/settings";
 
 const SettingsPage = () => {
   return (
-    <IndexLayout smallLogo={true} withBreadcrumb={true} withMenu={true}>
+    <IndexLayout smallLogo={true} withMenu={true}>
       <Settings />
     </IndexLayout>
   );

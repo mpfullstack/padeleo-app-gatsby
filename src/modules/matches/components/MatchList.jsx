@@ -152,7 +152,7 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
           </Col>
           <Col xs={2} className="actions">
             <Tooltip title={intl.formatMessage({ id: "editMatch"})}>
-              <IconButton color="secondary"  className="edit"><ArrowForward /></IconButton>
+              <IconButton color="primary"  className="edit"><ArrowForward /></IconButton>
             </Tooltip>
             <DeleteMatchAction matchId={match.id} {...deleteActions} intl={intl} />
           </Col>
