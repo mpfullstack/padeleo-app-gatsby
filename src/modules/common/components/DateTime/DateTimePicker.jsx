@@ -32,9 +32,23 @@ const DateTimePicker = ({ start, end, onChange }) => {
       end: selectedEndDate
     };
     if (field === "endTime") {
-      setSelectedEndDate(date);
-      dateAndTime.end = date;
+      let endDate = new Date(date);
+      if (selectedStartDate) {
+        endDate.setDate(selectedStartDate.getDate());
+        endDate.setMonth(selectedStartDate.getMonth());
+        endDate.setFullYear(selectedStartDate.getFullYear());
+      }
+      setSelectedEndDate(endDate);
+      dateAndTime.end = endDate;
     } else {
+      if (selectedEndDate) {
+        let endDate = new Date(selectedEndDate);
+        endDate.setDate(date.getDate());
+        endDate.setMonth(date.getMonth());
+        endDate.setFullYear(date.getFullYear());
+        setSelectedEndDate(endDate);
+        dateAndTime.end = endDate;
+      }
       setSelectedStartDate(date);
       dateAndTime.start = date;
     }
