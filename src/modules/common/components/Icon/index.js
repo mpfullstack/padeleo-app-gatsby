@@ -7,7 +7,8 @@ import CheckIcon from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SettingsIcon from "@material-ui/icons/Settings";
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import GoogleCalenarIcon from "./GoogleCalendarIcon";
 
 export {
   IconButton,
@@ -19,5 +20,6 @@ export {
   CloseIcon,
   MoreVertIcon,
   SettingsIcon,
-  NavigateBeforeIcon
+  NavigateBeforeIcon,
+  GoogleCalenarIcon
 };

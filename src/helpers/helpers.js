@@ -39,6 +39,19 @@ const Helpers = {
 
     return template;
   },
+  buildMatchDetailsForCalendar: (match, intl) => {
+    const p1 = match.players[0].name;
+    const p2 = match.players[1].name;
+    const p3 = match.players[2].name;
+    const p4 = match.players[3].name;
+
+    let template = `${intl.formatMessage({id: "level" })}: ${match.level}`;
+    template += `\n\r${intl.formatMessage({id: "playerAbr"}, {num: 1})}: ${p1}`;
+    template += `\n\r${intl.formatMessage({id: "playerAbr"}, {num: 2})}: ${p2}`;
+    template += `\n\r${intl.formatMessage({id: "playerAbr"}, {num: 3})}: ${p3}`;
+    template += `\n\r${intl.formatMessage({id: "playerAbr"}, {num: 4})}: ${p4}`;
+    return template;
+  },
   buildLink: (link, language) => {
     if (!link.match(new RegExp(`^/${language}/`, 'gmi'))) {
       return `/${language}/${link}`;
