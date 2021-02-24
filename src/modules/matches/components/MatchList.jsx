@@ -160,7 +160,7 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
       );
     });
   } else {
-    return null;
+    return <p style={{ textAlign: "center", margin: "25px 0" }}>{intl.formatMessage({ id: "youHaveNoMatches" })}</p>;
   }
 };
 

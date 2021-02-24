@@ -4,7 +4,7 @@
   "metaDescription": "Create your padel match and share it with your friends through whatsapp",
   "hiPadeleros": "Hello!",
   "createMathIntroduction": "Create your padel match and share it through Whatsapp in a few seconds!!",
-  "createMatch": "Create the match",
+  "createMatch": "Create your match",
   "club": "Club",
   "clubName": "Club's name",
   "editClub": "Edit club",
@@ -49,5 +49,9 @@
   "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree.",
   "credits": "Credits",
   "emojisDesc": "Use emojis when sharing your match on Whatsapp",
-  "emojisLabel": "Toggle emojis"
+  "emojisLabel": "Toggle emojis",
+  "padelMatch": "Padel match",
+  "calendar": "Calendar",
+  "addToGoogleCalendar": "Add to Google Calendar",
+  "youHaveNoMatches": "You don't have any matches yet"
 }

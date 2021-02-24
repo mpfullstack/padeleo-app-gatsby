@@ -23,7 +23,7 @@
   "time": "Hora",
   "level": "Nivel",
   "editLevel": "Editar nivel",
-  "share": "Compártelo",
+  "share": "Compartir",
   "myMatches": "Mis partidos",
   "noDateTimeDefined": "Fecha y hora sin especificar",
   "from": "de",
@@ -49,5 +49,9 @@
   "cookiesAlertMessage": "Utilizamos cookies para asegurar que damos la mejor experiencia al usuario en nuestra web. Si sigues utilizando este sitio consideramos que estás de acuerdo.",
   "credits": "Créditos",
   "emojisDesc": "Usar iconos al compartir partido por Whatsapp",
-  "emojisLabel": "Habilitar/Deshabilitar emojis"
+  "emojisLabel": "Habilitar/Deshabilitar emojis",
+  "padelMatch": "Pártido de pádel",
+  "calendar": "Calendario",
+  "addToGoogleCalendar": "Añadir al tu calendario Google",
+  "youHaveNoMatches": "Todavía no tienes ningún partido"
 }

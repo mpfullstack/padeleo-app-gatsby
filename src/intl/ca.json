@@ -23,7 +23,7 @@
   "time": "Hora",
   "level": "Nivell",
   "editLevel": "Editar nivell",
-  "share": "Comparteix-lo",
+  "share": "Comparteix",
   "myMatches": "Els meus partits",
   "noDateTimeDefined": "Data i hora sense especificar",
   "from": "de",
@@ -47,5 +47,11 @@
   "viewCookiesPolicy": "Veure política de cookies",
   "accept": "Acceptar",
   "cookiesAlertMessage": "Utilitzem cookies per assegurar que donem la millor experiència a l'usuari al nostre web. Si segueixes utilitzant aquest lloc considerem que estàs d'acord.",
-  "credits": "Crèdits"
+  "credits": "Crèdits",
+  "emojisDesc": "Utilitzar icones al compartir partit per Whatsapp",
+  "emojisLabel": "Habilitar/Deshabilitar emojis",
+  "padelMatch": "Partit de pàdel",
+  "calendar": "Calendari",
+  "addToGoogleCalendar": "Afegir al teu calendari de Google",
+  "youHaveNoMatches": "Encara no tens cap partit"
 }

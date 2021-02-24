@@ -9,6 +9,7 @@ import MatchPanel from "../../modules/matches/components/MatchPanel";
 import MatchForm from "../../modules/matches/components/MatchForm";
 import Players from "../../modules/matches/components/Players";
 import WhatsappShareLink from "../../modules/common/components/WhatsappShareLink";
+import GoogleCalendarLink from "../../modules/common/components/GoogleCalendarLink";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
 
@@ -67,10 +68,21 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
           <Players players={match.players} />
         </MatchPanel>
         <Row>
-          <Col>
+          <Col xs="6">
             <WhatsappShareLink fullWidth={true} shareContent={shareContent} encode={false}>
               {intl.formatMessage({ id: "share" })}
             </WhatsappShareLink>
+          </Col>
+          <Col xs="6">
+            <GoogleCalendarLink
+              title={intl.formatMessage({ id: "padelMatch" })}
+              details={Helpers.buildMatchDetailsForCalendar(match, intl)}
+              location={match.clubName}
+              dates={startMatchTime ? Dates.format(startMatchTime, "yyyyMMdd'T'HHmmss") + '/' + Dates.format(endMatchTime, "yyyyMMdd'T'HHmmss") : ""}
+              ariaLabel={intl.formatMessage({ id: "addToGoogleCalendar" })}
+            >
+              {intl.formatMessage({ id: "calendar" })}
+            </GoogleCalendarLink>
           </Col>
         </Row>
       </Grid>
