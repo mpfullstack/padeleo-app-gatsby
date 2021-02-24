@@ -49,5 +49,8 @@
   "cookiesAlertMessage": "We use cookies to ensure that we give the best user experience on our website. If you continue using this site we consider that you agree.",
   "credits": "Credits",
   "emojisDesc": "Use emojis when sharing your match on Whatsapp",
-  "emojisLabel": "Toggle emojis"
+  "emojisLabel": "Toggle emojis",
+  "padelMatch": "Padel match",
+  "calendar": "Calendar",
+  "addToGoogleCalendar": "Add to Google Calendar"
 }
