@@ -23,7 +23,7 @@
   "time": "Hora",
   "level": "Nivell",
   "editLevel": "Editar nivell",
-  "share": "Comparteix-lo",
+  "share": "Comparteix",
   "myMatches": "Els meus partits",
   "noDateTimeDefined": "Data i hora sense especificar",
   "from": "de",
@@ -52,5 +52,6 @@
   "emojisLabel": "Habilitar/Deshabilitar emojis",
   "padelMatch": "Partit de pàdel",
   "calendar": "Calendari",
-  "addToGoogleCalendar": "Afegir al teu calendari de Google"
+  "addToGoogleCalendar": "Afegir al teu calendari de Google",
+  "youHaveNoMatches": "Encara no tens cap partit"
 }

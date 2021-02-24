@@ -23,7 +23,7 @@
   "time": "Hora",
   "level": "Nivel",
   "editLevel": "Editar nivel",
-  "share": "Compártelo",
+  "share": "Compartir",
   "myMatches": "Mis partidos",
   "noDateTimeDefined": "Fecha y hora sin especificar",
   "from": "de",
@@ -52,5 +52,6 @@
   "emojisLabel": "Habilitar/Deshabilitar emojis",
   "padelMatch": "Pártido de pádel",
   "calendar": "Calendario",
-  "addToGoogleCalendar": "Añadir al tu calendario Google"
+  "addToGoogleCalendar": "Añadir al tu calendario Google",
+  "youHaveNoMatches": "Todavía no tienes ningún partido"
 }

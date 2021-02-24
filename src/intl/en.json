@@ -4,7 +4,7 @@
   "metaDescription": "Create your padel match and share it with your friends through whatsapp",
   "hiPadeleros": "Hello!",
   "createMathIntroduction": "Create your padel match and share it through Whatsapp in a few seconds!!",
-  "createMatch": "Create the match",
+  "createMatch": "Create your match",
   "club": "Club",
   "clubName": "Club's name",
   "editClub": "Edit club",
@@ -52,5 +52,6 @@
   "emojisLabel": "Toggle emojis",
   "padelMatch": "Padel match",
   "calendar": "Calendar",
-  "addToGoogleCalendar": "Add to Google Calendar"
+  "addToGoogleCalendar": "Add to Google Calendar",
+  "youHaveNoMatches": "You don't have any matches yet"
 }
