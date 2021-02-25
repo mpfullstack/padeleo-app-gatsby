@@ -30,6 +30,7 @@ export const MatchShape = PropTypes.shape({
    */
   dateAndTime: PropTypes.object,
   level: PropTypes.string,
+  costPerPlayer: PropTypes.number,
   players: PropTypes.array // Array of players
 });
 
@@ -38,6 +39,7 @@ export const Match = {
   clubName: "",
   dateAndTime: {start: "", end: ""},
   level: "",
+  costPerPlayer: null,
   players: Array.from({length: 4}, () => ({ ...Player }))
 };
 
@@ -51,6 +53,7 @@ const initialState = matchesAdapter.getInitialState({
    * clubName
    * dateAndTime
    * level
+   * costPerPlayer
    * players
    */
   editing: "idle",
