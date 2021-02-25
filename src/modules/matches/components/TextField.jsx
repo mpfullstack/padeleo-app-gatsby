@@ -1,11 +1,11 @@
 import * as React from "react";
 // TODO: Move to common components
-import TextField from "@material-ui/core/TextField";
+import MuiTextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
 
-const ClubField = ({ id, label, value, onChange }) => {
+const TextField = ({ id, label, value, onChange }) => {
   return (
-    <TextField
+    <MuiTextField
       id={id}
       label={label}
       onChange={(e) => onChange(e.target.value)}
@@ -14,11 +14,11 @@ const ClubField = ({ id, label, value, onChange }) => {
   );
 };
 
-ClubField.propTypes = {
+TextField.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func
 };
 
-export default ClubField;
+export default TextField;
