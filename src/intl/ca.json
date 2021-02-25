@@ -56,6 +56,6 @@
   "youHaveNoMatches": "Encara no tens cap partit",
   "cost": "Cost",
   "costPerPlayer": "Cost por jugador",
-  "currencyByPlayer": "{currency} x jugador",
+  "currencyByPlayer": "{currency} / jugador",
   "editCost": "Editar cost"
 }
