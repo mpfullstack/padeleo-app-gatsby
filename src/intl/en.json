@@ -57,5 +57,6 @@
   "cost": "Cost",
   "costPerPlayer": "Cost per player",
   "currencyByPlayer": "{currency} / player",
-  "editCost": "Edit cost"
+  "editCost": "Edit cost",
+  "idiom": "Idiom"
 }
