@@ -41,8 +41,8 @@ const Menu = ({ Icon, onClickMenu, options = [] }) => {
           }}
         >
           {options.map((option) => (
-            <MuiMenuItem key={option} onClick={handleClose}>
-              {option}
+            <MuiMenuItem key={option.key} onClick={handleClose}>
+              {option.value}
             </MuiMenuItem>
           ))}
         </MuiMenu> : null}
