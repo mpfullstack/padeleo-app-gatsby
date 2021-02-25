@@ -50,8 +50,13 @@
   "credits": "Créditos",
   "emojisDesc": "Usar iconos al compartir partido por Whatsapp",
   "emojisLabel": "Habilitar/Deshabilitar emojis",
-  "padelMatch": "Pártido de pádel",
+  "padelMatch": "Partido de pádel",
   "calendar": "Calendario",
   "addToGoogleCalendar": "Añadir al tu calendario Google",
-  "youHaveNoMatches": "Todavía no tienes ningún partido"
+  "youHaveNoMatches": "Todavía no tienes ningún partido",
+  "cost": "Coste",
+  "costPerPlayer": "Coste por jugador",
+  "currencyByPlayer": "{currency} / jugador",
+  "editCost": "Editar coste",
+  "idiom": "Idioma"
 }

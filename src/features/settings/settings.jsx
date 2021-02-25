@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { toggleEmojis } from "./settingsSlice";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
+import Menu from "../../modules/common/components/Menu";
 import Switch from "../../modules/common/components/Switch";
+import { Link } from "gatsby";
 
 const mapDispatchToProps = { toggleEmojis };
 const mapStateToProps = ({ settings }) => {
@@ -11,6 +13,16 @@ const mapStateToProps = ({ settings }) => {
     settings
   }
 }
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  text-transform: uppercase;
+  color: ${props => props.theme.palette.secondary.main};
+  font-size: 14px;
+  &.selected {
+    font-weight: bold;
+  }
+`;
 
 const SettingsWrapper = styled.div`
   display: flex;
@@ -33,9 +45,32 @@ const SettingsWrapper = styled.div`
     }
     .settings-item-value {
       margin-left: auto;
+      .current-language {
+        font-size: 14px;
+        color: ${props => props.theme.palette.secondary.main};
+      }
     }
   }
 `;
+
+const idioms = [
+  {
+    key: "en",
+    value: "English"
+  },
+  {
+    key: "es",
+    value: "Castellano"
+  },
+  {
+    key: "ca",
+    value: "Català"
+  }
+];
+
+const getIdiomLabel = (locale, idioms) => {
+  return idioms.find(idiom => idiom.key === locale);
+}
 
 const Settings = ({ settings, toggleEmojis }) => {
   const intl = useIntl();
@@ -55,6 +90,24 @@ const Settings = ({ settings, toggleEmojis }) => {
             label={intl.formatMessage({ id: "emojisLabel" })}
             checked={settings.emojis}
             handleChange={() => toggleEmojis()} />
+        </span>
+      </div>
+      <div className="settings-item">
+        <p className="settings-item-name">
+          <span>{intl.formatMessage({ id: "idiom" })}</span>
+        </p>
+        <span className="settings-item-value">
+          <Menu Icon={() => <span className="current-language">{getIdiomLabel(intl.locale, idioms).value.toUpperCase()}</span>}
+            options={idioms.map(idiom => ({
+              key: idiom.key,
+              value: <StyledLink
+                className={idiom.key === intl.locale ? "selected" : ""}
+                to={`/${idiom.key}/settings`}
+              >
+                {idiom.value}
+              </StyledLink>
+            }))}
+          />
         </span>
       </div>
     </SettingsWrapper>

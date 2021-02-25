@@ -53,5 +53,10 @@
   "padelMatch": "Partit de pàdel",
   "calendar": "Calendari",
   "addToGoogleCalendar": "Afegir al teu calendari de Google",
-  "youHaveNoMatches": "Encara no tens cap partit"
+  "youHaveNoMatches": "Encara no tens cap partit",
+  "cost": "Cost",
+  "costPerPlayer": "Cost por jugador",
+  "currencyByPlayer": "{currency} / jugador",
+  "editCost": "Editar cost",
+  "idiom": "Idioma"
 }

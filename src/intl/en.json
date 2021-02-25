@@ -53,5 +53,10 @@
   "padelMatch": "Padel match",
   "calendar": "Calendar",
   "addToGoogleCalendar": "Add to Google Calendar",
-  "youHaveNoMatches": "You don't have any matches yet"
+  "youHaveNoMatches": "You don't have any matches yet",
+  "cost": "Cost",
+  "costPerPlayer": "Cost per player",
+  "currencyByPlayer": "{currency} / player",
+  "editCost": "Edit cost",
+  "idiom": "Idiom"
 }

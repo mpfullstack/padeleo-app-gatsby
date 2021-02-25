@@ -29,6 +29,11 @@ const RowPanel = styled(Row)`
     font-size: 18px;
     .text {
       margin: 5px 0;
+      .text-details {
+        font-size: 15px;
+        /* font-weight: normal; */
+        color: #333;
+      }
     }
   }
 `;
