@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Button from "../../common/components/Button";
 import PropTypes from "prop-types";
 import DateTimeField from "./DateTimeField";
-import ClubField from "./ClubField";
+import TextField from "./TextField";
 import PlayersField from "./PlayersField";
 import Helpers from "../../../helpers";
 
@@ -24,14 +24,16 @@ const MatchForm = ({ field, value, onFinish }) => {
   let fieldValue = value;
   const handleChange = (changedValue) => fieldValue = changedValue;
 
+  // TODO: Validate field values format
+
   return (
     <StyledForm noValidate autoComplete="off" onSubmit={(e) => {
       onFinish(fieldValue);
       e.preventDefault();
       e.stopPropagation();
     }}>
-      {field === "clubName" ?
-        <ClubField
+      {["clubName", "level", "costPerPlayer"].includes(field) ?
+        <TextField
           id={field}
           value={value}
           label={intl.formatMessage({ id: field })}
@@ -41,13 +43,6 @@ const MatchForm = ({ field, value, onFinish }) => {
         <DateTimeField
           start={Helpers.getStartMatchTime({ dateAndTime: value }) || null}
           end={Helpers.getEndMatchTime({ dateAndTime: value }) || null}
-          onChange={handleChange} /> : null}
-
-      {field === "level" ?
-        <ClubField
-          id={field}
-          value={value}
-          label={intl.formatMessage({ id: field })}
           onChange={handleChange} /> : null}
 
       {field === "players" ?

@@ -53,13 +53,30 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
               </p>
             </> : <p>---</p>}
         </MatchPanel>
-        <MatchPanel
-          title={intl.formatMessage({ id: "level" })}
-          onEdit={() => editMatchField("level")}
-          editLabel={intl.formatMessage({ id: "editLevel" })}
-        >
-          <p className="text">{match.level || "---"}</p>
-        </MatchPanel>
+        <Row>
+          <Col xs="6">
+            <MatchPanel
+              title={intl.formatMessage({ id: "level" })}
+              onEdit={() => editMatchField("level")}
+              editLabel={intl.formatMessage({ id: "editLevel" })}
+            >
+              <p className="text">{match.level || "---"}</p>
+            </MatchPanel>
+          </Col>
+          <Col xs="6">
+            <MatchPanel
+              title={intl.formatMessage({ id: "cost" })}
+              onEdit={() => editMatchField("costPerPlayer")}
+              editLabel={intl.formatMessage({ id: "editCost" })}
+            >
+              <p className="text">
+                {match.costPerPlayer ? `${match.costPerPlayer}` : "---"}
+                {` `}
+                <span className="text-details">{intl.formatMessage({ id: "currencyByPlayer" }, { currency: "€" })}</span>
+              </p>
+            </MatchPanel>
+          </Col>
+        </Row>
         <MatchPanel
           title={intl.formatMessage({ id: "players" })}
           onEdit={() => editMatchField("players")}
