@@ -57,5 +57,6 @@
   "cost": "Cost",
   "costPerPlayer": "Cost por jugador",
   "currencyByPlayer": "{currency} / jugador",
-  "editCost": "Editar cost"
+  "editCost": "Editar cost",
+  "idiom": "Idioma"
 }
