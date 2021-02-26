@@ -58,5 +58,8 @@
   "costPerPlayer": "Coste por jugador",
   "currencyByPlayer": "{currency} / jugador",
   "editCost": "Editar coste",
-  "idiom": "Idioma"
+  "idiom": "Idioma",
+  "coming": "Próximos",
+  "past": "Pasados",
+  "all": "Todos"
 }
