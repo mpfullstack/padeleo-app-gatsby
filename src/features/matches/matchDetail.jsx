@@ -54,7 +54,7 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
             </> : <p>---</p>}
         </MatchPanel>
         <Row>
-          <Col xs="6">
+          <Col xs={6}>
             <MatchPanel
               title={intl.formatMessage({ id: "level" })}
               onEdit={() => editMatchField("level")}
@@ -63,7 +63,7 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
               <p className="text">{match.level || "---"}</p>
             </MatchPanel>
           </Col>
-          <Col xs="6">
+          <Col xs={6}>
             <MatchPanel
               title={intl.formatMessage({ id: "cost" })}
               onEdit={() => editMatchField("costPerPlayer")}
@@ -85,12 +85,12 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
           <Players players={match.players} />
         </MatchPanel>
         <Row>
-          <Col xs="6">
+          <Col xs={6}>
             <WhatsappShareLink fullWidth={true} shareContent={shareContent} encode={false}>
               {intl.formatMessage({ id: "share" })}
             </WhatsappShareLink>
           </Col>
-          <Col xs="6">
+          <Col xs={6}>
             <GoogleCalendarLink
               title={intl.formatMessage({ id: "padelMatch" })}
               details={Helpers.buildMatchDetailsForCalendar(match, intl)}
