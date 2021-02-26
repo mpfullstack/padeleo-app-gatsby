@@ -24,7 +24,7 @@ const FeedbackPage = () => {
   return (
     <IndexLayout>
       <FeedbackWrapper>
-        <h1>{intl.formatMessage({ id: "Feedback" })}</h1>
+        <h1>{intl.formatMessage({ id: "feedback" })}</h1>
         <p className="text">{intl.formatMessage({ id: "feedbackIntroduction1" })}</p>
         <p className="text">{intl.formatMessage({ id: "feedbackIntroduction2" })}{` `}<a href="mailto:info@marcperez.cat">info@marcperez.cat</a></p>
       </FeedbackWrapper>
