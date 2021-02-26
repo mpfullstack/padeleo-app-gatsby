@@ -3,14 +3,16 @@ import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import Button from "../../modules/common/components/Button";
-import { createMatch, editMatch, matchesSelectors, deleteMatch, deletedMatch } from "./matchesSlice";
+import { createMatch, editMatch, matchesSelectors, deleteMatch, deletedMatch, selectTab } from "./matchesSlice";
 import MatchDetail from "./matchDetail";
 import MatchList from "../../modules/matches/components/MatchList";
+import MatchesTabs from "../../modules/matches/components/MatchesTabs";
 
-const mapDispatchToProps = { createMatch, editMatch, deleteMatch, deletedMatch };
+const mapDispatchToProps = { createMatch, editMatch, deleteMatch, deletedMatch, selectTab };
 const mapStateToProps = ({ matches }) => {
   return {
-    matches: matchesSelectors.selectAll(matches),
+    matches: matchesSelectors.selectByTab(matches, matches.tab),
+    tab: matches.tab,
     match: matches.match,
     deleteMatchId: matches.deleting
   }
@@ -24,7 +26,10 @@ const MatchesWrapper = styled.div`
   }
 `;
 
-const Matches = ({ createMatch, editMatch, match, matches, deletedMatch, deleteMatch, deleteMatchId }) => {
+const Matches = ({
+  createMatch, editMatch, match, matches, deletedMatch,
+  deleteMatch, deleteMatchId, selectTab, tab
+}) => {
   const intl = useIntl();
 
   if (match.id) {
@@ -32,6 +37,7 @@ const Matches = ({ createMatch, editMatch, match, matches, deletedMatch, deleteM
   } else {
     return (
       <MatchesWrapper>
+        <MatchesTabs selected={tab} handleTabChange={selectTab} />
         <MatchList
           matches={matches}
           onEditMatch={editMatch}

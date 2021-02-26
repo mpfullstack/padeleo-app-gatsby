@@ -58,5 +58,11 @@
   "costPerPlayer": "Cost per player",
   "currencyByPlayer": "{currency} / player",
   "editCost": "Edit cost",
-  "idiom": "Idiom"
+  "idiom": "Idiom",
+  "coming": "Coming",
+  "past": "Past",
+  "all": "All",
+  "feedback": "Feedback",
+  "feedbackIntroduction1": "If you have any problem using the app, you find out that something isn't working as expected or you just would like to have new features in the app.",
+  "feedbackIntroduction2": "Please, do not hesitate to contact me and send me an email to"
 }

@@ -58,5 +58,11 @@
   "costPerPlayer": "Coste por jugador",
   "currencyByPlayer": "{currency} / jugador",
   "editCost": "Editar coste",
-  "idiom": "Idioma"
+  "idiom": "Idioma",
+  "coming": "Próximos",
+  "past": "Pasados",
+  "all": "Todos",
+  "feedback": "Comentarios",
+  "feedbackIntroduction1": "Si tienes algún problema al usar la aplicación, descubres que algo no funciona correctamente o simplemente te gustaría tener nuevas funciones en la aplicación.",
+  "feedbackIntroduction2": "Por favor, no dudes en contactar conmigo y enviar un email a"
 }
