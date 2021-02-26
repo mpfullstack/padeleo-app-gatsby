@@ -1,4 +1,5 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
@@ -60,7 +61,12 @@ const initialState = matchesAdapter.getInitialState({
   /**
    * It holds the id of the match to delete or "idle"
    */
-  deleting: "idle"
+  deleting: "idle",
+  /**
+   * It holds the tab selected to filter matches by
+   * [coming|past|all]
+   */
+  tab: "coming"
 });
 
 const matchesSlice = createSlice({
@@ -100,6 +106,9 @@ const matchesSlice = createSlice({
     deletedMatch: (state, action) => {
       state.deleting = "idle";
       matchesAdapter.removeOne(state, action);
+    },
+    selectTab: (state, action) => {
+      state.tab = action.payload;
     }
   }
 })
@@ -112,11 +121,36 @@ export const {
   editMatchField,
   updatedOrCreatedMatch,
   deleteMatch,
-  deletedMatch
+  deletedMatch,
+  selectTab
 } = matchesSlice.actions;
 
+const selectors = matchesAdapter.getSelectors();
+
+const selectByTab = createSelector(
+  (matches, tab) => ({
+    matches: selectors.selectAll(matches),
+    tab
+  }),
+  ({ matches, tab }) => {
+    if (tab === "all") {
+      return matches;
+    }
+    return matches.filter(match => {
+      if (tab === "coming") {
+        return new Date(match.dateAndTime.start) > new Date()
+      } else if (tab === "past") {
+        return new Date(match.dateAndTime.start) < new Date()
+      } else {
+        return false;
+      }
+    });
+  }
+);
+
 export const matchesSelectors = {
-  ...matchesAdapter.getSelectors()
+  ...selectors,
+  selectByTab
 };
 
 export default matchesSlice.reducer;

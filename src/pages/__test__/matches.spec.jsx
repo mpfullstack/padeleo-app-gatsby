@@ -67,27 +67,89 @@ describe("Testing matches feature", () => {
     });
   });
 
-  test("Expect the match list to be empty after deleting the unique match", async () => {
+  test("Expect the match date to be updated correctly", async () => {
+    render(component);
+
+    const matchDate = `10/01/${new Date().getFullYear()+1}`;
+
+    // Open panel to edit match dates
+    fireEvent.click(await screen.getByRole('button', {
+      name: /Editar fecha y hora/i
+    }));
+    await waitFor(() => {
+      expect(screen.getAllByText(/Fecha y hora/i)[0]).toBeInTheDocument();
+    });
+
+    // Update input dates field value
+    const input = screen.getByLabelText("Fecha del partido", { selector: 'input' });
+    fireEvent.change(input, { target: { value: matchDate } });
+
+    // Click on save button
+    fireEvent.click(await screen.getByRole('button', {
+      name: /Guardar/i
+    }));
+
+    // Check match date is updated correctly
+    await waitFor(() => {
+      expect(screen.getByText(matchDate, { exact: false })).toBeInTheDocument();
+    });
+  });
+
+  test("Expect the match start time to be updated correctly", async () => {
+    render(component);
+
+    const matchStartTime = `10:00`;
+
+    // Open panel to edit match date time
+    fireEvent.click(await screen.getByRole('button', {
+      name: /Editar fecha y hora/i
+    }));
+    await waitFor(() => {
+      expect(screen.getAllByText(/Fecha y hora/i)[0]).toBeInTheDocument();
+    });
+
+    // Update input start time field value
+    const input = screen.getByLabelText("Hora inicio", { selector: 'input' });
+    fireEvent.change(input, { target: { value: matchStartTime } });
+
+    // Click on save button
+    fireEvent.click(await screen.getByRole('button', {
+      name: /Guardar/i
+    }));
+
+    // Check match start time is updated correctly
+    await waitFor(() => {
+      expect(screen.getByText(matchStartTime, { exact: false })).toBeInTheDocument();
+    });
+  });
+
+  test("Expect the match list 'All' tab to be empty after deleting the unique match", async () => {
     render(component);
 
     fireEvent.click(await screen.getByText('Mis partidos'));
-    await waitFor(() => {
-      expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
-    });
 
-    // Click on delete match button and expect to find delete confirmation text
-    const deleteMatchButton = screen.getAllByRole('button', { name: /Eliminar partido/i})[0];
-    expect(deleteMatchButton).toBeInTheDocument();
-    fireEvent.click(deleteMatchButton);
-    await waitFor(() => {
-      expect(screen.queryByText('Eliminar?')).toBeInTheDocument();
-    });
+    await waitFor(async () => {
+      expect(screen.getByText('Todos', { exact: false })).toBeInTheDocument();
+      fireEvent.click(await screen.getByText('Todos', { exact: false }));
 
-    // Click on delete match confirmation button and expect the match to be deleted
-    const deleteConfirmButton = screen.getByRole('button', { name: /Eliminar/i});
-    fireEvent.click(deleteConfirmButton);
-    await waitFor(() => {
-      expect(screen.queryByText('Montgat Padel La Riera')).not.toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByText('Montgat Padel La Riera')).toBeInTheDocument();
+      });
+
+      // Click on delete match button and expect to find delete confirmation text
+      const deleteMatchButton = screen.getAllByRole('button', { name: /Eliminar partido/i})[0];
+      expect(deleteMatchButton).toBeInTheDocument();
+      fireEvent.click(deleteMatchButton);
+      await waitFor(() => {
+        expect(screen.queryByText('Eliminar?')).toBeInTheDocument();
+      });
+
+      // Click on delete match confirmation button and expect the match to be deleted
+      const deleteConfirmButton = screen.getByRole('button', { name: /Eliminar/i});
+      fireEvent.click(deleteConfirmButton);
+      await waitFor(() => {
+        expect(screen.queryByText('Montgat Padel La Riera')).not.toBeInTheDocument();
+      });
     });
   });
 });

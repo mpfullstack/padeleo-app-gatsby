@@ -58,5 +58,8 @@
   "costPerPlayer": "Cost per player",
   "currencyByPlayer": "{currency} / player",
   "editCost": "Edit cost",
-  "idiom": "Idiom"
+  "idiom": "Idiom",
+  "coming": "Coming",
+  "past": "Past",
+  "all": "All"
 }
