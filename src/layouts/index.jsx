@@ -115,6 +115,7 @@ const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo 
         {/* <Link to="/legal_advice">{intl.formatMessage({ id: "legalAdvice" })}</Link> */}
         <Link to="/legal_advice">{intl.formatMessage({ id: "cookiesPolicy" })}</Link>
         <a href={`https://marcperez.cat/${intl.locale}/`}>{intl.formatMessage({ id: "credits" })}</a>
+        <Link to="/feedback">{intl.formatMessage({ id: "feedback" })}</Link>
       </Footer>
       <CookiesAlert />
     </LayoutWrapper>
