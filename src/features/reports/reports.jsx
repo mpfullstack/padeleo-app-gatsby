@@ -21,7 +21,7 @@ const mapStateToProps = ({ matches, reports }) => {
 
 const ReportsWrapper = styled.div``;
 
-const Reports = ({ matches, period }) => {
+const Reports = ({ matches, period, start, end }) => {
   const intl = useIntl();
 
   const reportsData = matches.reduce((accumulator, match) => {
@@ -29,7 +29,7 @@ const Reports = ({ matches, period }) => {
       const key = Dates.format(new Date(match.dateAndTime.start), "MM/yyyy");
       if (key in accumulator) {
         accumulator[key].matchesAmount += 1;
-        accumulator[key].cost += match.costPerPlayer ? match.costPerPlayer : 0;
+        accumulator[key].cost += match.costPerPlayer ? Number(match.costPerPlayer) : 0;
       } else {
         accumulator[key] = {
           date: Dates.format(new Date(match.dateAndTime.start), "MM/01/yyyy"),
@@ -37,17 +37,22 @@ const Reports = ({ matches, period }) => {
           cost: match.costPerPlayer ? match.costPerPlayer : 0
         };
       }
+      accumulator.totalCost += match.costPerPlayer ? Number(match.costPerPlayer) : 0;
+      accumulator.totalMatchesAmount += 1;
     } else {
 
     }
     return accumulator;
-  }, {});
+  }, {
+    totalCost: 0,
+    totalMatchesAmount: 0
+  });
 
   return (
     <ReportsWrapper>
       <h1 style={{display: "none"}}>{intl.formatMessage({ id: "reports" })}</h1>
       <ReportFilters />
-      <ReportView data={reportsData} period={period} />
+      <ReportView data={reportsData} period={period} start={start} end={end} />
     </ReportsWrapper>
   );
 };

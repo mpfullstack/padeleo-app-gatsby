@@ -9,6 +9,16 @@ import Panel from "../../common/components/Panel";
 import { Grid } from "@material-ui/core";
 import { Col } from "../../common/components/Layout";
 
+const ReportViewWrapper = styled.div`
+  .totals {
+    display: flex;
+    justify-content: space-between;
+    .totals-item {
+      font-size: 15px;
+    }
+  }
+`;
+
 const ReportItems = styled(Grid)`
   margin-top: 10px;
   justify-content: space-between;
@@ -21,7 +31,10 @@ const ReportItem = styled(Col)`
   }
   .card-header {
     padding: 10px 10px 0 10px;
-    font-size: 16px;
+    .panel-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
   }
   .card-content {
     padding: 0 10px 10px 10px;
@@ -39,24 +52,41 @@ const ReportItem = styled(Col)`
   }
 `;
 
-const ReportView = ({ data, period }) => {
+const ReportView = ({ data, start, end, period }) => {
   const intl = useIntl();
-  const keys = Object.keys(data).sort();
 
-  if (keys.length) {
+  if (period === MONTHLY) {
+    const items = [];
+    let from = new Date(start);
+    const to = new Date(end);
+    while(from <= to) {
+      const key = Dates.format(new Date(from), "MM/yyyy");
+      const itemData = {
+        date: Helpers.capitalise(Dates.format(from, "MMM yyyy", intl.locale))
+      }
+      if (key in data) {
+        itemData.matchesAmount = data[key].matchesAmount;
+        itemData.cost = data[key].cost;
+      }
+      items.push(
+        <ReportItem key={key} xs={6} className="report-item">
+          <Panel title={itemData.date}>
+            <p className="text matches-amount">{itemData.matchesAmount || "---"} {intl.formatMessage({ id: "matches" })}</p>
+            <p className="text cost">{itemData.cost || "---"} &euro;</p>
+          </Panel>
+        </ReportItem>
+      );
+      from = Dates.addMonths(from, 1);
+    }
+
     return (
-      <ReportItems container>{
-        keys.map(key => {
-          return (
-            <ReportItem key={key} xs={6} className="report-item">
-              <Panel title={Helpers.capitalise(Dates.format(new Date(data[key].date), "MMMM", intl.locale))}>
-                <p className="text matches-amount">{data[key].matchesAmount} {intl.formatMessage({ id: "matches" })}</p>
-                <p className="text cost">{data[key].cost} &euro;</p>
-              </Panel>
-            </ReportItem>
-          );
-        })
-      }</ReportItems>
+      <ReportViewWrapper>
+        <p className="totals">
+          <span className="totals-item">{intl.formatMessage({ id: "totalExpenses" })}: <strong>{data.totalCost} &euro;</strong></span>
+          <span className="totals-item">{intl.formatMessage({ id: "matchesPlayed" })}: <strong>{data.totalMatchesAmount}</strong></span>
+        </p>
+        <ReportItems container>{items}</ReportItems>
+      </ReportViewWrapper>
     );
   } else {
     return null;
@@ -64,7 +94,9 @@ const ReportView = ({ data, period }) => {
 }
 
 ReportView.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object.isRequired,
+  start: PropTypes.string.isRequired,
+  end: PropTypes.string.isRequired,
   period: PropTypes.oneOf([MONTHLY, WEEKLY])
 };
 

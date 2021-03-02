@@ -10,7 +10,7 @@ const Panel = ({ children, title, action }) => {
     <Card>
       <CardHeader
         className="card-header"
-        title={title}
+        title={<span className="panel-title">{title}</span>}
         action={action}
       />
       <CardContent className="card-content">{children}</CardContent>

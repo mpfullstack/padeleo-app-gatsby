@@ -22,10 +22,10 @@ const PeriodFilter = ({ period, onChange }) => {
       label: intl.formatMessage({ id: MONTHLY }),
       value: MONTHLY
     },
-    {
-      label: intl.formatMessage({ id: WEEKLY }),
-      value: WEEKLY
-    }
+    // {
+    //   label: intl.formatMessage({ id: WEEKLY }),
+    //   value: WEEKLY
+    // }
   ];
 
   return (

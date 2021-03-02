@@ -71,5 +71,7 @@
   "period": "Període",
   "monthly": "Mensual",
   "weekly": "Setmanal",
-  "matches": "partits"
+  "matches": "partits",
+  "totalExpenses": "Gastos totals",
+  "matchesPlayed": "Partits jugats"
 }

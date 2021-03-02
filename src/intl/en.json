@@ -71,5 +71,7 @@
   "period": "Period",
   "monthly": "Monthly",
   "weekly": "Weekly",
-  "matches": "matches"
+  "matches": "matches",
+  "totalExpenses": "Total expenses",
+  "matchesPlayed": "Matches played"
 }

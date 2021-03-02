@@ -27,8 +27,8 @@ const DatesFilter = ({ start, end, onChange }) => {
 };
 
 DatesFilter.propTypes = {
-  start: PropTypes.string,
-  end: PropTypes.string,
+  start: PropTypes.object,
+  end: PropTypes.object,
   onChange: PropTypes.func
 };
 

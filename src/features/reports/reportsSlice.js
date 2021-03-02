@@ -7,14 +7,14 @@ const getDefaultStartDate = () => {
   const date = new Date();
   date.setMonth(0);
   date.setDate(1);
-  return date.toISOString();
+  return date;
 }
 
 const getDefaultEndDate = () => {
   const date = new Date();
   date.setMonth(11);
   date.setDate(31);
-  return date.toISOString();
+  return date;
 }
 
 const initialState = {
@@ -32,10 +32,10 @@ const reportsSlice = createSlice({
       state.loading = true;
     },
     setStartDate(state, action) {
-      state.start = action.payload.toISOString();
+      state.start = action.payload;
     },
     setEndDate(state, action) {
-      state.end = action.payload.toISOString();
+      state.end = action.payload;
     },
     changePeriod(state, action) {
       state.period = action.payload;
