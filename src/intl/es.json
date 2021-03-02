@@ -73,5 +73,6 @@
   "weekly": "Semanal",
   "matches": "partidos",
   "totalExpenses": "Gastos totales",
-  "matchesPlayed": "Partidos jugados"
+  "matchesPlayed": "Partidos jugados",
+  "view": "Ver"
 }

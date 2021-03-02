@@ -1,8 +1,8 @@
 import * as React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { toggleEmojis } from "./settingsSlice";
 import { useIntl } from "gatsby-plugin-intl";
-import { connect } from "react-redux";
 import Menu from "../../modules/common/components/Menu";
 import Switch from "../../modules/common/components/Switch";
 import { Link } from "gatsby";
@@ -108,6 +108,14 @@ const Settings = ({ settings, toggleEmojis }) => {
               </StyledLink>
             }))}
           />
+        </span>
+      </div>
+      <div className="settings-item">
+        <p className="settings-item-name">
+          <span>{intl.formatMessage({ id: "reports" })}</span>
+        </p>
+        <span className="settings-item-value">
+          <Link to={`/${intl.locale}/reports`}>{intl.formatMessage({ id: "view" })}</Link>
         </span>
       </div>
     </SettingsWrapper>
