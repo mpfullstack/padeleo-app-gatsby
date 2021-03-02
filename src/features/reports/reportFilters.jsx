@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import { setStartDate, setEndDate, changePeriod } from "./reportsSlice";
-import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
+import DatesFilter from "../../modules/reports/components/DatesFilter";
+import PeriodFilter from "../../modules/reports/components/PeriodFilter";
 
 const mapDispatchToProps = { setStartDate, setEndDate, changePeriod };
 const mapStateToProps = ({ reports }) => {
@@ -13,14 +14,24 @@ const mapStateToProps = ({ reports }) => {
   }
 }
 
-const ReportFilters = styled.div``;
+const ReportFiltersWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
 
 const ReportFilters = ({ start, end, period, setStartDate, setEndDate, changePeriod }) => {
-  const intl = useIntl();
+  const handleDatesChange = (field, value) => {
+    if (field === "start") {
+      setStartDate(value);
+    } else {
+      setEndDate(value);
+    }
+  }
 
   return (
     <ReportFiltersWrapper>
-
+      <DatesFilter start={start} end={end} onChange={handleDatesChange} />
+      <PeriodFilter period={period} onChange={changePeriod} />
     </ReportFiltersWrapper>
   );
 };

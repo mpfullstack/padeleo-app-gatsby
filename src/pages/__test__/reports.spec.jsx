@@ -26,9 +26,10 @@ describe("Testing reports feature", () => {
     );
   });
 
-  test("Start date filter to be in document", async () => {
+  test("Dates filter filter to be in document", async () => {
     render(component);
 
-    expect(await screen.findByText("Fecha de inicio")).toBeInTheDocument();
+    expect(await screen.findByText("Fecha inicial")).toBeInTheDocument();
+    expect(await screen.findByText("Fecha final")).toBeInTheDocument();
   });
 });

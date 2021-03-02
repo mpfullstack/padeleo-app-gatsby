@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
-import ReportFilters from "./reportsSlice";
+import ReportFilters from "./reportFilters";
 
 const mapDispatchToProps = {};
 const mapStateToProps = ({ reports }) => {

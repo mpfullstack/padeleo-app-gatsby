@@ -18,6 +18,8 @@
   "matchDate": "Match's date",
   "matchTime": "Match's time",
   "startTime": "Start time",
+  "startDate": "Start date",
+  "endDate": "End date",
   "endTime": "End time",
   "date": "Date",
   "time": "Time",
@@ -65,5 +67,8 @@
   "feedback": "Feedback",
   "feedbackIntroduction1": "If you have any problem using the app, you find out that something isn't working as expected or you just would like to have new features in the app.",
   "feedbackIntroduction2": "Please, do not hesitate to contact me and send me an email to",
-  "reports": "Reports"
+  "reports": "Reports",
+  "period": "Period",
+  "monthly": "Monthly",
+  "weekly": "Weekly"
 }
