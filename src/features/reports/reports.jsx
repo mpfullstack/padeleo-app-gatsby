@@ -34,7 +34,7 @@ const Reports = ({ matches, period, start, end }) => {
         accumulator[key] = {
           date: Dates.format(new Date(match.dateAndTime.start), "MM/01/yyyy"),
           matchesAmount: 1,
-          cost: match.costPerPlayer ? match.costPerPlayer : 0
+          cost: match.costPerPlayer ? Number(match.costPerPlayer) : 0
         };
       }
       accumulator.totalCost += match.costPerPlayer ? Number(match.costPerPlayer) : 0;
