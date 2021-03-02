@@ -7,7 +7,10 @@ import RadioGroup from "../../common/components/RadioGroup";
 
 const PeriodFilterWrapper = styled.div`
   .radio-control {
-    margin: 14px 0 0 0;
+    margin: 0;
+    &:first-child {
+      margin: 16px 0 0 0;
+    }
   }
 `;
 

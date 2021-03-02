@@ -24,7 +24,7 @@ const DatePicker = ({ date, label, onChange }) => {
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={localeMap[intl.locale]}>
       <KeyboardDatePicker
         margin="normal"
-        id="date-picker-dialog"
+        id={`date-picker-dialog-${label}`.replace(/\s/gmi, "")}
         label={label}
         format="dd/MM/yyyy"
         value={selectedDate}

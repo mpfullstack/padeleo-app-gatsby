@@ -148,9 +148,23 @@ const selectByTab = createSelector(
   }
 );
 
+const selectByDates = createSelector(
+  (matches, { start, end }) => ({
+    matches: selectors.selectAll(matches),
+    start,
+    end
+  }),
+  ({ matches, start, end }) => {
+    return matches.filter(match => {
+      return new Date(match.dateAndTime.start) >= new Date(start) && new Date(match.dateAndTime.start) <= new Date(end)
+    });
+  }
+);
+
 export const matchesSelectors = {
   ...selectors,
-  selectByTab
+  selectByTab,
+  selectByDates
 };
 
 export default matchesSlice.reducer;
