@@ -95,7 +95,7 @@ const ReportView = ({ data, start, end, period }) => {
       <ReportViewWrapper>
         <p className="totals">
           <span className="totals-item"><strong className="value">{data.totalMatchesAmount}</strong> {intl.formatMessage({ id: "matchesPlayed" })}</span>
-          <span className="totals-item"><strong className="value">{data.totalCost} &euro;</strong> {intl.formatMessage({ id: "spent" })}</span>
+          <span className="totals-item"><strong className="value">{data.totalCost ? Number(data.totalCost).toFixed(2) : data.totalCost} &euro;</strong> {intl.formatMessage({ id: "spent" })}</span>
           <span className="totals-item">
             <strong className="value">{getAverage(data.totalMatchesAmount, data.totalCost)} &euro;</strong>
             {` `}{intl.formatMessage({ id: "averageMatchCost" })}
