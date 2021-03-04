@@ -76,5 +76,6 @@
   "matchesPlayed": "partidos jugados",
   "view": "Ver",
   "yourStatistics": "Tus estadísticas",
-  "averageMatchCost": "de media por partido"
+  "averageMatchCost": "de media por partido",
+  "settings": "Ajustes"
 }
