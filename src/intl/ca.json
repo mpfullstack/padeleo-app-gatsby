@@ -19,6 +19,8 @@
   "matchTime": "Hora del partit",
   "startTime": "Hora inici",
   "endTime": "Hora final",
+  "startDate": "Data d'inici",
+  "endDate": "Data final",
   "date": "Data",
   "time": "Hora",
   "level": "Nivell",
@@ -64,5 +66,15 @@
   "all": "Tots",
   "feedback": "Comentaris",
   "feedbackIntroduction1": "Si tens cap problema amb l'ús de l'aplicació, descobreixes que alguna cosa no funciona correctament o simplement t'agradaria tenir noves funcions a l'aplicació.",
-  "feedbackIntroduction2": "Per favor, no ho dubtis i contacta amb mi, envia un email a"
+  "feedbackIntroduction2": "Per favor, no ho dubtis i contacta amb mi, envia un email a",
+  "statistics": "Estadístiques",
+  "period": "Període",
+  "monthly": "Mensual",
+  "weekly": "Setmanal",
+  "matches": "partits",
+  "spent": "gastats",
+  "matchesPlayed": "partits jugats",
+  "view": "Veure",
+  "yourStatistics": "Les teves estadístiques",
+  "averageMatchCost": "de mitja per partit"
 }

@@ -7,6 +7,7 @@ import { createMatch, editMatch, matchesSelectors, deleteMatch, deletedMatch, se
 import MatchDetail from "./matchDetail";
 import MatchList from "../../modules/matches/components/MatchList";
 import MatchesTabs from "../../modules/matches/components/MatchesTabs";
+import Title from "../../modules/common/components/Title";
 
 const mapDispatchToProps = { createMatch, editMatch, deleteMatch, deletedMatch, selectTab };
 const mapStateToProps = ({ matches }) => {
@@ -37,6 +38,7 @@ const Matches = ({
   } else {
     return (
       <MatchesWrapper>
+        <Title>{intl.formatMessage({ id: "myMatches" })}</Title>
         <MatchesTabs selected={tab} handleTabChange={selectTab} />
         <MatchList
           matches={matches}
