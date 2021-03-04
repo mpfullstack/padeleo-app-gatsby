@@ -2,7 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-intl";
-import { MONTHLY, WEEKLY } from "../../../features/reports/reportsSlice";
+import { MONTHLY } from "../../../features/reports/reportsSlice";
 import RadioGroup from "../../common/components/RadioGroup";
 
 const PeriodFilterWrapper = styled.div`

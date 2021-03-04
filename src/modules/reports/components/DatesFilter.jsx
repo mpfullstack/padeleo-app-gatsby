@@ -6,10 +6,14 @@ import DatePicker from "../../common/components/DateTime/DatePicker";
 
 const DatesFilterWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-  border-right: 1px solid #ccc;
-  padding-right: 25px;
+  margin-top: 5px;
+  /* flex-direction: column; */
+  /* flex-basis: 50%; */
+  /* border-right: 1px solid #ccc; */
+  /* padding-right: 25px; */
+  & > div:first-child {
+    margin-right: 20px;
+  }
   & > div {
     margin-top: 0;
   }

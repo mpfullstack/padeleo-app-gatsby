@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { setStartDate, setEndDate, changePeriod } from "./reportsSlice";
 import { connect } from "react-redux";
 import DatesFilter from "../../modules/reports/components/DatesFilter";
-import PeriodFilter from "../../modules/reports/components/PeriodFilter";
+// import PeriodFilter from "../../modules/reports/components/PeriodFilter";
 
 const mapDispatchToProps = { setStartDate, setEndDate, changePeriod };
 const mapStateToProps = ({ reports }) => {
@@ -31,7 +31,7 @@ const ReportFilters = ({ start, end, period, setStartDate, setEndDate, changePer
   return (
     <ReportFiltersWrapper>
       <DatesFilter start={start} end={end} onChange={handleDatesChange} />
-      <PeriodFilter period={period} onChange={changePeriod} />
+      {/* <PeriodFilter period={period} onChange={changePeriod} /> */}
     </ReportFiltersWrapper>
   );
 };

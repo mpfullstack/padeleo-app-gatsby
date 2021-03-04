@@ -112,7 +112,7 @@ const Settings = ({ settings, toggleEmojis }) => {
       </div>
       <div className="settings-item">
         <p className="settings-item-name">
-          <span>{intl.formatMessage({ id: "reports" })}</span>
+          <span>{intl.formatMessage({ id: "statistics" })}</span>
         </p>
         <span className="settings-item-value">
           <Link to={`/${intl.locale}/reports`}>{intl.formatMessage({ id: "view" })}</Link>

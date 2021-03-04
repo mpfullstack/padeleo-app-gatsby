@@ -4,7 +4,7 @@ import Reports from "../features/reports";
 
 const ReportsPage = (props) => {
   return (
-    <IndexLayout smallLogo={true} withMenu={true} path={props.path} >
+    <IndexLayout smallLogo={true} withMenu={true} path={props.path} withBreadcrumb={true} >
       <Reports />
     </IndexLayout>
   );

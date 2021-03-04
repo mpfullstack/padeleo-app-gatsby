@@ -4,7 +4,8 @@ import { useIntl } from "gatsby-plugin-intl";
 import { connect } from "react-redux";
 import { matchesSelectors } from "../matches/matchesSlice";
 import ReportFilters from "./reportFilters";
-import { MONTHLY, WEEKLY } from "./reportsSlice";
+import { MONTHLY } from "./reportsSlice";
+import Title from "../../modules/common/components/Title";
 import Dates from "../../helpers/dates";
 import ReportView from "../../modules/reports/components/ReportView";
 
@@ -50,7 +51,7 @@ const Reports = ({ matches, period, start, end }) => {
 
   return (
     <ReportsWrapper>
-      <h1 style={{display: "none"}}>{intl.formatMessage({ id: "reports" })}</h1>
+      <Title>{intl.formatMessage({ id: "yourStatistics" })}</Title>
       <ReportFilters />
       <ReportView data={reportsData} period={period} start={start} end={end} />
     </ReportsWrapper>

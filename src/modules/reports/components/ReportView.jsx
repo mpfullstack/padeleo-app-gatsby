@@ -12,15 +12,19 @@ import { Col } from "../../common/components/Layout";
 const ReportViewWrapper = styled.div`
   .totals {
     display: flex;
-    justify-content: space-between;
+    margin: 5px 0 0 0;
+    flex-direction: column;
     .totals-item {
       font-size: 15px;
+      .value {
+        font-size: 20px;
+      }
     }
   }
 `;
 
 const ReportItems = styled(Grid)`
-  margin-top: 10px;
+  margin-top: 5px;
   justify-content: space-between;
 `;
 
@@ -55,6 +59,14 @@ const ReportItem = styled(Col)`
 const ReportView = ({ data, start, end, period }) => {
   const intl = useIntl();
 
+  function getAverage(totalMatches, totalCost) {
+    if (totalMatches && totalCost) {
+      return Number(totalCost / totalMatches).toFixed(2);
+    } else {
+      return "0";
+    }
+  }
+
   if (period === MONTHLY) {
     const items = [];
     let from = new Date(start);
@@ -82,8 +94,12 @@ const ReportView = ({ data, start, end, period }) => {
     return (
       <ReportViewWrapper>
         <p className="totals">
-          <span className="totals-item">{intl.formatMessage({ id: "totalExpenses" })}: <strong>{data.totalCost} &euro;</strong></span>
-          <span className="totals-item">{intl.formatMessage({ id: "matchesPlayed" })}: <strong>{data.totalMatchesAmount}</strong></span>
+          <span className="totals-item"><strong className="value">{data.totalMatchesAmount}</strong> {intl.formatMessage({ id: "matchesPlayed" })}</span>
+          <span className="totals-item"><strong className="value">{data.totalCost} &euro;</strong> {intl.formatMessage({ id: "spent" })}</span>
+          <span className="totals-item">
+            <strong className="value">{getAverage(data.totalMatchesAmount, data.totalCost)} &euro;</strong>
+            {` `}{intl.formatMessage({ id: "averageMatchCost" })}
+          </span>
         </p>
         <ReportItems container>{items}</ReportItems>
       </ReportViewWrapper>

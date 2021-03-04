@@ -67,12 +67,14 @@
   "feedback": "Comentarios",
   "feedbackIntroduction1": "Si tienes algún problema al usar la aplicación, descubres que algo no funciona correctamente o simplemente te gustaría tener nuevas funciones en la aplicación.",
   "feedbackIntroduction2": "Por favor, no dudes en contactar conmigo y enviar un email a",
-  "reports": "Informes",
+  "statistics": "Estadísticas",
   "period": "Periodo",
   "monthly": "Mensual",
   "weekly": "Semanal",
   "matches": "partidos",
-  "totalExpenses": "Gastos totales",
-  "matchesPlayed": "Partidos jugados",
-  "view": "Ver"
+  "spent": "gastados",
+  "matchesPlayed": "partidos jugados",
+  "view": "Ver",
+  "yourStatistics": "Tus estadísticas",
+  "averageMatchCost": "de media por partido"
 }

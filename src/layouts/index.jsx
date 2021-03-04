@@ -60,17 +60,20 @@ const Footer = styled.footer`
   }
 `;
 
-const mapStateToProps = ({ matches }) => {
+const mapStateToProps = ({ matches }, { ...rest }) => {
   return {
-    editingMatch: matches.match.id !== ''
+    editingMatch: matches.match.id !== '',
+    ...rest
   }
 };
 const mapDispatchToProps = { closeMatch };
 
 const Breadcrumb = connect(mapStateToProps, mapDispatchToProps)(
-  ({ editingMatch, closeMatch }) => {
+  ({ editingMatch, closeMatch, path }) => {
     const intl = useIntl();
-    if (editingMatch) {
+    if (!editingMatch && path && path.indexOf("matches") !== -1) {
+      return null;
+    } else {
       return (
         <Breadcrumbs className="breadcrumb">
           <Link to="/matches" onClick={() => closeMatch()}>
@@ -79,8 +82,6 @@ const Breadcrumb = connect(mapStateToProps, mapDispatchToProps)(
           </Link>
         </Breadcrumbs>
       );
-    } else {
-      return null;
     }
   }
 );
@@ -104,7 +105,7 @@ const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo 
       <Header className={withMenu ? "with-menu" : ""}>
         <Logo small={smallLogo} />
         <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
-        {withBreadcrumb ? <Breadcrumb /> : null}
+        {withBreadcrumb ? <Breadcrumb {...rest} /> : null}
         {withMenu ? <MainMenu {...rest} /> : null}
       </Header>
       <div className='layout-inner'>
