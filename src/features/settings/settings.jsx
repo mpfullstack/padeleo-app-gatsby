@@ -110,14 +110,6 @@ const Settings = ({ settings, toggleEmojis }) => {
           />
         </span>
       </div>
-      <div className="settings-item">
-        <p className="settings-item-name">
-          <span>{intl.formatMessage({ id: "statistics" })}</span>
-        </p>
-        <span className="settings-item-value">
-          <Link to={`/${intl.locale}/reports`}>{intl.formatMessage({ id: "view" })}</Link>
-        </span>
-      </div>
     </SettingsWrapper>
   );
 };

@@ -105,6 +105,7 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
       </Grid>
       <Drawer
         visible={editing !== "idle"}
+        height={"45vh"}
         onHide={() => editMatchField("idle")}
       >
         <div style={{
