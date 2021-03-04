@@ -31,7 +31,12 @@ const createStore = () => {
         key: "settings",
         version: 1,
         storage
-      }, rootReducer.settings)
+      }, rootReducer.settings),
+      reports: persistReducer({
+        key: "reports",
+        version: 1,
+        storage
+      }, rootReducer.reports)
     }),
     devTools: devMode, // NOTE: Only for dev purpose
     middleware

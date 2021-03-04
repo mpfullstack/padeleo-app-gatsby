@@ -9,10 +9,11 @@ const Panel = ({ children, title, action }) => {
   return (
     <Card>
       <CardHeader
-        title={title}
+        className="card-header"
+        title={<span className="panel-title">{title}</span>}
         action={action}
       />
-      <CardContent>{children}</CardContent>
+      <CardContent className="card-content">{children}</CardContent>
     </Card>
   );
 }
