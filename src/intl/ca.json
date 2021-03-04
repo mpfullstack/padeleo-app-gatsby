@@ -76,5 +76,6 @@
   "matchesPlayed": "partits jugats",
   "view": "Veure",
   "yourStatistics": "Les teves estadístiques",
-  "averageMatchCost": "de mitja per partit"
+  "averageMatchCost": "de mitja per partit",
+  "settings": "Ajustos"
 }

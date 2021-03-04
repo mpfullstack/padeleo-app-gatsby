@@ -76,5 +76,6 @@
   "matchesPlayed": "matches played",
   "view": "View",
   "yourStatistics": "Your statistics",
-  "averageMatchCost": "of average per match"
+  "averageMatchCost": "of average per match",
+  "settings": "Settings"
 }

@@ -9,6 +9,9 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SettingsIcon from "@material-ui/icons/Settings";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import GoogleCalenarIcon from "./GoogleCalendarIcon";
+import MenuIcon from "@material-ui/icons/Menu";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import EventIcon from "@material-ui/icons/Event";
 
 export {
   IconButton,
@@ -21,5 +24,8 @@ export {
   MoreVertIcon,
   SettingsIcon,
   NavigateBeforeIcon,
-  GoogleCalenarIcon
+  GoogleCalenarIcon,
+  MenuIcon,
+  AssignmentIcon,
+  EventIcon
 };

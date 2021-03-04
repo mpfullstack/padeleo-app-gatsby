@@ -106,10 +106,9 @@ const Layout = ({ children, withBreadcrumb = false, withMenu = false, smallLogo 
         <Logo small={smallLogo} />
         <h1 style={{ display: "none" }}>{intl.formatMessage({ id: data.site.siteMetadata.title})}</h1>
         {withBreadcrumb ? <Breadcrumb {...rest} /> : null}
-        {withMenu ? <MainMenu {...rest} /> : null}
+        {withMenu ? <MainMenu /> : null}
       </Header>
       <div className='layout-inner'>
-        {/* {withBreadcrumb ? <Breadcrumb /> : null} */}
         <main>{children}</main>
       </div>
       <Footer className='layout-inner'>
