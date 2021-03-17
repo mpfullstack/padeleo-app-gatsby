@@ -136,7 +136,7 @@ const selectByTab = createSelector(
     if (tab === "all") {
       return matches;
     }
-    return matches.filter(match => {
+    return sortByDate(matches.filter(match => {
       if (tab === "coming") {
         return new Date(match.dateAndTime.start) > new Date()
       } else if (tab === "past") {
@@ -144,7 +144,7 @@ const selectByTab = createSelector(
       } else {
         return false;
       }
-    });
+    }));
   }
 );
 
@@ -160,6 +160,20 @@ const selectByDates = createSelector(
     });
   }
 );
+
+export function sortByDate(matches) {
+  return matches.sort((a, b) => {
+    const dateA = new Date(a.dateAndTime.start);
+    const dateB = new Date(b.dateAndTime.start)
+    if (dateA > dateB) {
+      return -1;
+    } else if (dateA < dateB) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+}
 
 export const matchesSelectors = {
   ...selectors,
