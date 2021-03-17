@@ -165,9 +165,9 @@ export function sortByDate(matches) {
   return matches.sort((a, b) => {
     const dateA = new Date(a.dateAndTime.start);
     const dateB = new Date(b.dateAndTime.start)
-    if (dateA > dateB) {
+    if (dateA < dateB) {
       return -1;
-    } else if (dateA < dateB) {
+    } else if (dateA > dateB) {
       return 1;
     } else {
       return 0;
