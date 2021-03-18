@@ -1,7 +1,7 @@
 {
   "name": "padeleo-app-gatsby",
   "description": "App to manage and organize your padel matches",
-  "version": "1.0.0-beta9",
+  "version": "1.0.0-beta10",
   "private": false,
   "author": "Marc Perez <info@marcperez.cat>",
   "repository": {
@@ -40,6 +40,7 @@
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "2.3.0",
     "gatsby-plugin-sharp": "^2.6.34",
+    "gatsby-plugin-sitemap": "3.1.0",
     "gatsby-plugin-styled-components": "3.3.0",
     "gatsby-plugin-testing": "0.3.4",
     "gatsby-plugin-webfonts": "2.0.0",
