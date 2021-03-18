@@ -84,7 +84,7 @@ const ReportView = ({ data, start, end, period }) => {
         <ReportItem key={key} xs={6} className="report-item">
           <Panel title={itemData.date}>
             <p className="text matches-amount">{itemData.matchesAmount || "---"} {intl.formatMessage({ id: "matches" })}</p>
-            <p className="text cost">{itemData.cost || "---"} &euro;</p>
+            <p className="text cost">{Number(itemData.cost).toFixed(2) || "---"} &euro;</p>
           </Panel>
         </ReportItem>
       );
