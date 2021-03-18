@@ -1,5 +1,6 @@
 import dateFNSformat from "date-fns/format";
-import { es, en } from "date-fns/locale";
+import en from "date-fns/locale/en-GB";
+import es from "date-fns/locale/es";
 import addHours from "date-fns/addHours";
 import addMinutes from "date-fns/addMinutes";
 import addMonths from "date-fns/addMonths";
