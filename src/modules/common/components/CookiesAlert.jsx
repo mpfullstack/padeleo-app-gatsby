@@ -15,11 +15,13 @@ const Message = styled.p`
 const CookiesAlert = () => {
   const intl = useIntl();
 
-  const [show, showCookiesAlert] = React.useState(false);
+  const [show, showCookiesAlert] = React.useState(true);
 
   React.useEffect(() => {
     if (!Storage.get("accept-cookies-policy")) {
       showCookiesAlert(true);
+    } else {
+      showCookiesAlert(false);
     }
   }, []);
 
