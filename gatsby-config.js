@@ -47,12 +47,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          `Mulish\:300,400,700,800`
-        ]
-      }
+        fonts: {
+          google: [
+            {
+              family: "Mulish",
+              variants: [`300`, `400`, `700`, `800`]
+            },
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
