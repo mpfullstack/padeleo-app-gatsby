@@ -35,16 +35,18 @@ const CookiesAlert = () => {
   }
 
   return (
-    <Snackbar
-      open={show}
-      message={message}
-      action={
-        <>
-          <Button color="primary" className="accept-cookies-policy" size="small" onClick={handleClose}>
-            {intl.formatMessage({ id: "accept" })}
-          </Button>
-        </>
-      } />
+    <div style={{visibility: show ? "inherit": "hidden"}}>
+      <Snackbar
+        open={true}
+        message={message}
+        action={
+          <>
+            <Button color="primary" className="accept-cookies-policy" size="small" onClick={handleClose}>
+              {intl.formatMessage({ id: "accept" })}
+            </Button>
+          </>
+        } />
+    </div>
   );
 }
 
