@@ -134,7 +134,7 @@ const selectByTab = createSelector(
   }),
   ({ matches, tab }) => {
     if (tab === "all") {
-      return matches;
+      return sortByDate(matches);
     }
     return sortByDate(matches.filter(match => {
       if (tab === "coming") {
