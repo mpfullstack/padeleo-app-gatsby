@@ -18,9 +18,7 @@ const CookiesAlert = () => {
   const [show, showCookiesAlert] = React.useState(true);
 
   React.useEffect(() => {
-    if (!Storage.get("accept-cookies-policy")) {
-      showCookiesAlert(true);
-    } else {
+    if (Storage.get("accept-cookies-policy")) {
       showCookiesAlert(false);
     }
   }, []);
@@ -37,18 +35,16 @@ const CookiesAlert = () => {
   }
 
   return (
-    <div style={{visibility: show ? "inherit": "hidden"}}>
-      <Snackbar
-        open={true}
-        message={message}
-        action={
-          <>
-            <Button color="primary" className="accept-cookies-policy" size="small" onClick={handleClose}>
-              {intl.formatMessage({ id: "accept" })}
-            </Button>
-          </>
-        } />
-    </div>
+    <Snackbar
+      open={show}
+      message={message}
+      action={
+        <>
+          <Button color="primary" className="accept-cookies-policy" size="small" onClick={handleClose}>
+            {intl.formatMessage({ id: "accept" })}
+          </Button>
+        </>
+      } />
   );
 }
 
