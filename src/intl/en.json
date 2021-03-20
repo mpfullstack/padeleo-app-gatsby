@@ -3,7 +3,10 @@
   "metaTitle": "Create your padel match - Padeleo App",
   "metaDescription": "Create your padel match and share it with your friends through whatsapp",
   "hiPadeleros": "Hello!",
-  "createMathIntroduction": "Create your padel match and share it through Whatsapp in a few seconds!!",
+  "padelMatchManagement": "Manage your padel matches quickly and easily",
+  "createMathIntroduction": "Create your padel match and share it through Whatsapp in a few seconds",
+  "costManagementIntroduction": "Manage the costs of each game and view your monthly expenses",
+  "calendarManagementIntroduction": "Save your matches in your Google calendar so you don't miss any",
   "createMatch": "Create your match",
   "club": "Club",
   "clubName": "Club's name",
@@ -77,5 +80,7 @@
   "view": "View",
   "yourStatistics": "Your statistics",
   "averageMatchCost": "of average per match",
-  "settings": "Settings"
+  "settings": "Settings",
+  "or": "or",
+  "goToYourMatches": "Go to your matches"
 }
