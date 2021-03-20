@@ -3,7 +3,10 @@
   "metaTitle": "Crea els teus partis de pàdel - Padeleo App",
   "metaDescription": "Crea el teu partit de pàdel i comparteix-lo amb els teus amics per Whatsapp",
   "hiPadeleros": "Hola!",
-  "createMathIntroduction": "Crea el teu partit de pàdel i comparteix-lo per Whatsapp en pocs segons!!",
+  "padelMatchManagement": "Gestiona els teus partits de pàdel de forma ràpida i sencilla",
+  "createMathIntroduction": "Crea el teu partit de pàdel i comparteix-lo per Whatsapp en pocs segons",
+  "costManagementIntroduction": "Gestiona els costos de cada partit i visualitza els teus gastos mensuals",
+  "calendarManagementIntroduction": "Guarda els teus partits a la teva agenda de Google per no perdret ningun",
   "createMatch": "Crea el teu partit",
   "club": "Club",
   "clubName": "Nom del club",
@@ -77,5 +80,7 @@
   "view": "Veure",
   "yourStatistics": "Les teves estadístiques",
   "averageMatchCost": "de mitja per partit",
-  "settings": "Ajustos"
+  "settings": "Ajustos",
+  "or": "o",
+  "goToYourMatches": "Accedeix als teus partits"
 }
