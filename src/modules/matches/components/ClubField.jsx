@@ -19,7 +19,7 @@ const ClubField = ({ clubValue, onChange }) => {
   let changedClubValue = {...clubValue};
   function handleChange(id, value) {
     changedClubValue = {
-      ...clubValue,
+      ...changedClubValue,
       [id]: value
     };
     onChange({...changedClubValue});
