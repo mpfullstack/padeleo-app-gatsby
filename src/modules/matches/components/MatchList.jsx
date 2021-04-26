@@ -7,6 +7,7 @@ import Dates from "../../../helpers/dates";
 import { Col } from "../../common/components/Layout";
 import { IconButton, ArrowForward, DeleteIcon, CheckIcon, CloseIcon } from "../../common/components/Icon";
 import Tooltip from "../../common/components/Tooltip";
+import CourtBooked from "./CourtBooked";
 
 const MatchItem = styled.div`
   width: 100%;
@@ -28,6 +29,10 @@ const MatchItem = styled.div`
     .text {
       margin: 2px 0;
       text-align: left;
+    }
+    .sub-text {
+      font-size: 14px;
+      margin: 0;
     }
     .club {
       font-weight: bold;
@@ -131,12 +136,13 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
         <MatchItem key={`match-${match.id}`} variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
           <Col className="content" xs={10}>
             <p className="text club">
-              {match.clubName ?
-                match.clubName
+              {match.club.clubName ?
+                match.club.clubName
                 :
                 <span className="text no-value">{intl.formatMessage({ id: "noClubDefined" })}</span>
               }
             </p>
+            <CourtBooked {...match.club} />
             <p className="text date-and-time">
               {startMatchTime ?
                 <>

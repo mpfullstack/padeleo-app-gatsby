@@ -3,7 +3,8 @@ import Dates from "./dates";
 const Helpers = {
   capitalise: (value) => value.charAt(0).toUpperCase() + value.slice(1),
   buildMatchShareContent: (match, intl, withIcons = false) => {
-    const clubName = encodeURIComponent(match.clubName);
+    const clubName = encodeURIComponent(match.club.clubName);
+    const courtBooked = match.club.courtBooked;
     // const clubUrl = "";//"https%3A%2F%2Fgoo.gl%2Fmaps%2FjCHX9hiu8FBHMAjH8";
     let matchDate = "";
     let fromTime = "";
@@ -23,12 +24,20 @@ const Helpers = {
     const p3 = encodeURIComponent(match.players[2].name);
     const p4 = encodeURIComponent(match.players[3].name);
 
+    let courtBookedText;
+    if (courtBooked) {
+      courtBookedText = `(${intl.formatMessage({id: "courtBooked"})})`;
+    } else {
+      courtBookedText = `(${intl.formatMessage({id: "courtNotBooked"})})`;
+    }
+
     let template;
     if (withIcons) {
-      template = `${clubName}%0D%0A%0D%0A%F0%9F%93%85+${matchDate}%0D%0A%F0%9F%95%92+${fromTime}+-+${toTime}%0D%0A%F0%9F%8F%86+${level}`;
+      template = `${clubName}%0D%0A${courtBookedText}`;
+      template += `%0D%0A%0D%0A%F0%9F%93%85+${matchDate}%0D%0A%F0%9F%95%92+${fromTime}+-+${toTime}%0D%0A%F0%9F%8F%86+${level}`;
       template += `%0D%0A%0D%0A%F0%9F%8E%BE+${p1}%0D%0A%F0%9F%8E%BE+${p2}%0D%0A%F0%9F%8E%BE+${p3}+%0D%0A%F0%9F%8E%BE+${p4}`;
     } else {
-      template = `%2A${clubName}%2A%0D%0A%0D%0A%2A${intl.formatMessage({id: "date" })}%3A`;
+      template = `%2A${clubName}%2A%0D%0A${courtBookedText}%0D%0A%0D%0A%2A${intl.formatMessage({id: "date" })}%3A`;
       template += `%2A+${matchDate}%0D%0A%2A${intl.formatMessage({id: "time" })}%3A%2A+${fromTime}+-+${toTime}%0D%0A%2A`;
       template += `${intl.formatMessage({id: "level" })}%3A%2A+${level}%0D%0A`;
       template += `%0D%0A%2A${intl.formatMessage({id: "playerAbr"}, {num: 1})}%3A%2A+${p1}`;

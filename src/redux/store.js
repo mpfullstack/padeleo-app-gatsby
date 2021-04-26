@@ -23,7 +23,7 @@ const createStore = () => {
     reducer: combineReducers({
       matches: persistReducer({
         key: "matches",
-        version: 3,
+        version: 4,
         storage,
         migrate: createMigrate(migrations, { debug: devMode })
       }, rootReducer.matches),

@@ -21,7 +21,7 @@ export const Player = {
 
 export const MatchShape = PropTypes.shape({
   id: PropTypes.string,
-  clubName: PropTypes.string,
+  club: PropTypes.object, // { clubName: string, courtBooked: boolean }
   /**
    * dateAndTime
    * {
@@ -37,7 +37,7 @@ export const MatchShape = PropTypes.shape({
 
 export const Match = {
   id: "",
-  clubName: "",
+  club: { clubName: "", courtBooked: false },
   dateAndTime: {start: "", end: ""},
   level: "",
   costPerPlayer: null,
@@ -51,7 +51,7 @@ const initialState = matchesAdapter.getInitialState({
   /**
    * It holds what field of the match we are editing
    * idle
-   * clubName
+   * club
    * dateAndTime
    * level
    * costPerPlayer

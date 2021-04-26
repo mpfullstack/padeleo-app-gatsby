@@ -36,6 +36,30 @@ const migrations = {
     } else {
       return { ...state };
     }
+  },
+  // Migration to adapt new club field to { clubName: string, courtBooked: boolean }
+  4: (state) => {
+    if (state) {
+      const newEntities = {};
+      state.ids.forEach((id) => {
+        newEntities[id] = {
+          ...state.entities[id]
+        };
+        if (typeof state.entities[id].club !== "object") {
+          newEntities[id].club = {
+            clubName: state.entities[id].clubName,
+            courtBooked: true
+          };
+          delete newEntities[id].clubName;
+        }
+      });
+      return {
+        ...state,
+        entities: newEntities
+      };
+    } else {
+      return { ...state };
+    }
   }
 };
 
