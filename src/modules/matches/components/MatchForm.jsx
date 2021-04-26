@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import DateTimeField from "./DateTimeField";
 import TextField from "./TextField";
 import PlayersField from "./PlayersField";
+import ClubField from "./ClubField";
 import Helpers from "../../../helpers";
 
 const StyledForm = styled.form`
@@ -32,11 +33,17 @@ const MatchForm = ({ field, value, onFinish }) => {
       e.preventDefault();
       e.stopPropagation();
     }}>
-      {["clubName", "level", "costPerPlayer"].includes(field) ?
+      {["level", "costPerPlayer"].includes(field) ?
         <TextField
           id={field}
           value={value}
           label={intl.formatMessage({ id: field })}
+          onChange={handleChange} /> : null}
+
+      {field === "club" ?
+        <ClubField
+          id={field}
+          clubValue={value}
           onChange={handleChange} /> : null}
 
       {field === "dateAndTime" ?

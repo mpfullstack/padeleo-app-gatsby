@@ -35,6 +35,11 @@ const RowPanel = styled(Row)`
         color: #333;
       }
     }
+    .sub-text {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 0 5px 0;
+    }
   }
 `;
 

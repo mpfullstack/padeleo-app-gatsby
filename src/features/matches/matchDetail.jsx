@@ -12,6 +12,7 @@ import WhatsappShareLink from "../../modules/common/components/WhatsappShareLink
 import GoogleCalendarLink from "../../modules/common/components/GoogleCalendarLink";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
+import CourtBooked from "../../modules/matches/components/CourtBooked";
 
 const mapDispatchToProps = { editMatchField, updatedOrCreatedMatch };
 const mapStateToProps = ({ settings, matches }) => {
@@ -33,10 +34,11 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
       <Grid>
         <MatchPanel
           title={intl.formatMessage({ id: "club" })}
-          onEdit={() => editMatchField("clubName")}
+          onEdit={() => editMatchField("club")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
-          <p className="text">{match.clubName || "---"}</p>
+          <p className="text">{match.club.clubName || "---"}</p>
+          <CourtBooked {...match.club} />
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
