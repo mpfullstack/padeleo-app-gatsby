@@ -40,7 +40,6 @@ const migrations = {
   // Migration to adapt new club field to { clubName: string, courtBooked: boolean }
   4: (state) => {
     if (state) {
-      debugger;
       const newEntities = {};
       state.ids.forEach((id) => {
         newEntities[id] = {

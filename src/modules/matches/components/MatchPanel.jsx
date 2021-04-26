@@ -36,7 +36,7 @@ const RowPanel = styled(Row)`
       }
     }
     .sub-text {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
       margin: 0 0 5px 0;
     }

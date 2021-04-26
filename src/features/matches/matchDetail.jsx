@@ -12,29 +12,13 @@ import WhatsappShareLink from "../../modules/common/components/WhatsappShareLink
 import GoogleCalendarLink from "../../modules/common/components/GoogleCalendarLink";
 import Helpers from "../../helpers";
 import Dates from "../../helpers/dates";
+import CourtBooked from "../../modules/matches/components/CourtBooked";
 
 const mapDispatchToProps = { editMatchField, updatedOrCreatedMatch };
 const mapStateToProps = ({ settings, matches }) => {
   return {
     editing: matches.editing,
     settings
-  }
-}
-
-const CourtBooked = ({ club }) => {
-  const intl = useIntl();
-
-  if (club.clubName) {
-    return (
-      <p className="sub-text">
-        ({club.courtBooked ?
-          intl.formatMessage({ id: "courtBooked" })
-          :
-          intl.formatMessage({ id: "courtNotBooked" })})
-      </p>
-    );
-  } else {
-    return null;
   }
 }
 
@@ -54,7 +38,7 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
           <p className="text">{match.club.clubName || "---"}</p>
-          <CourtBooked club={match.club} />
+          <CourtBooked {...match.club} />
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}
