@@ -82,5 +82,7 @@
   "averageMatchCost": "of average per match",
   "settings": "Settings",
   "or": "or",
-  "goToYourMatches": "Go to your matches"
+  "goToYourMatches": "Go to your matches",
+  "courtBooked": "Court booked",
+  "courtNotBooked": "Court not booked"
 }

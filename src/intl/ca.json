@@ -82,5 +82,7 @@
   "averageMatchCost": "de mitja per partit",
   "settings": "Ajustos",
   "or": "o",
-  "goToYourMatches": "Accedeix als teus partits"
+  "goToYourMatches": "Accedeix als teus partits",
+  "courtBooked": "Pista reservada",
+  "courtNotBooked": "Pista sense reservar"
 }

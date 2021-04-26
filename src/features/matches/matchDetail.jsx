@@ -21,6 +21,23 @@ const mapStateToProps = ({ settings, matches }) => {
   }
 }
 
+const CourtBooked = ({ club }) => {
+  const intl = useIntl();
+
+  if (club.clubName) {
+    return (
+      <p className="sub-text">
+        ({club.courtBooked ?
+          intl.formatMessage({ id: "courtBooked" })
+          :
+          intl.formatMessage({ id: "courtNotBooked" })})
+      </p>
+    );
+  } else {
+    return null;
+  }
+}
+
 const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, settings }) => {
   const intl = useIntl();
 
@@ -33,10 +50,11 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
       <Grid>
         <MatchPanel
           title={intl.formatMessage({ id: "club" })}
-          onEdit={() => editMatchField("clubName")}
+          onEdit={() => editMatchField("club")}
           editLabel={intl.formatMessage({ id: "editClub" })}
         >
-          <p className="text">{match.clubName || "---"}</p>
+          <p className="text">{match.club.clubName || "---"}</p>
+          <CourtBooked club={match.club} />
         </MatchPanel>
         <MatchPanel
           title={intl.formatMessage({ id: "dateAndTime" })}

@@ -131,8 +131,8 @@ const MatchList = ({ matches, onEditMatch, onDeleteMatch, ondeletedMatch, delete
         <MatchItem key={`match-${match.id}`} variant="text" onClick={() => typeof onEditMatch === 'function' ? onEditMatch(match) : null}>
           <Col className="content" xs={10}>
             <p className="text club">
-              {match.clubName ?
-                match.clubName
+              {match.club.clubName ?
+                match.club.clubName
                 :
                 <span className="text no-value">{intl.formatMessage({ id: "noClubDefined" })}</span>
               }
