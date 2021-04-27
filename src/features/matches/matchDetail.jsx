@@ -96,7 +96,7 @@ const MatchDetail = ({ match, editing, editMatchField, updatedOrCreatedMatch, se
             <GoogleCalendarLink
               title={intl.formatMessage({ id: "padelMatch" })}
               details={Helpers.buildMatchDetailsForCalendar(match, intl)}
-              location={match.clubName}
+              location={match.club.clubName}
               dates={startMatchTime ? Dates.format(startMatchTime, "yyyyMMdd'T'HHmmss") + '/' + Dates.format(endMatchTime, "yyyyMMdd'T'HHmmss") : ""}
               ariaLabel={intl.formatMessage({ id: "addToGoogleCalendar" })}
             >
