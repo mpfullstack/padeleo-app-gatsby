@@ -16,20 +16,23 @@ const StyledRow = styled(Row)`
 const ClubField = ({ clubValue, onChange }) => {
   const intl = useIntl();
 
-  let changedClubValue = {...clubValue};
-  function handleChange(id, value) {
-    changedClubValue = {
-      ...changedClubValue,
-      [id]: value
-    };
-    onChange({...changedClubValue});
-  }
-
   const [courtBooked, setCourtBooked] = React.useState(clubValue.courtBooked);
   function handleCourtBookedChange(value) {
     handleChange("courtBooked", value);
     setCourtBooked(value);
   }
+
+  let changedClubValue = {...clubValue};
+  function handleChange(id, value) {
+    changedClubValue = {
+      ...changedClubValue,
+      [id]: value,
+      courtBooked,
+    };
+    onChange({...changedClubValue});
+  }
+
+
 
   return (
     <>
